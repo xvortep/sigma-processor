@@ -1,5 +1,6 @@
 library ieee;
 use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
 
 entity ControlUnit is
 	port
@@ -24,7 +25,7 @@ end entity;
 architecture Behavioral of ControlUnit is
 
 	--constants
-	constant c_DC		:	std_logic_vector(17 downto 0) := "------" & "-" & "-" & "-" & "0" & "---" & "-" & "-" & "--" & "-";
+	constant c_NOP		:	std_logic_vector(17 downto 0) := "------" & "-" & "-" & "-" & "0" & "---" & "-" & "-" & "10" & "0";
 	constant c_LD		:	std_logic_vector(17 downto 0) := "010000" & "0" & "1" & "1" & "0" & "000" & "-" & "0" & "10" & "-";
 	constant c_ST		:	std_logic_vector(17 downto 0) := "010000" & "0" & "1" & "0" & "1" & "000" & "1" & "-" & "--" & "0";
 	constant c_JMP		:	std_logic_vector(17 downto 0) := "------" & "-" & "-" & "-" & "0" & "010" & "-" & "0" & "00" & "1";
@@ -65,26 +66,29 @@ architecture Behavioral of ControlUnit is
 	--signals
 	signal sOpTable : t_Table :=
 	(
-		(c_DC, c_DC, c_DC, c_DC, c_DC, c_DC, c_DC, c_DC),
-		(c_DC, c_DC, c_DC, c_DC, c_DC, c_DC, c_DC, c_DC),
-		(c_DC, c_DC, c_DC, c_DC, c_DC, c_DC, c_DC, c_DC),
-		(c_LD, c_ST, c_DC, c_JMP, c_BEQ, c_BNE, c_DC, c_LDR),
-		(c_ADD,c_SUB, c_MUL, c_DIV, c_CMPEQ, c_CMPLT, c_CMPLE, c_DC),
-		(c_AND, c_OR, c_XOR, c_XNOR, c_SHL, c_SHR, c_SRA, c_DC),
-		(c_ADDC, c_SUBC, c_MULC, c_DIVC, c_CMPEQC, c_CMPLTC, c_CMPLEC, c_DC),
-		(c_ANDC, c_ORC, c_XORC, c_XNORC, c_SHLC, c_SHRC, c_SRAC, c_DC)
+		(c_NOP, c_NOP, c_NOP, c_NOP, c_NOP, c_NOP, c_NOP, c_NOP),
+		(c_NOP, c_NOP, c_NOP, c_NOP, c_NOP, c_NOP, c_NOP, c_NOP),
+		(c_NOP, c_NOP, c_NOP, c_NOP, c_NOP, c_NOP, c_NOP, c_NOP),
+		(c_LD, c_ST, c_NOP, c_JMP, c_BEQ, c_BNE, c_NOP, c_LDR),
+		(c_ADD,c_SUB, c_MUL, c_DIV, c_CMPEQ, c_CMPLT, c_CMPLE, c_NOP),
+		(c_AND, c_OR, c_XOR, c_XNOR, c_SHL, c_SHR, c_SRA, c_NOP),
+		(c_ADDC, c_SUBC, c_MULC, c_DIVC, c_CMPEQC, c_CMPLTC, c_CMPLEC, c_NOP),
+		(c_ANDC, c_ORC, c_XORC, c_XNORC, c_SHLC, c_SHRC, c_SRAC, c_NOP)
 	);
 	
+	signal sX : integer := to_integer(unsigned(iOpcode(2 downto 0)));
+	signal sY : integer := to_integer(unsigned(iOpcode(5 downto 3)));
+	
 	begin
-		oALUFN	<= sOpTable(iOpcode(2 downto 0), iOpcode(5 downto 3))(17 downto 12);
-		oASEL		<= sOpTable(iOpcode(2 downto 0), iOpcode(5 downto 3))(11);
-		oBSEL		<= sOpTable(iOpcode(2 downto 0), iOpcode(5 downto 3))(10);
-		oMOE		<= sOpTable(iOpcode(2 downto 0), iOpcode(5 downto 3))(9);
-		oMWR		<= sOpTable(iOpcode(2 downto 0), iOpcode(5 downto 3))(8);
-		oPCSEL	<= sOpTable(iOpcode(2 downto 0), iOpcode(5 downto 3))(7 downto 5);
-		oRA2SEL	<= sOpTable(iOpcode(2 downto 0), iOpcode(5 downto 3))(4);
-		oWASEL	<= sOpTable(iOpcode(2 downto 0), iOpcode(5 downto 3))(3);
-		oWDSEL	<= sOpTable(iOpcode(2 downto 0), iOpcode(5 downto 3))(2 downto 1);
-		oWERF		<= sOpTable(iOpcode(2 downto 0), iOpcode(5 downto 3))(0);
+		oALUFN	<= sOpTable(sX, sY)(17 downto 12);
+		oASEL		<= sOpTable(sX, sY)(11);
+		oBSEL		<= sOpTable(sX, sY)(10);
+		oMOE		<= sOpTable(sX, sY)(9);
+		oMWR		<= sOpTable(sX, sY)(8);
+		oPCSEL	<= sOpTable(sX, sY)(7 downto 5);
+		oRA2SEL	<= sOpTable(sX, sY)(4);
+		oWASEL	<= sOpTable(sX, sY)(3);
+		oWDSEL	<= sOpTable(sX, sY)(2 downto 1);
+		oWERF		<= sOpTable(sX, sY)(0);
 
 end architecture;
