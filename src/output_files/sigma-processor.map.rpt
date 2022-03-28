@@ -1,5 +1,5 @@
 Analysis & Elaboration report for sigma-processor
-Mon Mar 28 18:30:09 2022
+Mon Mar 28 18:53:45 2022
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -37,7 +37,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Elaboration Summary                                                   ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Elaboration Status      ; Failed - Mon Mar 28 18:30:09 2022           ;
+; Analysis & Elaboration Status      ; Failed - Mon Mar 28 18:53:45 2022           ;
 ; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                      ; sigma-processor                             ;
 ; Top-level Entity Name              ; sigma-processor                             ;
@@ -164,7 +164,7 @@ https://fpgasoftware.intel.com/eula.
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Elaboration
     Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Mon Mar 28 18:30:04 2022
+    Info: Processing started: Mon Mar 28 18:53:40 2022
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off sigma-processor -c sigma-processor --analysis_and_elaboration
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
@@ -174,10 +174,10 @@ Info (12021): Found 2 design units, including 1 entities, in source file CU.vhd
 Info (12021): Found 2 design units, including 1 entities, in source file ALU.vhd
     Info (12022): Found design unit 1: ALU-Behavioral File: /home/rtrk/Documents/RA206-2019_Beta+/sigma-processor/src/ALU.vhd Line: 19
     Info (12023): Found entity 1: ALU File: /home/rtrk/Documents/RA206-2019_Beta+/sigma-processor/src/ALU.vhd Line: 6
-Error (10327): VHDL error at ALU.vhd(25): can't determine definition of operator ""="" -- found 0 possible definitions File: /home/rtrk/Documents/RA206-2019_Beta+/sigma-processor/src/ALU.vhd Line: 25
+Error (10381): VHDL Type Mismatch error at CU.vhd(79): indexed name returns a value whose type does not match "integer", the type of the target expression File: /home/rtrk/Documents/RA206-2019_Beta+/sigma-processor/src/CU.vhd Line: 79
 Error: Quartus Prime Analysis & Elaboration was unsuccessful. 1 error, 1 warning
     Error: Peak virtual memory: 730 megabytes
-    Error: Processing ended: Mon Mar 28 18:30:09 2022
+    Error: Processing ended: Mon Mar 28 18:53:45 2022
     Error: Elapsed time: 00:00:05
     Error: Total CPU time (on all processors): 00:00:11
 

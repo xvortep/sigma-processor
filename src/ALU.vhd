@@ -1,7 +1,7 @@
 library ieee;
 use ieee.std_logic_1164.all;
-use ieee.std_logic_arith;
-use ieee.std_logic_unsigned;
+use ieee.std_logic_arith.all;
+use ieee.std_logic_unsigned.all;
 
 entity ALU is
 	port
@@ -20,23 +20,20 @@ architecture Behavioral of ALU is
 	
 	begin
 		--calculation
-		process (iALUFN, iA, iB) begin
-			case (iALUFN) is
-				when	"000011"	=>	oOutput <= iA = iB;		--CPMEQ
-				when	"000101"	=>	oOutput <= iA < iB;		--CMPLT
-				when	"000111"	=>	oOutput <= iA <= iB;		--CMPLE
-				when	"010000"	=>	oOutput <= iA + iB;		--ADD
-				when	"010001"	=>	oOutput <= iA - iB;		--SUB
-				when	"101000"	=>	oOutput <= iA and iB;	--AND
-				when	"101110"	=>	oOutput <= iA or iB;		--OR
-				when	"100110"	=>	oOutput <= iA xor iB;	--XOR
-				when	"101001"	=>	oOutput <= iA xnor iB;	--XNOR
-				when	"101010"	=>	oOutput <= iA;				--"A"
-				when	"110000"	=>	oOutput <= iA sll iB;	--SHL
-				when	"110001"	=>	oOutput <= iA srl iB;	--SHR
-				when	"110011"	=>	oOutput <= iA sra iB;	--SRA
-				when	others	=>	oOutput <= iB;				--???
-			end case;
-		end process;
+		with iALUFN select oOutput <=
+			iA = iB		when "000011",
+			iA < iB		when "000101",
+			iA <= iB		when "000111",
+			iA + iB		when "010000",
+			iA - iB		when "010001",
+			iA and iB	when "101000",
+			iA or iB		when "101110",
+			iA xor iB	when "100110",
+			iA xnor iB	when "101001",
+			iA				when "101010",
+			iA sll iB	when "110000",
+			iA srl iB	when "110001",
+			iA sra iB	when "110011",
+			iB				when others;
 		
 end architecture;
