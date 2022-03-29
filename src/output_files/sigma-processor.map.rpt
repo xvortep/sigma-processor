@@ -1,5 +1,5 @@
 Analysis & Elaboration report for sigma-processor
-Mon Mar 28 17:20:46 2022
+Tue Mar 29 11:48:32 2022
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -37,10 +37,10 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Elaboration Summary                                                   ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Elaboration Status      ; Successful - Mon Mar 28 17:20:46 2022       ;
+; Analysis & Elaboration Status      ; Successful - Tue Mar 29 11:48:32 2022       ;
 ; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                      ; sigma-processor                             ;
-; Top-level Entity Name              ; ProgramCounter                              ;
+; Top-level Entity Name              ; PC                                          ;
 ; Family                             ; MAX 10                                      ;
 ; Total logic elements               ; N/A until Partition Merge                   ;
 ;     Total combinational functions  ; N/A until Partition Merge                   ;
@@ -78,7 +78,7 @@ https://fpgasoftware.intel.com/eula.
 ; Option                                                           ; Setting            ; Default Value      ;
 +------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                           ; 10M16SAU169C8G     ;                    ;
-; Top-level entity name                                            ; ProgramCounter     ; sigma-processor    ;
+; Top-level entity name                                            ; PC                 ; sigma-processor    ;
 ; Family name                                                      ; MAX 10             ; Cyclone V          ;
 ; Use smart compilation                                            ; Off                ; Off                ;
 ; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
@@ -164,19 +164,52 @@ https://fpgasoftware.intel.com/eula.
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Elaboration
     Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Mon Mar 28 17:20:41 2022
+    Info: Processing started: Tue Mar 29 11:48:26 2022
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off sigma-processor -c sigma-processor --analysis_and_elaboration
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file CU.vhd
+    Info (12022): Found design unit 1: ControlUnit-Behavioral File: /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/CU.vhd Line: 24
+    Info (12023): Found entity 1: ControlUnit File: /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/CU.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file ALU.vhd
+    Info (12022): Found design unit 1: ALU-Behavioral File: /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/ALU.vhd Line: 19
+    Info (12023): Found entity 1: ALU File: /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/ALU.vhd Line: 6
 Info (12021): Found 2 design units, including 1 entities, in source file PC.vhd
-    Info (12022): Found design unit 1: ProgramCounter-Behavioral File: /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/PC.vhd Line: 18
-    Info (12023): Found entity 1: ProgramCounter File: /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/PC.vhd Line: 6
-Info (12127): Elaborating entity "ProgramCounter" for the top level hierarchy
-Warning (12158): Entity "ProgramCounter" contains only dangling pins
-Info: Quartus Prime Analysis & Elaboration was successful. 0 errors, 2 warnings
+    Info (12022): Found design unit 1: PC-Behavioral File: /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/PC.vhd Line: 18
+    Info (12023): Found entity 1: PC File: /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/PC.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file simulation/modelsim/PC_tb.vhd
+    Info (12022): Found design unit 1: PC_tb-Behavioral File: /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/simulation/modelsim/PC_tb.vhd Line: 7
+    Info (12023): Found entity 1: PC_tb File: /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/simulation/modelsim/PC_tb.vhd Line: 4
+Info (12127): Elaborating entity "PC" for the top level hierarchy
+Warning (20013): Ignored 24 assignments for entity "sigma-processor" -- entity does not exist in design
+    Warning (20014): Assignment for entity set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -entity "sigma-processor" -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -entity "sigma-processor" -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -entity "sigma-processor" -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_PRESERVE_HIGH_SPEED_TILES ON -entity "sigma-processor" -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IGNORE_SOURCE_FILE_CHANGES OFF -entity "sigma-processor" -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_ALWAYS_USE_QXP_NETLIST OFF -entity "sigma-processor" -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_COLOR 16764057 -entity "sigma-processor" -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_ASSIGNMENTS ON -entity "sigma-processor" -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_EXISTING_ASSIGNMENTS REPLACE_CONFLICTING -entity "sigma-processor" -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_EXISTING_LOGICLOCK_REGIONS UPDATE_CONFLICTING -entity "sigma-processor" -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_PIN_ASSIGNMENTS ON -entity "sigma-processor" -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_PROMOTE_ASSIGNMENTS ON -entity "sigma-processor" -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_TYPE STANDARD_PARTITION -entity "sigma-processor" -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name ALLOW_MULTIPLE_PERSONAS OFF -entity "sigma-processor" -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_ASD_REGION_ID 1 -entity "sigma-processor" -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name CROSS_BOUNDARY_OPTIMIZATIONS OFF -entity "sigma-processor" -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PROPAGATE_CONSTANTS_ON_INPUTS ON -entity "sigma-processor" -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PROPAGATE_INVERSIONS_ON_INPUTS ON -entity "sigma-processor" -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name REMOVE_LOGIC_ON_UNCONNECTED_OUTPUTS ON -entity "sigma-processor" -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name MERGE_EQUIVALENT_INPUTS ON -entity "sigma-processor" -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name MERGE_EQUIVALENT_BIDIRS ON -entity "sigma-processor" -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name ABSORB_PATHS_FROM_OUTPUTS_TO_INPUTS ON -entity "sigma-processor" -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_EXTRACT_HARD_BLOCK_NODES ON -entity "sigma-processor" -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_ENABLE_STRICT_PRESERVATION OFF -entity "sigma-processor" -section_id Top was ignored
+Info: Quartus Prime Analysis & Elaboration was successful. 0 errors, 26 warnings
     Info: Peak virtual memory: 734 megabytes
-    Info: Processing ended: Mon Mar 28 17:20:46 2022
-    Info: Elapsed time: 00:00:05
+    Info: Processing ended: Tue Mar 29 11:48:32 2022
+    Info: Elapsed time: 00:00:06
     Info: Total CPU time (on all processors): 00:00:11
 
 
