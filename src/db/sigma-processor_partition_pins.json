@@ -1,0 +1,97 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "oALUFN[0]",
+					"strict" : false
+				},
+				{
+					"name" : "oALUFN[1]",
+					"strict" : false
+				},
+				{
+					"name" : "oALUFN[2]",
+					"strict" : false
+				},
+				{
+					"name" : "oALUFN[3]",
+					"strict" : false
+				},
+				{
+					"name" : "oALUFN[4]",
+					"strict" : false
+				},
+				{
+					"name" : "oALUFN[5]",
+					"strict" : false
+				},
+				{
+					"name" : "oBSEL",
+					"strict" : false
+				},
+				{
+					"name" : "oMOE",
+					"strict" : false
+				},
+				{
+					"name" : "oMWR",
+					"strict" : false
+				},
+				{
+					"name" : "oPCSEL[0]",
+					"strict" : false
+				},
+				{
+					"name" : "oPCSEL[1]",
+					"strict" : false
+				},
+				{
+					"name" : "oRA2SEL",
+					"strict" : false
+				},
+				{
+					"name" : "oWDSEL[0]",
+					"strict" : false
+				},
+				{
+					"name" : "oWDSEL[1]",
+					"strict" : false
+				},
+				{
+					"name" : "oWERF",
+					"strict" : false
+				},
+				{
+					"name" : "iOpcode[5]",
+					"strict" : false
+				},
+				{
+					"name" : "iOpcode[0]",
+					"strict" : false
+				},
+				{
+					"name" : "iOpcode[2]",
+					"strict" : false
+				},
+				{
+					"name" : "iOpcode[1]",
+					"strict" : false
+				},
+				{
+					"name" : "iOpcode[3]",
+					"strict" : false
+				},
+				{
+					"name" : "iOpcode[4]",
+					"strict" : false
+				},
+				{
+					"name" : "iZ",
+					"strict" : false
+				}
+			]
+		}
+	]
+}
