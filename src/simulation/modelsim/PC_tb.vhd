@@ -7,11 +7,11 @@ end entity;
 architecture Behavioral of PC_tb is
 
 		signal sPC_SEL 	:	std_logic_vector(3 downto 0);
-		signal sCLK		:	std_logic;
-		signal sRST		:	std_logic;
-		signal sJT		:	std_logic_vector(31 downto 0);
-		signal sSXT		:	std_logic_vector(31 downto 0);
-		signal sPC		:	std_logic_vector(31 downto 0);
+		signal sCLK			:	std_logic;
+		signal sRST			:	std_logic;
+		signal sJT			:	std_logic_vector(31 downto 0);
+		signal sSXT			:	std_logic_vector(31 downto 0);
+		signal sPC			:	std_logic_vector(31 downto 0);
 		
 		constant iCLK_period : time := 10 ns;
 		
