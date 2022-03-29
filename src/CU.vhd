@@ -25,7 +25,7 @@ end entity;
 architecture Behavioral of ControlUnit is
 
 	--constants
-	constant c_NOP		:	std_logic_vector(17 downto 0) := "------" & "-" & "-" & "-" & "0" & "---" & "-" & "-" & "10" & "0";
+	constant c_NOP		:	std_logic_vector(17 downto 0) := "------" & "-" & "-" & "-" & "0" & "---" & "-" & "-" & "--" & "0";
 	constant c_LD		:	std_logic_vector(17 downto 0) := "010000" & "0" & "1" & "1" & "0" & "000" & "-" & "0" & "10" & "-";
 	constant c_ST		:	std_logic_vector(17 downto 0) := "010000" & "0" & "1" & "0" & "1" & "000" & "1" & "-" & "--" & "0";
 	constant c_JMP		:	std_logic_vector(17 downto 0) := "------" & "-" & "-" & "-" & "0" & "010" & "-" & "0" & "00" & "1";
