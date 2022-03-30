@@ -1,10 +1,10 @@
-Analysis & Synthesis Status : Successful - Tue Mar 29 21:39:05 2022
+Analysis & Synthesis Status : Successful - Wed Mar 30 19:54:06 2022
 Quartus Prime Version : 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 Revision Name : sigma-processor
 Top-level Entity Name : ControlUnit
 Family : MAX 10
-Total logic elements : 23
-    Total combinational functions : 23
+Total logic elements : 42
+    Total combinational functions : 42
     Dedicated logic registers : 0
 Total registers : 0
 Total pins : 25

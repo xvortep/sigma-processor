@@ -64,19 +64,7 @@
 					"strict" : false
 				},
 				{
-					"name" : "iOpcode[5]",
-					"strict" : false
-				},
-				{
-					"name" : "iOpcode[0]",
-					"strict" : false
-				},
-				{
-					"name" : "iOpcode[2]",
-					"strict" : false
-				},
-				{
-					"name" : "iOpcode[1]",
+					"name" : "iOpcode[4]",
 					"strict" : false
 				},
 				{
@@ -84,7 +72,19 @@
 					"strict" : false
 				},
 				{
-					"name" : "iOpcode[4]",
+					"name" : "iOpcode[0]",
+					"strict" : false
+				},
+				{
+					"name" : "iOpcode[1]",
+					"strict" : false
+				},
+				{
+					"name" : "iOpcode[2]",
+					"strict" : false
+				},
+				{
+					"name" : "iOpcode[5]",
 					"strict" : false
 				},
 				{

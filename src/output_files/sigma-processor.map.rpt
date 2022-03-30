@@ -1,5 +1,5 @@
 Analysis & Synthesis report for sigma-processor
-Tue Mar 29 21:39:05 2022
+Wed Mar 30 19:54:06 2022
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -14,10 +14,9 @@ Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. General Register Statistics
-  9. Multiplexer Restructuring Statistics (Restructuring Performed)
- 10. Post-Synthesis Netlist Statistics for Top Partition
- 11. Elapsed Time Per Partition
- 12. Analysis & Synthesis Messages
+  9. Post-Synthesis Netlist Statistics for Top Partition
+ 10. Elapsed Time Per Partition
+ 11. Analysis & Synthesis Messages
 
 
 
@@ -44,13 +43,13 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue Mar 29 21:39:05 2022       ;
+; Analysis & Synthesis Status        ; Successful - Wed Mar 30 19:54:06 2022       ;
 ; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                      ; sigma-processor                             ;
 ; Top-level Entity Name              ; ControlUnit                                 ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 23                                          ;
-;     Total combinational functions  ; 23                                          ;
+; Total logic elements               ; 42                                          ;
+;     Total combinational functions  ; 42                                          ;
 ;     Dedicated logic registers      ; 0                                           ;
 ; Total registers                    ; 0                                           ;
 ; Total pins                         ; 25                                          ;
@@ -179,16 +178,16 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+------------------+
 ; Resource                                    ; Usage            ;
 +---------------------------------------------+------------------+
-; Estimated Total logic elements              ; 23               ;
+; Estimated Total logic elements              ; 42               ;
 ;                                             ;                  ;
-; Total combinational functions               ; 23               ;
+; Total combinational functions               ; 42               ;
 ; Logic element usage by number of LUT inputs ;                  ;
-;     -- 4 input functions                    ; 11               ;
-;     -- 3 input functions                    ; 8                ;
-;     -- <=2 input functions                  ; 4                ;
+;     -- 4 input functions                    ; 33               ;
+;     -- 3 input functions                    ; 7                ;
+;     -- <=2 input functions                  ; 2                ;
 ;                                             ;                  ;
 ; Logic elements by mode                      ;                  ;
-;     -- normal mode                          ; 23               ;
+;     -- normal mode                          ; 42               ;
 ;     -- arithmetic mode                      ; 0                ;
 ;                                             ;                  ;
 ; Total registers                             ; 0                ;
@@ -200,9 +199,9 @@ https://fpgasoftware.intel.com/eula.
 ; Embedded Multiplier 9-bit elements          ; 0                ;
 ;                                             ;                  ;
 ; Maximum fan-out node                        ; iOpcode[5]~input ;
-; Maximum fan-out                             ; 16               ;
-; Total fan-out                               ; 116              ;
-; Average fan-out                             ; 1.59             ;
+; Maximum fan-out                             ; 26               ;
+; Total fan-out                               ; 197              ;
+; Average fan-out                             ; 2.14             ;
 +---------------------------------------------+------------------+
 
 
@@ -211,7 +210,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
 ; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name ; Entity Name ; Library Name ;
 +----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
-; |ControlUnit               ; 23 (23)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 25   ; 0            ; 0          ; |ControlUnit        ; ControlUnit ; work         ;
+; |ControlUnit               ; 42 (42)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 25   ; 0            ; 0          ; |ControlUnit        ; ControlUnit ; work         ;
 +----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -231,31 +230,22 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-; 9:1                ; 2 bits    ; 12 LEs        ; 10 LEs               ; 2 LEs                  ; No         ; |ControlUnit|Mux15         ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-
-
 +-----------------------------------------------------+
 ; Post-Synthesis Netlist Statistics for Top Partition ;
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 25                          ;
-; cycloneiii_lcell_comb ; 27                          ;
-;     normal            ; 27                          ;
+; cycloneiii_lcell_comb ; 44                          ;
+;     normal            ; 44                          ;
 ;         0 data inputs ; 1                           ;
-;         1 data inputs ; 3                           ;
-;         2 data inputs ; 4                           ;
-;         3 data inputs ; 8                           ;
-;         4 data inputs ; 11                          ;
+;         1 data inputs ; 1                           ;
+;         2 data inputs ; 2                           ;
+;         3 data inputs ; 7                           ;
+;         4 data inputs ; 33                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 3.00                        ;
-; Average LUT depth     ; 2.00                        ;
+; Max LUT depth         ; 4.00                        ;
+; Average LUT depth     ; 2.51                        ;
 +-----------------------+-----------------------------+
 
 
@@ -274,7 +264,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Tue Mar 29 21:38:59 2022
+    Info: Processing started: Wed Mar 30 19:53:59 2022
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off sigma-processor -c sigma-processor
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
@@ -288,44 +278,7 @@ Info (12021): Found 2 design units, including 1 entities, in source file simulat
     Info (12022): Found design unit 1: CU_tb-Behavioral File: /home/rtrk/Documents/RA206-2019_Beta+/sigma-processor/src/simulation/modelsim/CU_tb.vhd Line: 7
     Info (12023): Found entity 1: CU_tb File: /home/rtrk/Documents/RA206-2019_Beta+/sigma-processor/src/simulation/modelsim/CU_tb.vhd Line: 4
 Info (12127): Elaborating entity "ControlUnit" for the top level hierarchy
-Warning (10540): VHDL Signal Declaration warning at CU.vhd(29): used explicit default value for signal "sNOP" because signal was never assigned a value File: /home/rtrk/Documents/RA206-2019_Beta+/sigma-processor/src/CU.vhd Line: 29
-Warning (10540): VHDL Signal Declaration warning at CU.vhd(30): used explicit default value for signal "sLD" because signal was never assigned a value File: /home/rtrk/Documents/RA206-2019_Beta+/sigma-processor/src/CU.vhd Line: 30
-Warning (10540): VHDL Signal Declaration warning at CU.vhd(31): used explicit default value for signal "sST" because signal was never assigned a value File: /home/rtrk/Documents/RA206-2019_Beta+/sigma-processor/src/CU.vhd Line: 31
-Warning (10540): VHDL Signal Declaration warning at CU.vhd(32): used explicit default value for signal "sJMP" because signal was never assigned a value File: /home/rtrk/Documents/RA206-2019_Beta+/sigma-processor/src/CU.vhd Line: 32
-Warning (10540): VHDL Signal Declaration warning at CU.vhd(35): used explicit default value for signal "sLDR" because signal was never assigned a value File: /home/rtrk/Documents/RA206-2019_Beta+/sigma-processor/src/CU.vhd Line: 35
-Warning (10540): VHDL Signal Declaration warning at CU.vhd(36): used explicit default value for signal "sADD" because signal was never assigned a value File: /home/rtrk/Documents/RA206-2019_Beta+/sigma-processor/src/CU.vhd Line: 36
-Warning (10540): VHDL Signal Declaration warning at CU.vhd(37): used explicit default value for signal "sSUB" because signal was never assigned a value File: /home/rtrk/Documents/RA206-2019_Beta+/sigma-processor/src/CU.vhd Line: 37
-Warning (10540): VHDL Signal Declaration warning at CU.vhd(38): used explicit default value for signal "sMUL" because signal was never assigned a value File: /home/rtrk/Documents/RA206-2019_Beta+/sigma-processor/src/CU.vhd Line: 38
-Warning (10540): VHDL Signal Declaration warning at CU.vhd(39): used explicit default value for signal "sDIV" because signal was never assigned a value File: /home/rtrk/Documents/RA206-2019_Beta+/sigma-processor/src/CU.vhd Line: 39
-Warning (10540): VHDL Signal Declaration warning at CU.vhd(40): used explicit default value for signal "sCMPEQ" because signal was never assigned a value File: /home/rtrk/Documents/RA206-2019_Beta+/sigma-processor/src/CU.vhd Line: 40
-Warning (10540): VHDL Signal Declaration warning at CU.vhd(41): used explicit default value for signal "sCMPLT" because signal was never assigned a value File: /home/rtrk/Documents/RA206-2019_Beta+/sigma-processor/src/CU.vhd Line: 41
-Warning (10540): VHDL Signal Declaration warning at CU.vhd(42): used explicit default value for signal "sCMPLE" because signal was never assigned a value File: /home/rtrk/Documents/RA206-2019_Beta+/sigma-processor/src/CU.vhd Line: 42
-Warning (10540): VHDL Signal Declaration warning at CU.vhd(43): used explicit default value for signal "sAND" because signal was never assigned a value File: /home/rtrk/Documents/RA206-2019_Beta+/sigma-processor/src/CU.vhd Line: 43
-Warning (10540): VHDL Signal Declaration warning at CU.vhd(44): used explicit default value for signal "sOR" because signal was never assigned a value File: /home/rtrk/Documents/RA206-2019_Beta+/sigma-processor/src/CU.vhd Line: 44
-Warning (10540): VHDL Signal Declaration warning at CU.vhd(45): used explicit default value for signal "sXOR" because signal was never assigned a value File: /home/rtrk/Documents/RA206-2019_Beta+/sigma-processor/src/CU.vhd Line: 45
-Warning (10540): VHDL Signal Declaration warning at CU.vhd(46): used explicit default value for signal "sXNOR" because signal was never assigned a value File: /home/rtrk/Documents/RA206-2019_Beta+/sigma-processor/src/CU.vhd Line: 46
-Warning (10540): VHDL Signal Declaration warning at CU.vhd(47): used explicit default value for signal "sSHL" because signal was never assigned a value File: /home/rtrk/Documents/RA206-2019_Beta+/sigma-processor/src/CU.vhd Line: 47
-Warning (10540): VHDL Signal Declaration warning at CU.vhd(48): used explicit default value for signal "sSHR" because signal was never assigned a value File: /home/rtrk/Documents/RA206-2019_Beta+/sigma-processor/src/CU.vhd Line: 48
-Warning (10540): VHDL Signal Declaration warning at CU.vhd(49): used explicit default value for signal "sSRA" because signal was never assigned a value File: /home/rtrk/Documents/RA206-2019_Beta+/sigma-processor/src/CU.vhd Line: 49
-Warning (10540): VHDL Signal Declaration warning at CU.vhd(50): used explicit default value for signal "sADDC" because signal was never assigned a value File: /home/rtrk/Documents/RA206-2019_Beta+/sigma-processor/src/CU.vhd Line: 50
-Warning (10540): VHDL Signal Declaration warning at CU.vhd(51): used explicit default value for signal "sSUBC" because signal was never assigned a value File: /home/rtrk/Documents/RA206-2019_Beta+/sigma-processor/src/CU.vhd Line: 51
-Warning (10540): VHDL Signal Declaration warning at CU.vhd(52): used explicit default value for signal "sMULC" because signal was never assigned a value File: /home/rtrk/Documents/RA206-2019_Beta+/sigma-processor/src/CU.vhd Line: 52
-Warning (10540): VHDL Signal Declaration warning at CU.vhd(53): used explicit default value for signal "sDIVC" because signal was never assigned a value File: /home/rtrk/Documents/RA206-2019_Beta+/sigma-processor/src/CU.vhd Line: 53
-Warning (10540): VHDL Signal Declaration warning at CU.vhd(54): used explicit default value for signal "sCMPEQC" because signal was never assigned a value File: /home/rtrk/Documents/RA206-2019_Beta+/sigma-processor/src/CU.vhd Line: 54
-Warning (10540): VHDL Signal Declaration warning at CU.vhd(55): used explicit default value for signal "sCMPLTC" because signal was never assigned a value File: /home/rtrk/Documents/RA206-2019_Beta+/sigma-processor/src/CU.vhd Line: 55
-Warning (10540): VHDL Signal Declaration warning at CU.vhd(56): used explicit default value for signal "sCMPLEC" because signal was never assigned a value File: /home/rtrk/Documents/RA206-2019_Beta+/sigma-processor/src/CU.vhd Line: 56
-Warning (10540): VHDL Signal Declaration warning at CU.vhd(57): used explicit default value for signal "sANDC" because signal was never assigned a value File: /home/rtrk/Documents/RA206-2019_Beta+/sigma-processor/src/CU.vhd Line: 57
-Warning (10540): VHDL Signal Declaration warning at CU.vhd(58): used explicit default value for signal "sORC" because signal was never assigned a value File: /home/rtrk/Documents/RA206-2019_Beta+/sigma-processor/src/CU.vhd Line: 58
-Warning (10540): VHDL Signal Declaration warning at CU.vhd(59): used explicit default value for signal "sXORC" because signal was never assigned a value File: /home/rtrk/Documents/RA206-2019_Beta+/sigma-processor/src/CU.vhd Line: 59
-Warning (10540): VHDL Signal Declaration warning at CU.vhd(60): used explicit default value for signal "sXNORC" because signal was never assigned a value File: /home/rtrk/Documents/RA206-2019_Beta+/sigma-processor/src/CU.vhd Line: 60
-Warning (10540): VHDL Signal Declaration warning at CU.vhd(61): used explicit default value for signal "sSHLC" because signal was never assigned a value File: /home/rtrk/Documents/RA206-2019_Beta+/sigma-processor/src/CU.vhd Line: 61
-Warning (10540): VHDL Signal Declaration warning at CU.vhd(62): used explicit default value for signal "sSHRC" because signal was never assigned a value File: /home/rtrk/Documents/RA206-2019_Beta+/sigma-processor/src/CU.vhd Line: 62
-Warning (10540): VHDL Signal Declaration warning at CU.vhd(63): used explicit default value for signal "sSRAC" because signal was never assigned a value File: /home/rtrk/Documents/RA206-2019_Beta+/sigma-processor/src/CU.vhd Line: 63
 Warning (10540): VHDL Signal Declaration warning at CU.vhd(68): used explicit default value for signal "sOpTable" because signal was never assigned a value File: /home/rtrk/Documents/RA206-2019_Beta+/sigma-processor/src/CU.vhd Line: 68
-Warning (10873): Using initial value X (don't care) for net "sBEQ[17..9]" at CU.vhd(33) File: /home/rtrk/Documents/RA206-2019_Beta+/sigma-processor/src/CU.vhd Line: 33
-Warning (10873): Using initial value X (don't care) for net "sBEQ[4]" at CU.vhd(33) File: /home/rtrk/Documents/RA206-2019_Beta+/sigma-processor/src/CU.vhd Line: 33
-Warning (10873): Using initial value X (don't care) for net "sBNE[17..9]" at CU.vhd(34) File: /home/rtrk/Documents/RA206-2019_Beta+/sigma-processor/src/CU.vhd Line: 34
-Warning (10873): Using initial value X (don't care) for net "sBNE[4]" at CU.vhd(34) File: /home/rtrk/Documents/RA206-2019_Beta+/sigma-processor/src/CU.vhd Line: 34
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "oASEL" is stuck at GND File: /home/rtrk/Documents/RA206-2019_Beta+/sigma-processor/src/CU.vhd Line: 14
     Warning (13410): Pin "oPCSEL[2]" is stuck at GND File: /home/rtrk/Documents/RA206-2019_Beta+/sigma-processor/src/CU.vhd Line: 18
@@ -333,14 +286,14 @@ Warning (13024): Output pins are stuck at VCC or GND
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 48 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 67 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 7 input pins
     Info (21059): Implemented 18 output pins
-    Info (21061): Implemented 23 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 43 warnings
-    Info: Peak virtual memory: 425 megabytes
-    Info: Processing ended: Tue Mar 29 21:39:05 2022
-    Info: Elapsed time: 00:00:06
+    Info (21061): Implemented 42 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 6 warnings
+    Info: Peak virtual memory: 420 megabytes
+    Info: Processing ended: Wed Mar 30 19:54:06 2022
+    Info: Elapsed time: 00:00:07
     Info: Total CPU time (on all processors): 00:00:12
 
 

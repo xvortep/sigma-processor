@@ -1,5 +1,5 @@
 Power Analyzer report for sigma-processor
-Tue Mar 29 21:39:12 2022
+Wed Mar 30 19:54:14 2022
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -52,19 +52,19 @@ https://fpgasoftware.intel.com/eula.
 ; Number detected on machine ; 6           ;
 ; Maximum allowed            ; 6           ;
 ;                            ;             ;
-; Average used               ; 1.03        ;
+; Average used               ; 1.05        ;
 ; Maximum used               ; 6           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-6         ;   0.7%      ;
+;     Processors 2-6         ;   0.9%      ;
 +----------------------------+-------------+
 
 
 +-------------------------------------------------------------------------------------------+
 ; Power Analyzer Summary                                                                    ;
 +----------------------------------------+--------------------------------------------------+
-; Power Analyzer Status                  ; Successful - Tue Mar 29 21:39:12 2022            ;
+; Power Analyzer Status                  ; Successful - Wed Mar 30 19:54:14 2022            ;
 ; Quartus Prime Version                  ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition      ;
 ; Revision Name                          ; sigma-processor                                  ;
 ; Top-level Entity Name                  ; ControlUnit                                      ;
@@ -110,12 +110,12 @@ https://fpgasoftware.intel.com/eula.
 +------------+-----------------------------+
 ; Node       ; Reason                      ;
 +------------+-----------------------------+
-; iOpcode[5] ; No valid clock domain found ;
-; iOpcode[0] ; No valid clock domain found ;
-; iOpcode[2] ; No valid clock domain found ;
-; iOpcode[1] ; No valid clock domain found ;
-; iOpcode[3] ; No valid clock domain found ;
 ; iOpcode[4] ; No valid clock domain found ;
+; iOpcode[3] ; No valid clock domain found ;
+; iOpcode[0] ; No valid clock domain found ;
+; iOpcode[1] ; No valid clock domain found ;
+; iOpcode[2] ; No valid clock domain found ;
+; iOpcode[5] ; No valid clock domain found ;
 ; iZ         ; No valid clock domain found ;
 +------------+-----------------------------+
 
@@ -192,13 +192,13 @@ https://fpgasoftware.intel.com/eula.
 +----------+---------------+---------------------+-----------------------+----------------------+
 ; I/O Bank ; VCCIO Voltage ; Total Current Drawn ; Dynamic Current Drawn ; Static Current Drawn ;
 +----------+---------------+---------------------+-----------------------+----------------------+
-; 1A       ; 2.5V          ; 0.28 mA             ; 0.00 mA               ; 0.28 mA              ;
+; 1A       ; 2.5V          ; 0.29 mA             ; 0.00 mA               ; 0.29 mA              ;
 ; 1B       ; 2.5V          ; 0.28 mA             ; 0.00 mA               ; 0.28 mA              ;
 ; 2        ; 2.5V          ; 0.27 mA             ; 0.00 mA               ; 0.27 mA              ;
 ; 3        ; 2.5V          ; 0.28 mA             ; 0.00 mA               ; 0.28 mA              ;
 ; 4        ; --            ; --                  ; --                    ; --                   ;
 ; 5        ; 2.5V          ; 0.28 mA             ; 0.00 mA               ; 0.28 mA              ;
-; 6        ; 2.5V          ; 0.32 mA             ; 0.00 mA               ; 0.32 mA              ;
+; 6        ; 2.5V          ; 0.31 mA             ; 0.00 mA               ; 0.31 mA              ;
 ; 7        ; --            ; --                  ; --                    ; --                   ;
 ; 8        ; 2.5V          ; 0.29 mA             ; 0.00 mA               ; 0.29 mA              ;
 +----------+---------------+---------------------+-----------------------+----------------------+
@@ -229,16 +229,16 @@ https://fpgasoftware.intel.com/eula.
 ;     -- Number of signals with Static Probability from Node, entity or clock assignment ; 0 (0.0%)   ; 0 (0.0%)   ; 0 (100.0%) ; 0 (0.0%)      ;
 ;                                                                                        ;            ;            ;            ;               ;
 ; Vectorless estimation                                                                  ;            ;            ;            ;               ;
-;     -- Number of signals with Toggle Rate from Vectorless estimation                   ; 69 (83.1%) ; 19 (57.6%) ; 0 (100.0%) ; 50 (100.0%)   ;
-;     -- Number of signals with Zero toggle rate, from Vectorless estimation             ; 69 (83.1%) ; 19 (57.6%) ; 0 (100.0%) ; 50 (100.0%)   ;
-;     -- Number of signals with Static Probability from Vectorless estimation            ; 69 (83.1%) ; 19 (57.6%) ; 0 (100.0%) ; 50 (100.0%)   ;
+;     -- Number of signals with Toggle Rate from Vectorless estimation                   ; 88 (86.3%) ; 19 (57.6%) ; 0 (100.0%) ; 69 (100.0%)   ;
+;     -- Number of signals with Zero toggle rate, from Vectorless estimation             ; 88 (86.3%) ; 19 (57.6%) ; 0 (100.0%) ; 69 (100.0%)   ;
+;     -- Number of signals with Static Probability from Vectorless estimation            ; 88 (86.3%) ; 19 (57.6%) ; 0 (100.0%) ; 69 (100.0%)   ;
 ;                                                                                        ;            ;            ;            ;               ;
 ; Default assignment                                                                     ;            ;            ;            ;               ;
 ;     -- Number of signals with Toggle Rate from Default assignment                      ; 0 (0.0%)   ; 0 (0.0%)   ; 0 (100.0%) ; 0 (0.0%)      ;
-;     -- Number of signals with Static Probability from Default assignment               ; 14 (16.9%) ; 14 (42.4%) ; 0 (100.0%) ; 0 (0.0%)      ;
+;     -- Number of signals with Static Probability from Default assignment               ; 14 (13.7%) ; 14 (42.4%) ; 0 (100.0%) ; 0 (0.0%)      ;
 ;                                                                                        ;            ;            ;            ;               ;
 ; Assumed 0                                                                              ;            ;            ;            ;               ;
-;     -- Number of signals with Toggle Rate assumed 0                                    ; 14 (16.9%) ; 14 (42.4%) ; 0 (100.0%) ; 0 (0.0%)      ;
+;     -- Number of signals with Toggle Rate assumed 0                                    ; 14 (13.7%) ; 14 (42.4%) ; 0 (100.0%) ; 0 (0.0%)      ;
 +----------------------------------------------------------------------------------------+------------+------------+------------+---------------+
 
 
@@ -256,7 +256,7 @@ https://fpgasoftware.intel.com/eula.
 Info: *******************************************************************
 Info: Running Quartus Prime Power Analyzer
     Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Tue Mar 29 21:39:11 2022
+    Info: Processing started: Wed Mar 30 19:54:13 2022
 Info: Command: quartus_pow --read_settings_files=off --write_settings_files=off sigma-processor -c sigma-processor
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (21077): Low junction temperature is 0 degrees C
@@ -272,8 +272,8 @@ Info (334004): Delay annotation completed successfully
 Info (215049): Average toggle rate for this design is 0.000 millions of transitions / sec
 Info (215031): Total thermal power estimate for the design is 220.52 mW
 Info: Quartus Prime Power Analyzer was successful. 0 errors, 4 warnings
-    Info: Peak virtual memory: 796 megabytes
-    Info: Processing ended: Tue Mar 29 21:39:12 2022
+    Info: Peak virtual memory: 804 megabytes
+    Info: Processing ended: Wed Mar 30 19:54:14 2022
     Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 

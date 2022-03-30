@@ -79,9 +79,9 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : A8        :        :                   :      
 RESERVED_INPUT_WITH_WEAK_PULLUP : A9        :        :                   :         : 8         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : A10       :        :                   :         : 8         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : A11       :        :                   :         : 8         :                
-oALUFN[5]                    : A12       : output : 2.5 V             :         : 6         : N              
+iOpcode[0]                   : A12       : input  : 2.5 V             :         : 6         : N              
 GND                          : A13       : gnd    :                   :         :           :                
-oMWR                         : B1        : output : 2.5 V             :         : 1A        : N              
+oWERF                        : B1        : output : 2.5 V             :         : 1A        : N              
 RESERVED_INPUT_WITH_WEAK_PULLUP : B2        :        :                   :         : 8         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : B3        :        :                   :         : 8         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : B4        :        :                   :         : 8         :                
@@ -89,25 +89,25 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : B5        :        :                   :      
 RESERVED_INPUT_WITH_WEAK_PULLUP : B6        :        :                   :         : 8         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : B7        :        :                   :         : 8         :                
 GND                          : B8        : gnd    :                   :         :           :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : B9        :        :                   :         : 8         :                
+oBSEL                        : B9        : output : 2.5 V             :         : 8         : N              
 RESERVED_INPUT_WITH_WEAK_PULLUP : B10       :        :                   :         : 8         :                
-oRA2SEL                      : B11       : output : 2.5 V             :         : 6         : N              
-oALUFN[0]                    : B12       : output : 2.5 V             :         : 6         : N              
-oWDSEL[1]                    : B13       : output : 2.5 V             :         : 6         : N              
-RESERVED_INPUT_WITH_WEAK_PULLUP : C1        :        :                   :         : 1A        :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : C2        :        :                   :         : 1A        :                
+oALUFN[4]                    : B11       : output : 2.5 V             :         : 6         : N              
+oMWR                         : B12       : output : 2.5 V             :         : 6         : N              
+iOpcode[4]                   : B13       : input  : 2.5 V             :         : 6         : N              
+oALUFN[1]                    : C1        : output : 2.5 V             :         : 1A        : N              
+oALUFN[3]                    : C2        : output : 2.5 V             :         : 1A        : N              
 GND                          : C3        : gnd    :                   :         :           :                
 ~ALTERA_nSTATUS~ / RESERVED_INPUT : C4        : input  : 2.5 V Schmitt Trigger :         : 8         : N              
 ~ALTERA_CONF_DONE~ / RESERVED_INPUT : C5        : input  : 2.5 V Schmitt Trigger :         : 8         : N              
 VCCIO8                       : C6        : power  :                   : 2.5V    : 8         :                
 VCCIO8                       : C7        : power  :                   : 2.5V    : 8         :                
 VCCIO8                       : C8        : power  :                   : 2.5V    : 8         :                
-oWASEL                       : C9        : output : 2.5 V             :         : 8         : N              
-RESERVED_INPUT_WITH_WEAK_PULLUP : C10       :        :                   :         : 8         :                
-oBSEL                        : C11       : output : 2.5 V             :         : 6         : N              
-oALUFN[3]                    : C12       : output : 2.5 V             :         : 6         : N              
-iOpcode[2]                   : C13       : input  : 2.5 V             :         : 6         : N              
-oALUFN[1]                    : D1        : output : 2.5 V             :         : 1A        : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : C9        :        :                   :         : 8         :                
+oRA2SEL                      : C10       : output : 2.5 V             :         : 8         : N              
+oMOE                         : C11       : output : 2.5 V             :         : 6         : N              
+iOpcode[2]                   : C12       : input  : 2.5 V             :         : 6         : N              
+oALUFN[2]                    : C13       : output : 2.5 V             :         : 6         : N              
+oALUFN[5]                    : D1        : output : 2.5 V             :         : 1A        : N              
 ANAIN1                       : D2        :        :                   :         :           :                
 ADC_VREF                     : D3        :        :                   :         :           :                
 VCCA3                        : D4        : power  :                   : 3.0V/3.3V :           :                
@@ -117,19 +117,19 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : D6        :        :                   :      
 RESERVED_INPUT_WITH_WEAK_PULLUP : D8        :        :                   :         : 8         :                
 iOpcode[3]                   : D9        : input  : 2.5 V             :         : 6         : N              
 VCCA2                        : D10       : power  :                   : 3.0V/3.3V :           :                
-oALUFN[4]                    : D11       : output : 2.5 V             :         : 6         : N              
-oWERF                        : D12       : output : 2.5 V             :         : 6         : N              
-iOpcode[0]                   : D13       : input  : 2.5 V             :         : 6         : N              
-iZ                           : E1        : input  : 2.5 V             :         : 1A        : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : D11       :        :                   :         : 6         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : D12       :        :                   :         : 6         :                
+iOpcode[1]                   : D13       : input  : 2.5 V             :         : 6         : N              
+oWDSEL[0]                    : E1        : output : 2.5 V             :         : 1A        : N              
 REFGND                       : E2        :        :                   :         :           :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : E3        :        :                   :         : 1A        :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : E4        :        :                   :         : 1A        :                
+oPCSEL[1]                    : E3        : output : 2.5 V             :         : 1A        : N              
+oWDSEL[1]                    : E4        : output : 2.5 V             :         : 1A        : N              
 RESERVED_INPUT_WITH_WEAK_PULLUP : E5        :        :                   :         : 1B        :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : E6        :        :                   :         : 8         :                
+oASEL                        : E6        : output : 2.5 V             :         : 8         : N              
 ~ALTERA_nCONFIG~ / RESERVED_INPUT : E7        : input  : 2.5 V Schmitt Trigger :         : 8         : N              
 RESERVED_INPUT_WITH_WEAK_PULLUP : E8        :        :                   :         : 8         :                
 oPCSEL[0]                    : E9        : output : 2.5 V             :         : 6         : N              
-iOpcode[4]                   : E10       : input  : 2.5 V             :         : 6         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : E10       :        :                   :         : 6         :                
 GND                          : E11       : gnd    :                   :         :           :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : E12       :        :                   :         : 6         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : E13       :        :                   :         : 6         :                
@@ -140,11 +140,11 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : F4        :        :                   :      
 ~ALTERA_TDI~ / RESERVED_INPUT_WITH_WEAK_PULLUP : F5        : input  : 2.5 V Schmitt Trigger :         : 1B        : N              
 ~ALTERA_TDO~                 : F6        : output : 2.5 V             :         : 1B        : N              
 VCC_ONE                      : F7        : power  :                   : 3.0V/3.3V :           :                
-oPCSEL[1]                    : F8        : output : 2.5 V             :         : 6         : N              
-iOpcode[1]                   : F9        : input  : 2.5 V             :         : 6         : N              
-oALUFN[2]                    : F10       : output : 2.5 V             :         : 6         : N              
+oALUFN[0]                    : F8        : output : 2.5 V             :         : 6         : N              
+iZ                           : F9        : input  : 2.5 V             :         : 6         : N              
+iOpcode[5]                   : F10       : input  : 2.5 V             :         : 6         : N              
 VCCIO6                       : F11       : power  :                   : 2.5V    : 6         :                
-oMOE                         : F12       : output : 2.5 V             :         : 6         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : F12       :        :                   :         : 6         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : F13       :        :                   :         : 6         :                
 ~ALTERA_TMS~ / RESERVED_INPUT_WITH_WEAK_PULLUP : G1        : input  : 2.5 V Schmitt Trigger :         : 1B        : N              
 ~ALTERA_TCK~ / RESERVED_INPUT : G2        : input  : 2.5 V Schmitt Trigger :         : 1B        : N              
@@ -166,8 +166,8 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : H4        :        :                   :      
 RESERVED_INPUT_WITH_WEAK_PULLUP : H5        :        :                   :         : 2         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : H6        :        :                   :         : 2         :                
 VCC_ONE                      : H7        : power  :                   : 3.0V/3.3V :           :                
-oWDSEL[0]                    : H8        : output : 2.5 V             :         : 5         : N              
-iOpcode[5]                   : H9        : input  : 2.5 V             :         : 5         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : H8        :        :                   :         : 5         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : H9        :        :                   :         : 5         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : H10       :        :                   :         : 5         :                
 VCCIO5                       : H11       : power  :                   : 2.5V    : 5         :                
 GND                          : H12       : gnd    :                   :         :           :                
@@ -184,18 +184,18 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : J9        :        :                   :      
 RESERVED_INPUT_WITH_WEAK_PULLUP : J10       :        :                   :         : 5         :                
 VCCIO5                       : J11       : power  :                   : 2.5V    : 5         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : J12       :        :                   :         : 5         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : J13       :        :                   :         : 5         :                
+oPCSEL[2]                    : J13       : output : 2.5 V             :         : 5         : N              
 RESERVED_INPUT_WITH_WEAK_PULLUP : K1        :        :                   :         : 2         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : K2        :        :                   :         : 2         :                
 VCCIO2                       : K3        : power  :                   : 2.5V    : 2         :                
 VCCA1                        : K4        : power  :                   : 3.0V/3.3V :           :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : K5        :        :                   :         : 3         :                
-oPCSEL[2]                    : K6        : output : 2.5 V             :         : 3         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : K6        :        :                   :         : 3         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : K7        :        :                   :         : 3         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : K8        :        :                   :         : 3         :                
+oWASEL                       : K8        : output : 2.5 V             :         : 3         : N              
 VCCA4                        : K9        : power  :                   : 3.0V/3.3V :           :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : K10       :        :                   :         : 5         :                
-oASEL                        : K11       : output : 2.5 V             :         : 5         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : K11       :        :                   :         : 5         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : K12       :        :                   :         : 5         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : K13       :        :                   :         : 5         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : L1        :        :                   :         : 2         :                
