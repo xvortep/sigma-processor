@@ -1,5 +1,5 @@
-Analysis & Elaboration report for sigma-processor
-Tue Mar 29 21:57:10 2022
+Analysis & Synthesis report for sigma-processor
+Wed Mar 30 19:07:27 2022
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -7,10 +7,17 @@ Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 ; Table of Contents ;
 ---------------------
   1. Legal Notice
-  2. Analysis & Elaboration Summary
-  3. Parallel Compilation
-  4. Analysis & Elaboration Settings
-  5. Analysis & Elaboration Messages
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. General Register Statistics
+  9. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 10. Post-Synthesis Netlist Statistics for Top Partition
+ 11. Elapsed Time Per Partition
+ 12. Analysis & Synthesis Messages
 
 
 
@@ -35,45 +42,29 @@ https://fpgasoftware.intel.com/eula.
 
 
 +----------------------------------------------------------------------------------+
-; Analysis & Elaboration Summary                                                   ;
+; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Elaboration Status      ; Successful - Tue Mar 29 21:57:10 2022       ;
+; Analysis & Synthesis Status        ; Successful - Wed Mar 30 19:07:27 2022       ;
 ; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                      ; sigma-processor                             ;
 ; Top-level Entity Name              ; ALU                                         ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; N/A until Partition Merge                   ;
-;     Total combinational functions  ; N/A until Partition Merge                   ;
-;     Dedicated logic registers      ; N/A until Partition Merge                   ;
-; Total registers                    ; N/A until Partition Merge                   ;
-; Total pins                         ; N/A until Partition Merge                   ;
-; Total virtual pins                 ; N/A until Partition Merge                   ;
-; Total memory bits                  ; N/A until Partition Merge                   ;
-; Embedded Multiplier 9-bit elements ; N/A until Partition Merge                   ;
-; Total PLLs                         ; N/A until Partition Merge                   ;
-; UFM blocks                         ; N/A until Partition Merge                   ;
-; ADC blocks                         ; N/A until Partition Merge                   ;
+; Total logic elements               ; 735                                         ;
+;     Total combinational functions  ; 735                                         ;
+;     Dedicated logic registers      ; 0                                           ;
+; Total registers                    ; 0                                           ;
+; Total pins                         ; 102                                         ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
+; UFM blocks                         ; 0                                           ;
+; ADC blocks                         ; 0                                           ;
 +------------------------------------+---------------------------------------------+
 
 
-+------------------------------------------+
-; Parallel Compilation                     ;
-+----------------------------+-------------+
-; Processors                 ; Number      ;
-+----------------------------+-------------+
-; Number detected on machine ; 6           ;
-; Maximum allowed            ; 6           ;
-;                            ;             ;
-; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
-;                            ;             ;
-; Usage by Processor         ; % Time Used ;
-;     Processor 1            ; 100.0%      ;
-+----------------------------+-------------+
-
-
 +------------------------------------------------------------------------------------------------------------+
-; Analysis & Elaboration Settings                                                                            ;
+; Analysis & Synthesis Settings                                                                              ;
 +------------------------------------------------------------------+--------------------+--------------------+
 ; Option                                                           ; Setting            ; Default Value      ;
 +------------------------------------------------------------------+--------------------+--------------------+
@@ -158,18 +149,143 @@ https://fpgasoftware.intel.com/eula.
 +------------------------------------------------------------------+--------------------+--------------------+
 
 
-+---------------------------------+
-; Analysis & Elaboration Messages ;
-+---------------------------------+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 6           ;
+; Maximum allowed            ; 6           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
++----------------------------+-------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                            ;
++----------------------------------+-----------------+-----------------+------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                     ; Library ;
++----------------------------------+-----------------+-----------------+------------------------------------------------------------------+---------+
+; ALU.vhd                          ; yes             ; User VHDL File  ; /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/ALU.vhd ;         ;
++----------------------------------+-----------------+-----------------+------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary               ;
++---------------------------------------------+-------------+
+; Resource                                    ; Usage       ;
++---------------------------------------------+-------------+
+; Estimated Total logic elements              ; 735         ;
+;                                             ;             ;
+; Total combinational functions               ; 735         ;
+; Logic element usage by number of LUT inputs ;             ;
+;     -- 4 input functions                    ; 371         ;
+;     -- 3 input functions                    ; 293         ;
+;     -- <=2 input functions                  ; 71          ;
+;                                             ;             ;
+; Logic elements by mode                      ;             ;
+;     -- normal mode                          ; 611         ;
+;     -- arithmetic mode                      ; 124         ;
+;                                             ;             ;
+; Total registers                             ; 0           ;
+;     -- Dedicated logic registers            ; 0           ;
+;     -- I/O registers                        ; 0           ;
+;                                             ;             ;
+; I/O pins                                    ; 102         ;
+;                                             ;             ;
+; Embedded Multiplier 9-bit elements          ; 0           ;
+;                                             ;             ;
+; Maximum fan-out node                        ; iB[1]~input ;
+; Maximum fan-out                             ; 87          ;
+; Total fan-out                               ; 2639        ;
+; Average fan-out                             ; 2.81        ;
++---------------------------------------------+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name ; Entity Name ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
+; |ALU                       ; 735 (735)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 102  ; 0            ; 0          ; |ALU                ; ALU         ; work         ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 0     ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; 66:1               ; 8 bits    ; 352 LEs       ; 72 LEs               ; 280 LEs                ; No         ; |ALU|Mux20                 ;
+; 66:1               ; 8 bits    ; 352 LEs       ; 72 LEs               ; 280 LEs                ; No         ; |ALU|Mux8                  ;
+; 67:1               ; 4 bits    ; 176 LEs       ; 44 LEs               ; 132 LEs                ; No         ; |ALU|Mux24                 ;
+; 67:1               ; 4 bits    ; 176 LEs       ; 44 LEs               ; 132 LEs                ; No         ; |ALU|Mux6                  ;
+; 68:1               ; 2 bits    ; 90 LEs        ; 22 LEs               ; 68 LEs                 ; No         ; |ALU|Mux28                 ;
+; 68:1               ; 2 bits    ; 90 LEs        ; 22 LEs               ; 68 LEs                 ; No         ; |ALU|Mux3                  ;
+; 69:1               ; 2 bits    ; 92 LEs        ; 20 LEs               ; 72 LEs                 ; No         ; |ALU|Mux1                  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 102                         ;
+; cycloneiii_lcell_comb ; 735                         ;
+;     arith             ; 124                         ;
+;         3 data inputs ; 124                         ;
+;     normal            ; 611                         ;
+;         2 data inputs ; 71                          ;
+;         3 data inputs ; 169                         ;
+;         4 data inputs ; 371                         ;
+;                       ;                             ;
+; Max LUT depth         ; 13.10                       ;
+; Average LUT depth     ; 9.24                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:01     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
 Info: *******************************************************************
-Info: Running Quartus Prime Analysis & Elaboration
+Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Tue Mar 29 21:57:04 2022
-Info: Command: quartus_map --read_settings_files=on --write_settings_files=off sigma-processor -c sigma-processor --analysis_and_elaboration
+    Info: Processing started: Wed Mar 30 19:07:19 2022
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off sigma-processor -c sigma-processor
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file CU.vhd
-    Info (12022): Found design unit 1: ControlUnit-Behavioral File: /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/CU.vhd Line: 25
+    Info (12022): Found design unit 1: ControlUnit-Behavioral File: /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/CU.vhd Line: 26
     Info (12023): Found entity 1: ControlUnit File: /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/CU.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file ALU.vhd
     Info (12022): Found design unit 1: ALU-Behavioral File: /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/ALU.vhd Line: 19
@@ -183,9 +299,13 @@ Info (12021): Found 2 design units, including 1 entities, in source file simulat
 Info (12021): Found 2 design units, including 1 entities, in source file simulation/modelsim/ALU_tb.vhd
     Info (12022): Found design unit 1: ALU_tb-Behavioral File: /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/simulation/modelsim/ALU_tb.vhd Line: 7
     Info (12023): Found entity 1: ALU_tb File: /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/simulation/modelsim/ALU_tb.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file simulation/modelsim/CU_tb.vhd
+    Info (12022): Found design unit 1: CU_tb-Behavioral File: /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/simulation/modelsim/CU_tb.vhd Line: 7
+    Info (12023): Found entity 1: CU_tb File: /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/simulation/modelsim/CU_tb.vhd Line: 4
 Info (12127): Elaborating entity "ALU" for the top level hierarchy
 Warning (10541): VHDL Signal Declaration warning at ALU.vhd(33): used implicit default value for signal "sSRA" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/ALU.vhd Line: 33
 Warning (10036): Verilog HDL or VHDL warning at ALU.vhd(54): object "sSRA_s5" assigned a value but never read File: /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/ALU.vhd Line: 54
+Info (286030): Timing-Driven Synthesis is running
 Warning (20013): Ignored 24 assignments for entity "PC" -- entity does not exist in design
     Warning (20014): Assignment for entity set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -entity PC -section_id Top was ignored
     Warning (20014): Assignment for entity set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -entity PC -section_id Top was ignored
@@ -236,10 +356,16 @@ Warning (20013): Ignored 24 assignments for entity "sigma-processor" -- entity d
     Warning (20014): Assignment for entity set_global_assignment -name ABSORB_PATHS_FROM_OUTPUTS_TO_INPUTS ON -entity "sigma-processor" -section_id Top was ignored
     Warning (20014): Assignment for entity set_global_assignment -name PARTITION_EXTRACT_HARD_BLOCK_NODES ON -entity "sigma-processor" -section_id Top was ignored
     Warning (20014): Assignment for entity set_global_assignment -name PARTITION_ENABLE_STRICT_PRESERVATION OFF -entity "sigma-processor" -section_id Top was ignored
-Info: Quartus Prime Analysis & Elaboration was successful. 0 errors, 53 warnings
-    Info: Peak virtual memory: 734 megabytes
-    Info: Processing ended: Tue Mar 29 21:57:10 2022
-    Info: Elapsed time: 00:00:06
-    Info: Total CPU time (on all processors): 00:00:11
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 837 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 70 input pins
+    Info (21059): Implemented 32 output pins
+    Info (21061): Implemented 735 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 53 warnings
+    Info: Peak virtual memory: 425 megabytes
+    Info: Processing ended: Wed Mar 30 19:07:27 2022
+    Info: Elapsed time: 00:00:08
+    Info: Total CPU time (on all processors): 00:00:13
 
 
