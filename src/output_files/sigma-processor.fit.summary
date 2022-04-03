@@ -1,14 +1,14 @@
-Fitter Status : Successful - Wed Mar 30 19:07:32 2022
+Fitter Status : Successful - Fri Apr  1 12:11:49 2022
 Quartus Prime Version : 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 Revision Name : sigma-processor
-Top-level Entity Name : ALU
+Top-level Entity Name : PC
 Family : MAX 10
 Device : 10M16SAU169C8G
 Timing Models : Final
-Total logic elements : 736 / 15,840 ( 5 % )
-    Total combinational functions : 736 / 15,840 ( 5 % )
-    Dedicated logic registers : 0 / 15,840 ( 0 % )
-Total registers : 0
+Total logic elements : 151 / 15,840 ( < 1 % )
+    Total combinational functions : 151 / 15,840 ( < 1 % )
+    Dedicated logic registers : 32 / 15,840 ( < 1 % )
+Total registers : 32
 Total pins : 102 / 130 ( 78 % )
 Total virtual pins : 0
 Total memory bits : 0 / 562,176 ( 0 % )

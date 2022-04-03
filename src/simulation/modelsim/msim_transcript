@@ -8,43 +8,35 @@
 # vmap work rtl_work 
 # Modifying /opt/intelFPGA/20.1/modelsim_ase/linuxaloem/../modelsim.ini
 # 
-<<<<<<< HEAD
 # vcom -93 -work work {/home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/ALU.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 21:57:21 on Mar 29,2022
+# Start time: 13:33:54 on Apr 01,2022
 # vcom -reportprogress 300 -93 -work work /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/ALU.vhd 
-=======
-# vcom -93 -work work {/home/rtrk/Documents/RA206-2019_Beta+/sigma-processor/src/CU.vhd}
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 19:55:50 on Mar 30,2022
-# vcom -reportprogress 300 -93 -work work /home/rtrk/Documents/RA206-2019_Beta+/sigma-processor/src/CU.vhd 
->>>>>>> feature-mane
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Loading package std_logic_arith
-<<<<<<< HEAD
 # -- Loading package STD_LOGIC_UNSIGNED
 # -- Compiling entity ALU
 # -- Compiling architecture Behavioral of ALU
-# End time: 21:57:21 on Mar 29,2022, Elapsed time: 0:00:00
+# End time: 13:33:54 on Apr 01,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vcom -93 -work work {/home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/simulation/modelsim/ALU_tb.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 21:57:21 on Mar 29,2022
+# Start time: 13:33:54 on Apr 01,2022
 # vcom -reportprogress 300 -93 -work work /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/simulation/modelsim/ALU_tb.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity ALU_tb
 # -- Compiling architecture Behavioral of ALU_tb
-# End time: 21:57:21 on Mar 29,2022, Elapsed time: 0:00:00
+# End time: 13:33:54 on Apr 01,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L fiftyfivenm -L rtl_work -L work -voptargs="+acc"  ALU_tb
 # vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L fiftyfivenm -L rtl_work -L work -voptargs=""+acc"" ALU_tb 
-# Start time: 21:57:21 on Mar 29,2022
+# Start time: 13:33:54 on Apr 01,2022
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
@@ -52,41 +44,12 @@
 # Loading ieee.std_logic_arith(body)
 # Loading ieee.std_logic_unsigned(body)
 # Loading work.alu(behavioral)
-=======
-# -- Compiling entity ControlUnit
-# -- Compiling architecture Behavioral of ControlUnit
-# End time: 19:55:50 on Mar 30,2022, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# 
-# vcom -93 -work work {/home/rtrk/Documents/RA206-2019_Beta+/sigma-processor/src/simulation/modelsim/CU_tb.vhd}
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 19:55:50 on Mar 30,2022
-# vcom -reportprogress 300 -93 -work work /home/rtrk/Documents/RA206-2019_Beta+/sigma-processor/src/simulation/modelsim/CU_tb.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Compiling entity CU_tb
-# -- Compiling architecture Behavioral of CU_tb
-# End time: 19:55:50 on Mar 30,2022, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# 
-# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L fiftyfivenm -L rtl_work -L work -voptargs="+acc"  CU_tb
-# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L fiftyfivenm -L rtl_work -L work -voptargs=""+acc"" CU_tb 
-# Start time: 19:55:50 on Mar 30,2022
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading work.cu_tb(behavioral)
-# Loading ieee.std_logic_arith(body)
-# Loading work.controlunit(behavioral)
->>>>>>> feature-mane
 # 
 # add wave *
 # view structure
 # .main_pane.structure.interior.cs.body.struct
 # view signals
 # .main_pane.objects.interior.cs.body.tree
-<<<<<<< HEAD
 # run 1 us
 # ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
 #    Time: 0 ps  Iteration: 0  Instance: /alu_tb/fddt
@@ -100,8 +63,5 @@
 #    Time: 0 ps  Iteration: 0  Instance: /alu_tb/fddt
 # ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
 #    Time: 0 ps  Iteration: 0  Instance: /alu_tb/fddt
-# End time: 22:00:20 on Mar 29,2022, Elapsed time: 0:02:59
+# End time: 13:39:50 on Apr 01,2022, Elapsed time: 0:05:56
 # Errors: 0, Warnings: 6
-=======
-# run 100 ns
->>>>>>> feature-mane

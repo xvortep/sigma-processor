@@ -11,7 +11,7 @@ entity PC is
 		iRST			:	in		std_logic;
 		iJT			:	in		std_logic_vector(31 downto 0);
 		iSXT			:	in		std_logic_vector(31 downto 0);
-		iPC			:	out	std_logic_vector(31 downto 0)
+		oPC			:	out	std_logic_vector(31 downto 0)
 	);
 end entity;
 
@@ -32,19 +32,19 @@ architecture Behavioral of PC is
 	begin
 
 		sPC_4 <= sPC + 4;
-		sPC_BRANCH <= sPC_NEXT + (iSXT(29 downto 2) & "00"); -- sPC_NEXT + (iSXT << 2)
+		sPC_BRANCH <= sPC_4 + (iSXT(29 downto 2) & "00"); -- sPC + (iSXT << 2)
 
-		with iPC_SEL select sPC_MUX <= 
+		with iPC_SEL select sPC_NEXT <= 
 			sPC_4				when	x"0",
 			sPC_BRANCH		when	x"1",
 			iJT				when 	x"2",
 			ILLOP				when	x"3",
 			XADDR				when	x"4",
 			BBDD				when 	others;
-
-		with iRST select sPC_NEXT <=
-			sPC_MUX	when '0',
-			RESET		when others;
+--
+--		with iRST select sPC_NEXT <=
+--			sPC_MUX	when '0',
+--			RESET		when others;
 			
 		--Program counter register
 		process(iCLK, iRST) begin
@@ -55,6 +55,6 @@ architecture Behavioral of PC is
 			end if;
 		end process;
 
-		iPC <= sPC;
+		oPC <= sPC;
 end architecture;
 

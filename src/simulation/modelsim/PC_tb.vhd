@@ -5,7 +5,6 @@ entity PC_tb is
 end entity;
 
 architecture Behavioral of PC_tb is
-
 		signal sPC_SEL 	:	std_logic_vector(3 downto 0);
 		signal sCLK			:	std_logic;
 		signal sRST			:	std_logic;
@@ -23,7 +22,7 @@ architecture Behavioral of PC_tb is
 			iRST			:	in		std_logic;
 			iJT			:	in		std_logic_vector(31 downto 0);
 			iSXT			:	in		std_logic_vector(31 downto 0);
-			iPC			:	out	std_logic_vector(31 downto 0)
+			oPC			:	out	std_logic_vector(31 downto 0)
 		);
 		end component;
 
@@ -36,7 +35,7 @@ architecture Behavioral of PC_tb is
 				iRST		=> sRST,
 				iJT		=> sJT,
 				iSXT		=> sSXT,
-				iPC		=>	sPC
+				oPC		=>	sPC
 			);
 			
 			
@@ -50,23 +49,31 @@ architecture Behavioral of PC_tb is
 			
 			stimulus : process
 			begin
-
-				sRST <= '1';
 				sSXT <= x"babadeda";
 				sJT <= x"babadeda";
-				wait for 10 * iCLK_period;
+				sRST <= '0';
+				wait for iCLK_period;
+				sRST <= '1';
+				wait for iCLK_period;
+				sRST <= '0';
+				
+
+				wait for iCLK_period;
 				sRST <= '0';
 				sPC_SEL <= x"0";
-				wait for 10 * iCLK_period;
+				wait for iCLK_period;
 				
 				sPC_SEL <= x"1";
-				wait for 10 * iCLK_period;
+				wait for iCLK_period;
 				
 				sPC_SEL <= x"2";
-				wait for 10 * iCLK_period;
+				wait for iCLK_period;
 				
 				sPC_SEL <= x"3";
-				wait for 10 * iCLK_period;
+				wait for iCLK_period;
+				
+				sPC_SEL <= x"0";
+				wait for iCLK_period;
 				wait;
 			end process;
 		
