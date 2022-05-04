@@ -14,7 +14,7 @@ architecture arch of top is
 	-- control unit signals
 	signal sOpcode		:	std_logic_vector(5 downto 0);
 	signal sZ			:	std_logic;
-	signal sALUFN		:	std_logic_vector(5 downto 0);
+	signal sALUFNcu	:	std_logic_vector(5 downto 0);
 	signal sASEL		:	std_logic;
 	signal sBSEL		:	std_logic;
 	signal sMOE			:	std_logic;
@@ -28,12 +28,13 @@ architecture arch of top is
 	signal sApm			:	std_logic_vector(7 downto 0);
 	signal sQpm			: std_logic_vector(31 downto 0)
 	-- data ram signals 
-	signal sCLKdr		:	std_logic;
-   signal sRSTdr 		:  std_logic;
-	signal sAdr		 	:	std_logic_vector(7 downto 0); 
-	signal sDdr		 	: 	std_logic_vector(31 downto 0);
-	signal sWEdr	 	: 	std_logic;
-	signal sQdr		 	: 	std_logic_vector (31 downto 0)
+   signal sCLKdr	:  in  std_logic;
+   signal sRSTdr 	:  in  std_logic;
+   signal sAdr 	:  in  std_logic_vector (7 downto 0); 
+   signal sWDdr  	:  in  std_logic_vector (31 downto 0);
+   signal sWEdr  	:  in  std_logic;
+   signal sOEdr  	:  in  std_logic;
+   signal sRDdr  	:  out  std_logic_vector (31 downto 0));
 	-- program counter signals
 	signal sPC_SEL		:	std_logic_vector(3 downto 0);
 	signal sCLKpc		:	std_logic;
@@ -54,7 +55,7 @@ architecture arch of top is
 	-- al unit signals
 	signal sA			:	std_logic_vector(31 downto 0);
 	signal sB			:	std_logic_vector(31 downto 0);
-	signal sALUFN		:	std_logic_vector(5 downto 0);
+	signal sALUFNal	:	std_logic_vector(5 downto 0);
 	signal sOutput		:	std_logic_vector(31 downto 0)
 
 begin
@@ -64,7 +65,7 @@ begin
 	port map(
 		iOpcode	=>	sOpcode,
 		iZ			=> sZ,
-		oALUFN	=> sALUFN,
+		oALUFN	=> sALUFNcu,
 		oASEL		=> sASEL,
 		oBSEL		=> sBSEL,
 		oMOE		=> sMOE,
@@ -89,20 +90,24 @@ begin
 	);
 	sApm 			<= sPC(7 downto 0);				-- potential bug???
 ---------------------------------------------------------------------------------------------------------------
-	-- data ram											-- ACTUALLY NOT COMPLETE???
-	data_i	:	entity work.data_ram
-   Port map(
-		iCLK 		=> sCLKdr,
-      iRST 		=>	sRSTdr,
-      iA 		=> sAdr,
-		iD 		=> sDdr,
-      iWE 		=> sWEdr,
-      oQ 		=> sQdr
+	-- data ram											-- ACTUALLY NOT COMPLETE??? - false
+    data_i	:	entity work.data_ram
+	 Port map(  
+		iCLK => sCLKdr,
+      iRST => sRSTdr,
+      iAdr => sAdr, 
+      iWD  => sWDdr,
+      iWE  => sWEdr,
+      iOE  => sOEdr,
+      oRD  => sRDdr
 	);
-	sCLKdr		<= iCLK;
-	sRSTdr		<= iRST;
-	sAdr			<= sOutput(7 downto 0);			-- potential bug???
-	sDdr			<= 
+	-- logic -in
+	sCLKdr 	<= iCLK;
+	sRSTdr 	<= iRST;
+	sAdr 		<= sOutput;
+	sWDdr		<= sRD2;
+	sWEdr		<= sMWR;
+	sOEdr		<= sMOE;
 ---------------------------------------------------------------------------------------------------------------	
 	-- program counter
 	pc_i	:	entity work.PC
@@ -119,7 +124,7 @@ begin
 	sCLKpc 	<= iCLK;
 	sRSTpc	<=	iRST;
 	sJT		<= sRD1;
-		-- sxt wtf???
+	sSXT		<= x"00000000"									-- sxt not used!!!
 ---------------------------------------------------------------------------------------------------------------	
 	-- register file
 	regf_i	:	entity work.reg_file
@@ -154,12 +159,15 @@ begin
 	port map(
 		iA				=> sA,
 		iB				=> sB,
-		iALUFN		=> sALUFN,
+		iALUFN		=> sALUFNal,
 		oOutput		=>	sOutput
 	);
+	sA 		<= sRD1;
 	-- treba primiti u sB registar ili literal pomocu bsel iz cu
 	with sBSEL select sB <=
-		x"0000" & sOpcode(15 downto 0) when '1',
+		x"0000" & sOpcode(15 downto 0) 	when '1',
+		sRD2										when others;
+	sALUFNal <= sALUFNcu;
 ---------------------------------------------------------------------------------------------------------------
 		
 

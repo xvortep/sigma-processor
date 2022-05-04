@@ -1,14 +1,15 @@
-library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.NUMERIC_STD.ALL;
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
 
 entity data_ram is
-    Port ( iCLK : in  STD_LOGIC;
-           iRST : in  STD_LOGIC;
-           iA : in  STD_LOGIC_VECTOR (7 downto 0); -- was 5 bits because the memory had 32 places
-           iD : in  STD_LOGIC_VECTOR (31 downto 0);
-           iWE : in  STD_LOGIC;
-           oQ : out  STD_LOGIC_VECTOR (31 downto 0));
+    Port (  iCLK :  in  std_logic;
+            iRST :  in  std_logic;
+            iAdr :  in  std_logic_vector (7 downto 0); -- was 5 bits because the memory had 32 places
+            iWD  :  in  std_logic_vector (31 downto 0);
+            iWE  :  in  std_logic;
+            iOE  :  in  std_logic;
+            oRD  :  out  std_logic_vector (31 downto 0));
 end data_ram;
 
 architecture Behavioral of data_ram is
@@ -26,7 +27,7 @@ begin
             end loop;
         elsif (iCLK'event and iCLK = '1') then
             if (iWE = '1') then
-                rMEM(to_integer(unsigned(iA))) <= iD;
+                rMEM(to_integer(unsigned(iAdr))) <= iWD;
             end if;
         end if;
     end process;
@@ -56,21 +57,10 @@ begin
 	sMEM(21) 	<= "00000000000000000000000000000000"; 
 	sMEM(22) 	<= "00000000000000000000000000000000"; 
 	sMEM(23) 	<= "00000000000000000000000000001111";  -- _m
-	sMEM(24) 	<= "00000000000000000000000000000000";  -- _vtp
-	sMEM(25) 	<= "00000000000000000000000000000000"; 
-	sMEM(26) 	<= "00000000000000000000000000000000"; 
-	sMEM(27) 	<= "00000000000000000000000000000000"; 
-	sMEM(28) 	<= "00000000000000000000000000000000"; 
-	sMEM(29) 	<= "00000000000000000000000000000000"; 
-	sMEM(30) 	<= "00000000000000000000000000000000"; 
-	sMEM(31) 	<= "00000000000000000000000000000000"; 
-	sMEM(32) 	<= "00000000000000000000000000000000"; 
-	sMEM(33) 	<= "00000000000000000000000000000000"; 
-	sMEM(34) 	<= "00000000000000000000000000000000"; 
-	sMEM(35) 	<= "00000000000000000000000000000000"; 
-	sMEM(36) 	<= "11111111111111111111111111111101";  -- _t
 --- to here  ---------------------------------------------------------------
-    
-oQ <= rMEM(to_integer(unsigned(iA)));
+
+with iOE select oRD <=
+    rMEM(to_integer(unsigned(iAdr)))    when '1',
+    x"00000000"                         when others;
 
 end Behavioral;
