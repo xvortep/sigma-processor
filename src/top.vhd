@@ -1,12 +1,16 @@
 library ieee;
 use ieee.std_logic_1164.all;
+use ieee.std_logic_unsigned.all;
 
 library work;
 
 entity top is
 	port(
-		iCLK	:	in	std_logic;
-		iRST	:	in	std_logic;
+		iCLK	:	in		std_logic;
+		iRST	:	in		std_logic;
+		
+		oZ		:	out	std_logic_vector(31 downto 0);
+		oIns	:	out	std_logic_vector(5 downto 0)
 	);
 end entity;
 
@@ -26,17 +30,17 @@ architecture arch of top is
 	signal sWERF		:	std_logic;
 	-- program memory signals
 	signal sApm			:	std_logic_vector(7 downto 0);
-	signal sQpm			: std_logic_vector(31 downto 0)
+	signal sQpm			: std_logic_vector(31 downto 0);
 	-- data ram signals 
-   signal sCLKdr	:  in  std_logic;
-   signal sRSTdr 	:  in  std_logic;
-   signal sAdr 	:  in  std_logic_vector (7 downto 0); 
-   signal sWDdr  	:  in  std_logic_vector (31 downto 0);
-   signal sWEdr  	:  in  std_logic;
-   signal sOEdr  	:  in  std_logic;
-   signal sRDdr  	:  out  std_logic_vector (31 downto 0));
+   signal sCLKdr	:  std_logic;
+   signal sRSTdr 	:  std_logic;
+   signal sAdr 	:  std_logic_vector (7 downto 0); 
+   signal sWDdr  	:	std_logic_vector (31 downto 0);
+   signal sWEdr  	:	std_logic;
+   signal sOEdr  	:	std_logic;
+   signal sRDdr  	:	std_logic_vector (31 downto 0);
 	-- program counter signals
-	signal sPC_SEL		:	std_logic_vector(3 downto 0);
+	signal sPC_SEL		:	std_logic_vector(2 downto 0);
 	signal sCLKpc		:	std_logic;
 	signal sRSTpc		:	std_logic;
 	signal sJT			:	std_logic_vector(31 downto 0);
@@ -51,12 +55,13 @@ architecture arch of top is
 	signal sCLKrf		:	std_logic;
 	signal sRSTrf			:	std_logic;
 	signal sRD1			:	std_logic_vector(31 downto 0);
-	signal sRD2			:	std_logic_vector(31 downto 0)
+	signal sRD2			:	std_logic_vector(31 downto 0);
 	-- al unit signals
 	signal sA			:	std_logic_vector(31 downto 0);
 	signal sB			:	std_logic_vector(31 downto 0);
 	signal sALUFNal	:	std_logic_vector(5 downto 0);
-	signal sOutput		:	std_logic_vector(31 downto 0)
+	signal sOutput		:	std_logic_vector(31 downto 0);
+	signal sEX			:	std_logic_vector(31 downto 0);
 
 begin
 ---------------------------------------------------------------------------------------------------------------
@@ -80,7 +85,7 @@ begin
 	with sRD1 select sZ <=
 		'1' when x"00000000",
 		'0' when others;
-	sOpcode 	<= sQpm;
+	sOpcode 	<= sQpm(31 downto 26);
 ---------------------------------------------------------------------------------------------------------------
 	-- program memory
 	prog_i	:	entity work.instr_rom
@@ -104,7 +109,7 @@ begin
 	-- logic -in
 	sCLKdr 	<= iCLK;
 	sRSTdr 	<= iRST;
-	sAdr 		<= sOutput;
+	sAdr 		<= sOutput(7 downto 0);
 	sWDdr		<= sRD2;
 	sWEdr		<= sMWR;
 	sOEdr		<= sMOE;
@@ -124,7 +129,7 @@ begin
 	sCLKpc 	<= iCLK;
 	sRSTpc	<=	iRST;
 	sJT		<= sRD1;
-	sSXT		<= x"00000000"									-- sxt not used!!!
+	sSXT		<= x"00000000";									-- sxt not used!!!
 ---------------------------------------------------------------------------------------------------------------	
 	-- register file
 	regf_i	:	entity work.reg_file
@@ -134,8 +139,8 @@ begin
 		iWA	=>	sWA,
 		iWD	=>	sWD,
 		iWE	=>	sWE,
-		iCLK	=>	sCLK,
-		iRST	=>	sRST,
+		iCLK	=>	sCLKrf,
+		iRST	=>	sRSTrf,
 		oRD1	=>	sRD1,
 		oRD2	=>	sRD2
 	);
@@ -143,16 +148,17 @@ begin
 	sCLKrf	<= iCLK;
 	sRSTrf	<=	iRST;
 	sWE 		<= sWERF;
-	sRA1 		<= sOpcode(20 downto 16);		 			-- sRA1
+	sRA1 		<= sQpm(20 downto 16);		 			-- sRA1
 	with sRA2SEL select sRA2 <=							-- sRA2
-		sOpcode(25 downto 21)	when '1',
-		sOpcode(15 downto 11)	when others;
+		sQpm(25 downto 21)	when '1',
+		sQpm(15 downto 11)	when others;
 	with sWASEL select sWA <=								-- sWA
-		(0x"1e")						when 	'1',				-- hardcoded reg30 exception
-		sOpcode(25 downto 21)	when others;
+		("11110")						when 	'1',			-- hardcoded reg30 exception
+		sQpm(25 downto 21)	when others;
 	with sWDSEL select sWD <=								-- wdsel
-		(sPC + 4)					when	'00',
-		sOutput						when	'01',
+		(sPC + 4)					when	"00",
+		sOutput						when	"01",
+		sRDdr							when others;
 ---------------------------------------------------------------------------------------------------------------		
 	-- al unit
 	alu_i	:	entity work.ALU
@@ -164,11 +170,15 @@ begin
 	);
 	sA 		<= sRD1;
 	-- treba primiti u sB registar ili literal pomocu bsel iz cu
+	with sQpm(15) select sEX <=
+		x"0000" & sQpm(15 downto 0)	when '0',
+		x"FFFF" & sQpm(15 downto 0)	when others;
 	with sBSEL select sB <=
-		x"0000" & sOpcode(15 downto 0) 	when '1',
-		sRD2										when others;
+		sEX								 	when '1',
+		sRD2									when others;
 	sALUFNal <= sALUFNcu;
 ---------------------------------------------------------------------------------------------------------------
-		
+	oZ <= sOutput;
+	oIns <= sQpm(31 downto 26);
 
 end architecture;

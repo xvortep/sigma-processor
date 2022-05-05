@@ -27,7 +27,7 @@ begin
             end loop;
         elsif (iCLK'event and iCLK = '1') then
             if (iWE = '1') then
-                rMEM(to_integer(unsigned(iAdr))) <= iWD;
+                rMEM(to_integer(unsigned(iAdr(7 downto 2)))) <= iWD;
             end if;
         end if;
     end process;
@@ -60,7 +60,7 @@ begin
 --- to here  ---------------------------------------------------------------
 
 with iOE select oRD <=
-    rMEM(to_integer(unsigned(iAdr)))    when '1',
-    x"00000000"                         when others;
+    rMEM(to_integer(unsigned(iAdr(7 downto 2))))    when '1',
+    x"00000000"                         				 when others;
 
 end Behavioral;

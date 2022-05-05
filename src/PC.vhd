@@ -6,7 +6,7 @@ use ieee.std_logic_arith.all;
 entity PC is
 	port
 	(
-		iPC_SEL		:	in		std_logic_vector(3 downto 0);
+		iPC_SEL		:	in		std_logic_vector(2 downto 0);
 		iCLK			:	in		std_logic;
 		iRST			:	in		std_logic;
 		iJT			:	in		std_logic_vector(31 downto 0);
@@ -35,11 +35,11 @@ architecture Behavioral of PC is
 		sPC_BRANCH <= sPC_4 + (iSXT(29 downto 2) & "00"); -- sPC + (iSXT << 2)
 
 		with iPC_SEL select sPC_NEXT <= 
-			sPC_4				when	x"0",
-			sPC_BRANCH		when	x"1",
-			iJT				when 	x"2",
-			ILLOP				when	x"3",
-			XADDR				when	x"4",
+			sPC_4				when	o"0",
+			sPC_BRANCH		when	o"1",
+			iJT				when 	o"2",
+			ILLOP				when	o"3",
+			XADDR				when	o"4",
 			BBDD				when 	others;
 --
 --		with iRST select sPC_NEXT <=
