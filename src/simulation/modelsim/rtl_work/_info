@@ -8,70 +8,42 @@ z2
 !i10e 25
 !i10f 100
 cModel Technology
-<<<<<<< HEAD
-Z0 d/home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/simulation/modelsim
+Z0 d/home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/simulation/modelsim
 Ealu
-Z1 w1648583822
+Z1 w1651776571
 Z2 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
 Z3 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
 Z4 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
 Z5 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
-!i122 0
+!i122 4
 R0
-Z6 8/home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/ALU.vhd
-Z7 F/home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/ALU.vhd
+Z6 8/home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/ALU.vhd
+Z7 F/home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/ALU.vhd
 l0
 L6 1
 VZPj40zg1@O_0F`zQb_AY[0
 !s100 CDoUZI7[K`nQgB?VU5VKO0
 Z8 OV;C;2020.1;71
 31
-Z9 !s110 1648583841
+Z9 !s110 1651779447
 !i10b 1
-Z10 !s108 1648583841.000000
-Z11 !s90 -reportprogress|300|-93|-work|work|/home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/ALU.vhd|
-Z12 !s107 /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/ALU.vhd|
+Z10 !s108 1651779447.000000
+Z11 !s90 -reportprogress|300|-93|-work|work|/home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/ALU.vhd|
+Z12 !s107 /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/ALU.vhd|
 !i113 1
 Z13 o-93 -work work
 Z14 tExplicit 1 CvgOpt 0
-=======
-Z0 d/home/rtrk/Documents/RA206-2019_Beta+/sigma-processor/src/simulation/modelsim
-Econtrolunit
-Z1 w1648662834
-Z2 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
-Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
-Z4 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
-!i122 0
-R0
-Z5 8/home/rtrk/Documents/RA206-2019_Beta+/sigma-processor/src/CU.vhd
-Z6 F/home/rtrk/Documents/RA206-2019_Beta+/sigma-processor/src/CU.vhd
-l0
-L5 1
-VcY@lWI]J]FdQD];_XzC=H3
-!s100 `J27k``:beO=gjW02c`521
-Z7 OV;C;2020.1;71
-31
-Z8 !s110 1648662950
-!i10b 1
-Z9 !s108 1648662950.000000
-Z10 !s90 -reportprogress|300|-93|-work|work|/home/rtrk/Documents/RA206-2019_Beta+/sigma-processor/src/CU.vhd|
-Z11 !s107 /home/rtrk/Documents/RA206-2019_Beta+/sigma-processor/src/CU.vhd|
-!i113 1
-Z12 o-93 -work work
-Z13 tExplicit 1 CvgOpt 0
->>>>>>> feature-mane
 Abehavioral
 R2
 R3
 R4
-<<<<<<< HEAD
 R5
-DEx4 work 3 alu 0 22 ZPj40zg1@O_0F`zQb_AY[0
-!i122 0
+Z15 DEx4 work 3 alu 0 22 ZPj40zg1@O_0F`zQb_AY[0
+!i122 4
 l63
-L19 136
-V?CmnH_YT<ZLk885g[dclj2
-!s100 ;:1c:lUElJIQC8dhij;m52
+L19 137
+V[]]<VO;:nQFY]F9m]XUjZ0
+!s100 c[gAhTlB<KCgbULm[3;8K3
 R8
 31
 R9
@@ -82,103 +54,358 @@ R12
 !i113 1
 R13
 R14
-Ealu_tb
-Z15 w1648582475
+Econtrolunit
+Z16 w1651772862
+R2
 R4
 R5
-!i122 1
+!i122 3
 R0
-Z16 8/home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/simulation/modelsim/ALU_tb.vhd
-Z17 F/home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/simulation/modelsim/ALU_tb.vhd
+Z17 8/home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/CU.vhd
+Z18 F/home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/CU.vhd
 l0
-L4 1
-V2W`nFjn^V3C3GCoz<][J^1
-!s100 63V`WgM2l]W[;CYbWUXf>1
+L5 1
+VcY@lWI]J]FdQD];_XzC=H3
+!s100 `J27k``:beO=gjW02c`521
 R8
 31
 R9
 !i10b 1
 R10
-Z18 !s90 -reportprogress|300|-93|-work|work|/home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/simulation/modelsim/ALU_tb.vhd|
-!s107 /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/simulation/modelsim/ALU_tb.vhd|
+Z19 !s90 -reportprogress|300|-93|-work|work|/home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/CU.vhd|
+Z20 !s107 /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/CU.vhd|
 !i113 1
 R13
 R14
 Abehavioral
+R2
 R4
 R5
-DEx4 work 6 alu_tb 0 22 2W`nFjn^V3C3GCoz<][J^1
-!i122 1
-l26
-L7 85
-V>B<1Doz9B@THDdnM48znh0
-!s100 QcLB7Fc6<BJCD5dYbNB^=3
-R8
-31
-R9
-!i10b 1
-R10
-R18
-Z19 !s107 /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/simulation/modelsim/ALU_tb.vhd|
-!i113 1
-R13
-R14
-=======
-DEx4 work 11 controlunit 0 22 cY@lWI]J]FdQD];_XzC=H3
-!i122 0
+Z21 DEx4 work 11 controlunit 0 22 cY@lWI]J]FdQD];_XzC=H3
+!i122 3
 l86
 L26 132
 V6_C00?WPZHQ;TCW1VWFc43
 !s100 W1hSTRPRCQXe2T>RPQ_223
-R7
-31
 R8
-!i10b 1
+31
 R9
+!i10b 1
 R10
-R11
+R19
+R20
 !i113 1
-R12
 R13
-Ecu_tb
-Z14 w1648581864
-R3
+R14
+Edata_ram
+Z22 w1651778973
+Z23 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
 R4
+R5
 !i122 1
 R0
-Z15 8/home/rtrk/Documents/RA206-2019_Beta+/sigma-processor/src/simulation/modelsim/CU_tb.vhd
-Z16 F/home/rtrk/Documents/RA206-2019_Beta+/sigma-processor/src/simulation/modelsim/CU_tb.vhd
+Z24 8/home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/data_file.vhd
+Z25 F/home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/data_file.vhd
 l0
-L4 1
-V;<?5zIQ_[^1cadI[ch9b32
-!s100 ?3B]j21zkhNaGR<`V0bzO3
-R7
-31
+L5 1
+VHohJV>;R1Ce;hGL[e>jkf3
+!s100 cL3k^VkOW>ZQQiP[53^]D3
 R8
-!i10b 1
+31
 R9
-Z17 !s90 -reportprogress|300|-93|-work|work|/home/rtrk/Documents/RA206-2019_Beta+/sigma-processor/src/simulation/modelsim/CU_tb.vhd|
-!s107 /home/rtrk/Documents/RA206-2019_Beta+/sigma-processor/src/simulation/modelsim/CU_tb.vhd|
+!i10b 1
+R10
+Z26 !s90 -reportprogress|300|-93|-work|work|/home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/data_file.vhd|
+Z27 !s107 /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/data_file.vhd|
 !i113 1
-R12
 R13
+R14
 Abehavioral
+R23
+R4
+R5
+Z28 DEx4 work 8 data_ram 0 22 HohJV>;R1Ce;hGL[e>jkf3
+!i122 1
+l21
+L15 52
+V=n@]g7gGabLTH[KA<1CgD3
+!s100 a?ZcYi>zaZDl;T2g1Rmk;0
+R8
+31
+R9
+!i10b 1
+R10
+R26
+R27
+!i113 1
+R13
+R14
+Einstr_rom
+Z29 w1651778958
+R2
+Z30 DPx4 ieee 16 std_logic_signed 0 22 C<aanc0R`<LWPSe[JYRP^3
+R4
+R5
+!i122 0
+R0
+Z31 8/home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/prog_file.vhd
+Z32 F/home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/prog_file.vhd
+l0
+L5 1
+VPi>_ml`?_L<<jSH=LF6ke1
+!s100 [f_F7?4QC22N:0`N^3mB<3
+R8
+31
+R9
+!i10b 1
+R10
+Z33 !s90 -reportprogress|300|-93|-work|work|/home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/prog_file.vhd|
+Z34 !s107 /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/prog_file.vhd|
+!i113 1
+R13
+R14
+Abehavioral
+R2
+R30
+R4
+R5
+Z35 DEx4 work 9 instr_rom 0 22 Pi>_ml`?_L<<jSH=LF6ke1
+!i122 0
+l11
+L10 11
+VF?o^7Mmna]jD;fdT2lP`[1
+!s100 beKF_5<IYEd=ZT<G2D1RT1
+R8
+31
+R9
+!i10b 1
+R10
+R33
+R34
+!i113 1
+R13
+R14
+Epc
+Z36 w1651774492
+R2
 R3
 R4
-DEx4 work 5 cu_tb 0 22 ;<?5zIQ_[^1cadI[ch9b32
-!i122 1
-l51
-L7 96
-V3mJgJACa:7B6[7@JI>hl]2
-!s100 h`n:AcBbY5X;>=g`cT@6`0
-R7
-31
+R5
+!i122 5
+R0
+Z37 8/home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/PC.vhd
+Z38 F/home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/PC.vhd
+l0
+L6 1
+VQO_hREmDmS1Sn@=INLBof1
+!s100 h]nG<5JP=FThLnzF;]hcj3
 R8
-!i10b 1
+31
 R9
-R17
-Z18 !s107 /home/rtrk/Documents/RA206-2019_Beta+/sigma-processor/src/simulation/modelsim/CU_tb.vhd|
+!i10b 1
+R10
+Z39 !s90 -reportprogress|300|-93|-work|work|/home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/PC.vhd|
+Z40 !s107 /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/PC.vhd|
 !i113 1
-R12
 R13
->>>>>>> feature-mane
+R14
+Abehavioral
+R2
+R3
+R4
+R5
+Z41 DEx4 work 2 pc 0 22 QO_hREmDmS1Sn@=INLBof1
+!i122 5
+l32
+L18 42
+VJhQlYS9BNlD78D3NijVHb2
+!s100 ZU]S3B=@16iUcnOmmb<T42
+R8
+31
+R9
+!i10b 1
+R10
+R39
+R40
+!i113 1
+R13
+R14
+Ereg
+Z42 w1651772899
+R4
+R5
+!i122 2
+R0
+Z43 8/home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/register.vhd
+Z44 F/home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/register.vhd
+l0
+L4 1
+VnWeejN`FjF_lG4hegLL9m1
+!s100 k>f?]Wi=j<8YFbg7X[E:O0
+R8
+31
+R9
+!i10b 1
+R10
+Z45 !s90 -reportprogress|300|-93|-work|work|/home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/register.vhd|
+Z46 !s107 /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/register.vhd|
+!i113 1
+R13
+R14
+Abehavioral
+R4
+R5
+Z47 DEx4 work 3 reg 0 22 nWeejN`FjF_lG4hegLL9m1
+!i122 2
+l23
+L18 20
+V5_KnKZF]zhSCV5l9YG97K2
+!s100 HdS51fGRanE7=BP=2Mneb2
+R8
+31
+R9
+!i10b 1
+R10
+R45
+R46
+!i113 1
+R13
+R14
+Ereg_file
+Z48 w1651775747
+R23
+R4
+R5
+!i122 6
+R0
+Z49 8/home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/reg_file.vhd
+Z50 F/home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/reg_file.vhd
+l0
+L7 1
+Vi_64AC>@G]XBJ87[PD_TK0
+!s100 ]?T=9P09S4cnLJUEFb54Q1
+R8
+31
+Z51 !s110 1651779448
+!i10b 1
+R10
+Z52 !s90 -reportprogress|300|-93|-work|work|/home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/reg_file.vhd|
+Z53 !s107 /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/reg_file.vhd|
+!i113 1
+R13
+R14
+Abehavioral
+R47
+R23
+R4
+R5
+Z54 DEx4 work 8 reg_file 0 22 i_64AC>@G]XBJ87[PD_TK0
+!i122 6
+l34
+L25 432
+VAo<PH7@zCL`QnPFWWBV9N2
+!s100 ;Sd6:O2C47K?C1k5JKYmO1
+R8
+31
+R51
+!i10b 1
+R10
+R52
+R53
+!i113 1
+R13
+R14
+Etop
+Z55 w1651779317
+R2
+R3
+R4
+R5
+!i122 7
+R0
+Z56 8/home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/top.vhd
+Z57 F/home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/top.vhd
+l0
+L7 1
+V?ahj_@fAnJF`_m7405=LO2
+!s100 WDT?2;2i]WE>X457>Tb:`0
+R8
+31
+R51
+!i10b 1
+Z58 !s108 1651779448.000000
+Z59 !s90 -reportprogress|300|-93|-work|work|/home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/top.vhd|
+Z60 !s107 /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/top.vhd|
+!i113 1
+R13
+R14
+Aarch
+R15
+R54
+R41
+R23
+R28
+R30
+R35
+R21
+R2
+R3
+R4
+R5
+DEx4 work 3 top 0 22 ?ahj_@fAnJF`_m7405=LO2
+!i122 7
+l66
+L17 168
+V]iAP;<Rm9zG<X;SK`<8SZ3
+!s100 <6ZkKWReKbal?mfV9mM::0
+R8
+31
+R51
+!i10b 1
+R58
+R59
+R60
+!i113 1
+R13
+R14
+Etop_tb
+Z61 w1651779417
+R4
+R5
+!i122 8
+R0
+Z62 8/home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/simulation/modelsim/top_tb.vhd
+Z63 F/home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/simulation/modelsim/top_tb.vhd
+l0
+L4 1
+VV?HB9E[XjEbBnK2bDJNHX1
+!s100 ]1=i6M32Pe[jLeKk1cXS91
+R8
+31
+R51
+!i10b 1
+R58
+Z64 !s90 -reportprogress|300|-93|-work|work|/home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/simulation/modelsim/top_tb.vhd|
+!s107 /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/simulation/modelsim/top_tb.vhd|
+!i113 1
+R13
+R14
+Abehavioral
+R4
+R5
+DEx4 work 6 top_tb 0 22 V?HB9E[XjEbBnK2bDJNHX1
+!i122 8
+l33
+L7 52
+VR:AlN8lcI_;BCmh0?o3]02
+!s100 0DQDWQX08kzI^60B@kbdO3
+R8
+31
+R51
+!i10b 1
+R58
+R64
+Z65 !s107 /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/simulation/modelsim/top_tb.vhd|
+!i113 1
+R13
+R14

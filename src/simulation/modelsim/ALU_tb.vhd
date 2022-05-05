@@ -82,8 +82,12 @@ architecture Behavioral of ALU_tb is
 		sALUFN <= "110011";
 		wait for 2 * iCLK_period;
 		
-		sALUFN <= "000000";				--should be 0
+		sALUFN <= "000000";				--should be babadeda
 		wait for 2 * iCLK_period;
+		
+		
+		sA <= x"8001000f";				--check for sign extension
+		sALUFN <= "110011";				--on SRA
 		wait;
 	end process;
 

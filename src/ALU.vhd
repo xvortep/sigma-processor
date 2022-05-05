@@ -130,6 +130,7 @@ architecture Behavioral of ALU is
 		with iB(4) select sSRA_s5 <=								--16 bit shift
 			(sS16 & sSRA_s4(31 downto 16))	when '1',
 			(sSRA_s4) 								when others;
+		sSRA <= sSRA_s5;
 --------------------------------------------------------------------------------------------			
 		sALUFN <= iALUFN;
 		--calculation
@@ -147,7 +148,7 @@ architecture Behavioral of ALU is
 			(sSHL)			when "110000",
 			(sSHR)			when "110001",
 			(sSRA)			when "110011",
-			(x"00000000")	when others;
+			(x"babadeda")	when others;
 			
 		oOutput <= sOutput;
 
