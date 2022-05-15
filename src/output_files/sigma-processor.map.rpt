@@ -1,5 +1,5 @@
-Analysis & Elaboration report for sigma-processor
-Thu May  5 21:37:24 2022
+Analysis & Synthesis report for sigma-processor
+Sun May 15 19:54:05 2022
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -7,12 +7,10 @@ Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 ; Table of Contents ;
 ---------------------
   1. Legal Notice
-  2. Analysis & Elaboration Summary
-  3. Parallel Compilation
-  4. Analysis & Elaboration Settings
-  5. Port Connectivity Checks: "PC:pc_i"
-  6. Port Connectivity Checks: "ControlUnit:cu_i"
-  7. Analysis & Elaboration Messages
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Messages
 
 
 
@@ -37,9 +35,9 @@ https://fpgasoftware.intel.com/eula.
 
 
 +----------------------------------------------------------------------------------+
-; Analysis & Elaboration Summary                                                   ;
+; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Elaboration Status      ; Successful - Thu May  5 21:37:24 2022       ;
+; Analysis & Synthesis Status        ; Failed - Sun May 15 19:54:05 2022           ;
 ; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                      ; sigma-processor                             ;
 ; Top-level Entity Name              ; top                                         ;
@@ -58,24 +56,8 @@ https://fpgasoftware.intel.com/eula.
 +------------------------------------+---------------------------------------------+
 
 
-+------------------------------------------+
-; Parallel Compilation                     ;
-+----------------------------+-------------+
-; Processors                 ; Number      ;
-+----------------------------+-------------+
-; Number detected on machine ; 6           ;
-; Maximum allowed            ; 6           ;
-;                            ;             ;
-; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
-;                            ;             ;
-; Usage by Processor         ; % Time Used ;
-;     Processor 1            ; 100.0%      ;
-+----------------------------+-------------+
-
-
 +------------------------------------------------------------------------------------------------------------+
-; Analysis & Elaboration Settings                                                                            ;
+; Analysis & Synthesis Settings                                                                              ;
 +------------------------------------------------------------------+--------------------+--------------------+
 ; Option                                                           ; Setting            ; Default Value      ;
 +------------------------------------------------------------------+--------------------+--------------------+
@@ -160,32 +142,30 @@ https://fpgasoftware.intel.com/eula.
 +------------------------------------------------------------------+--------------------+--------------------+
 
 
-+----------------------------------------+
-; Port Connectivity Checks: "PC:pc_i"    ;
-+------+-------+----------+--------------+
-; Port ; Type  ; Severity ; Details      ;
-+------+-------+----------+--------------+
-; isxt ; Input ; Info     ; Stuck at GND ;
-+------+-------+----------+--------------+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 6           ;
+; Maximum allowed            ; 6           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
++----------------------------+-------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "ControlUnit:cu_i"                                                                    ;
-+-------+--------+----------+-------------------------------------------------------------------------------------+
-; Port  ; Type   ; Severity ; Details                                                                             ;
-+-------+--------+----------+-------------------------------------------------------------------------------------+
-; oasel ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+-------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+---------------------------------+
-; Analysis & Elaboration Messages ;
-+---------------------------------+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
 Info: *******************************************************************
-Info: Running Quartus Prime Analysis & Elaboration
+Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Thu May  5 21:37:18 2022
-Info: Command: quartus_map --read_settings_files=on --write_settings_files=off sigma-processor -c sigma-processor --analysis_and_elaboration
+    Info: Processing started: Sun May 15 19:54:00 2022
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off sigma-processor -c sigma-processor
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file prog_file.vhd
@@ -200,9 +180,6 @@ Info (12021): Found 2 design units, including 1 entities, in source file reg_fil
 Info (12021): Found 2 design units, including 1 entities, in source file register.vhd
     Info (12022): Found design unit 1: reg-Behavioral File: /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/register.vhd Line: 18
     Info (12023): Found entity 1: reg File: /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/register.vhd Line: 4
-Info (12021): Found 2 design units, including 1 entities, in source file CU.vhd
-    Info (12022): Found design unit 1: ControlUnit-Behavioral File: /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/CU.vhd Line: 26
-    Info (12023): Found entity 1: ControlUnit File: /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/CU.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file ALU.vhd
     Info (12022): Found design unit 1: ALU-Behavioral File: /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/ALU.vhd Line: 19
     Info (12023): Found entity 1: ALU File: /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/ALU.vhd Line: 6
@@ -224,48 +201,29 @@ Info (12021): Found 2 design units, including 1 entities, in source file top.vhd
 Info (12021): Found 2 design units, including 1 entities, in source file simulation/modelsim/top_tb.vhd
     Info (12022): Found design unit 1: top_tb-Behavioral File: /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/simulation/modelsim/top_tb.vhd Line: 7
     Info (12023): Found entity 1: top_tb File: /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/simulation/modelsim/top_tb.vhd Line: 4
-Info (12127): Elaborating entity "top" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at top.vhd(22): object "sASEL" assigned a value but never read File: /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/top.vhd Line: 22
-Info (12128): Elaborating entity "ControlUnit" for hierarchy "ControlUnit:cu_i" File: /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/top.vhd Line: 69
-Warning (10540): VHDL Signal Declaration warning at CU.vhd(68): used explicit default value for signal "sOpTable" because signal was never assigned a value File: /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/CU.vhd Line: 68
-Info (12128): Elaborating entity "instr_rom" for hierarchy "instr_rom:prog_i" File: /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/top.vhd Line: 91
-Info (12128): Elaborating entity "data_ram" for hierarchy "data_ram:data_i" File: /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/top.vhd Line: 99
-Warning (10492): VHDL Process Statement warning at data_file.vhd(26): signal "sMEM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/data_file.vhd Line: 26
-Warning (10027): Verilog HDL or VHDL warning at the data_file.vhd(30): index expression is not wide enough to address all of the elements in the array File: /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/data_file.vhd Line: 30
-Warning (10631): VHDL Process Statement warning at data_file.vhd(23): inferring latch(es) for signal or variable "rMEM", which holds its previous value in one or more paths through the process File: /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/data_file.vhd Line: 23
-Info (12128): Elaborating entity "PC" for hierarchy "PC:pc_i" File: /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/top.vhd Line: 118
-Info (12128): Elaborating entity "reg_file" for hierarchy "reg_file:regf_i" File: /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/top.vhd Line: 135
-Info (12128): Elaborating entity "reg" for hierarchy "reg_file:regf_i|reg:r0_i" File: /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/reg_file.vhd Line: 144
-Info (12128): Elaborating entity "ALU" for hierarchy "ALU:alu_i" File: /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/top.vhd Line: 164
-Warning (20013): Ignored 24 assignments for entity "sigma-processor" -- entity does not exist in design
-    Warning (20014): Assignment for entity set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -entity "sigma-processor" -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -entity "sigma-processor" -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -entity "sigma-processor" -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_PRESERVE_HIGH_SPEED_TILES ON -entity "sigma-processor" -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IGNORE_SOURCE_FILE_CHANGES OFF -entity "sigma-processor" -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_ALWAYS_USE_QXP_NETLIST OFF -entity "sigma-processor" -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_COLOR 16764057 -entity "sigma-processor" -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_ASSIGNMENTS ON -entity "sigma-processor" -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_EXISTING_ASSIGNMENTS REPLACE_CONFLICTING -entity "sigma-processor" -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_EXISTING_LOGICLOCK_REGIONS UPDATE_CONFLICTING -entity "sigma-processor" -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_PIN_ASSIGNMENTS ON -entity "sigma-processor" -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_PROMOTE_ASSIGNMENTS ON -entity "sigma-processor" -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_TYPE STANDARD_PARTITION -entity "sigma-processor" -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name ALLOW_MULTIPLE_PERSONAS OFF -entity "sigma-processor" -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_ASD_REGION_ID 1 -entity "sigma-processor" -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name CROSS_BOUNDARY_OPTIMIZATIONS OFF -entity "sigma-processor" -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name PROPAGATE_CONSTANTS_ON_INPUTS ON -entity "sigma-processor" -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name PROPAGATE_INVERSIONS_ON_INPUTS ON -entity "sigma-processor" -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name REMOVE_LOGIC_ON_UNCONNECTED_OUTPUTS ON -entity "sigma-processor" -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name MERGE_EQUIVALENT_INPUTS ON -entity "sigma-processor" -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name MERGE_EQUIVALENT_BIDIRS ON -entity "sigma-processor" -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name ABSORB_PATHS_FROM_OUTPUTS_TO_INPUTS ON -entity "sigma-processor" -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_EXTRACT_HARD_BLOCK_NODES ON -entity "sigma-processor" -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_ENABLE_STRICT_PRESERVATION OFF -entity "sigma-processor" -section_id Top was ignored
-Info: Quartus Prime Analysis & Elaboration was successful. 0 errors, 31 warnings
-    Info: Peak virtual memory: 750 megabytes
-    Info: Processing ended: Thu May  5 21:37:24 2022
-    Info: Elapsed time: 00:00:06
-    Info: Total CPU time (on all processors): 00:00:11
+Info (12021): Found 2 design units, including 1 entities, in source file CU_IF.vhd
+    Info (12022): Found design unit 1: ControlUnit_IF-Behavioral File: /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/CU_IF.vhd Line: 17
+    Info (12023): Found entity 1: ControlUnit_IF File: /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/CU_IF.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file CU_RF.vhd
+    Info (12022): Found design unit 1: ControlUnit_RF-Behavioral File: /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/CU_RF.vhd Line: 17
+    Info (12023): Found entity 1: ControlUnit_RF File: /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/CU_RF.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file CU_ALU.vhd
+    Info (12022): Found design unit 1: ControlUnit_ALU-Behavioral File: /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/CU_ALU.vhd Line: 18
+    Info (12023): Found entity 1: ControlUnit_ALU File: /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/CU_ALU.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file CU_MEM.vhd
+    Info (12022): Found design unit 1: ControlUnit_MEM-Behavioral File: /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/CU_MEM.vhd Line: 17
+    Info (12023): Found entity 1: ControlUnit_MEM File: /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/CU_MEM.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file CU_WB.vhd
+    Info (12022): Found design unit 1: ControlUnit_WB-Behavioral File: /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/CU_WB.vhd Line: 17
+    Info (12023): Found entity 1: ControlUnit_WB File: /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/CU_WB.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file ins_queue.vhd
+    Info (12022): Found design unit 1: ins_queue-Behavioral File: /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/ins_queue.vhd Line: 19
+    Info (12023): Found entity 1: ins_queue File: /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/ins_queue.vhd Line: 6
+Error (10481): VHDL Use Clause error at top.vhd(69): design library "work" does not contain primary unit "ControlUnit". Verify that the primary unit exists in the library and has been successfully compiled. File: /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/top.vhd Line: 69
+Error: Quartus Prime Analysis & Synthesis was unsuccessful. 1 error, 1 warning
+    Error: Peak virtual memory: 418 megabytes
+    Error: Processing ended: Sun May 15 19:54:05 2022
+    Error: Elapsed time: 00:00:05
+    Error: Total CPU time (on all processors): 00:00:11
 
 

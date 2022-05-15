@@ -61,6 +61,6 @@ begin
 
 with iOE select oRD <=
     rMEM(to_integer(unsigned(iAdr(7 downto 2))))    when '1',
-    x"00000000"                         				 when others;
+    x"00000000"                         when others;
 
 end Behavioral;
