@@ -7,6 +7,7 @@ entity ControlUnit_RF is
 	(
 		--inputs
 		iOpcode	:	in		std_logic_vector(5 downto 0);
+		iZ			:	in		std_logic;
 		
 		--outputs
 		oRA2SEL	:	out	std_logic;

@@ -7,7 +7,7 @@ entity ControlUnit_IF is
 	(
 		--inputs
 		iOpcode	:	in		std_logic_vector(5 downto 0);
-		iZ			:	in		std_logic;
+		--iZ			:	in		std_logic;
 		
 		--outputs
 		oPCSEL	:	out	std_logic_vector(2 downto 0)
