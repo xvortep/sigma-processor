@@ -402,4 +402,7 @@ begin
 	s_irs_rc_rf 	<= '0';
 	s_irs_rc_alu	<= '0';
 	
+	s_a_ctrl			<= '0';
+	s_b_ctrl 		<= '0';
+	
 end architecture;
