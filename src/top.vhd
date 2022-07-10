@@ -161,7 +161,7 @@ begin
 		oPCSEL	=> sPCSEL_IF
 	);
 	-- logic -in:
-	sOpcode_IF <= sQpm(31 downto 26);
+	sOpcode_IF <= sQpm(31 downto 26) when s_irs_rc_if 	= '0' else x"00000000";
 	
 	
 ---------------------------------------------------------------------------------------------------------------
@@ -174,7 +174,8 @@ begin
 		oWASEL	=> sWASEL_RF
 	);
 	-- logic -in:
-	sOpcode_RF <= s_o_ir_rf(31 downto 26);
+--	sOpcode_RF <= s_o_ir_rf(31 downto 26);
+	sOpcode_RF <= s_i_ir_alu(31 downto 26);
 	-- TODO: resi multiplekser iz RD1 za sZ_IF -- valjda ide ovako
 	sZ_RF <= '0';										 -- unused
 	
@@ -190,7 +191,8 @@ begin
 		oBSEL		=>	sBSEL_ALU
 	);
 	-- logic -in:
-	sOpcode_ALU <= s_o_ir_alu(31 downto 26);
+--	sOpcode_ALU <= s_o_ir_alu(31 downto 26);
+	sOpcode_ALU <= s_i_ir_mem(31 downto 26);
 	
 ---------------------------------------------------------------------------------------------------------------
 -- control unit - MEM
@@ -202,7 +204,8 @@ begin
 		oMWR		=> sMWR_MEM
 	);
 	-- logic -in:
-	sOpcode_MEM <= s_o_ir_mem(31 downto 26);
+--	sOpcode_MEM <= s_o_ir_mem(31 downto 26);
+	sOpcode_MEM <= s_i_ir_wb(31 downto 26);
 	
 ---------------------------------------------------------------------------------------------------------------
 -- control unit - WB
@@ -257,19 +260,19 @@ begin
 	s_i_pc_alu	<= s_o_pc_rf;
 	s_i_pc_mem	<= s_o_pc_alu;
 	s_i_pc_wb	<= s_o_pc_mem;
-	s_i_ir_rf	<= sQpm 			when s_irs_rc_if 	= '0' else x"00000000";		-- regular instruction or NOP for pipeline "halt"
+	s_i_ir_rf	<= sQpm 			when s_irs_rc_if 	= '0' else x"00000000";		-- regular instruction or NOP for pipeline "halt" todo stop reading from prog if needed
 	s_i_ir_alu	<= s_o_ir_rf 	when s_irs_rc_rf 	= '0' else x"00000000";		-- same
 	s_i_ir_mem	<= s_o_ir_alu 	when s_irs_rc_alu	= '0' else x"00000000";		-- same
 	s_i_ir_wb	<= s_o_ir_mem	when s_irs_rc_mem = '0' else x"00000000";  	-- same
 	s_i_a_alu	<= s_a_bypass;
-	s_i_b_alu	<= s_b_bypass	when sBSEL_ALU = '0'			else sEX;
+	s_i_b_alu	<= s_b_bypass	welse sEXhen sBSEL_ALU = '0'		else sEX;
 	s_i_y_mem	<= sOutput;
 	s_i_y_wb		<= s_o_y_mem;
 	s_i_d_alu	<= s_b_bypass;
 	s_i_d_mem	<= s_o_d_alu;
 	
 ---------------------------------------------------------------------------------------------------------------
-	-- program memory
+	-- program memory<3
 	prog_i	:	entity work.instr_rom
    Port map( 
 		iA 		=> sApm,
