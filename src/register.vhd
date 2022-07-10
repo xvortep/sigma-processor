@@ -28,6 +28,8 @@ architecture Behavioral of reg is
 			elsif(rising_edge(iCLK)) then
 				if(iWE = '1') then
 					sREG <= iD;
+				else
+					sREG <= sREG;
 				end if;
 			end if;
 		end process;

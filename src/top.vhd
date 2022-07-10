@@ -129,7 +129,7 @@ begin
 	sCLKpc 	<= iCLK;
 	sRSTpc	<=	iRST;
 	sJT		<= sRD1;
-	sSXT		<= x"00000000";									-- sxt not used!!!
+	sSXT		<= x"0000" & sQpm(15 downto 0);
 ---------------------------------------------------------------------------------------------------------------	
 	-- register file
 	regf_i	:	entity work.reg_file
