@@ -161,7 +161,7 @@ begin
 		oPCSEL	=> sPCSEL_IF
 	);
 	-- logic -in:
-	sOpcode_IF <= sQpm(31 downto 26) when s_irs_rc_if 	= '0' else x"00000000";
+	sOpcode_IF <= sQpm(31 downto 26) when s_irs_rc_if 	= '0' else "000000";
 	
 	
 ---------------------------------------------------------------------------------------------------------------
@@ -265,7 +265,7 @@ begin
 	s_i_ir_mem	<= s_o_ir_alu 	when s_irs_rc_alu	= '0' else x"00000000";		-- same
 	s_i_ir_wb	<= s_o_ir_mem	when s_irs_rc_mem = '0' else x"00000000";  	-- same
 	s_i_a_alu	<= s_a_bypass;
-	s_i_b_alu	<= s_b_bypass	welse sEXhen sBSEL_ALU = '0'		else sEX;
+	s_i_b_alu	<= s_b_bypass	when sBSEL_ALU = '0'		else sEX;
 	s_i_y_mem	<= sOutput;
 	s_i_y_wb		<= s_o_y_mem;
 	s_i_d_alu	<= s_b_bypass;
