@@ -396,5 +396,10 @@ begin
 	with s_b_ctrl select s_b_bypass <=
 		sRD2			when "000",
 		x"babaceca" when others;
+		
+	-- control
+	s_irs_rc_if 	<= '0';
+	s_irs_rc_rf 	<= '0';
+	s_irs_rc_alu	<= '0';
 	
 end architecture;
