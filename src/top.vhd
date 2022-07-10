@@ -401,6 +401,7 @@ begin
 	s_irs_rc_if 	<= '0';
 	s_irs_rc_rf 	<= '0';
 	s_irs_rc_alu	<= '0';
+	s_irs_rc_mem	<= '0';
 	
 	s_a_ctrl			<= "000";
 	s_b_ctrl 		<= "000";
