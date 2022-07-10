@@ -29,6 +29,17 @@ architecture arch of top is
 --	signal sWDSEL		:	std_logic_vector(1 downto 0);
 --	signal sWERF		:	std_logic;
 
+
+	-- bypass signals
+	signal s_a_bypass	:	std_logic_vector(31 downto 0);
+	signal s_b_bypass	:	std_logic_vector(31 downto 0);
+	signal s_a_ctrl	: 	std_logic_vector(2 downto 0);
+	signal s_b_ctrl	: 	std_logic_vector(2 downto 0);
+	-- pipeline misc signals
+	signal s_irs_rc_if:	std_logic;
+	signal s_irs_rc_rf:	std_logic;
+	signal s_irs_rc_alu: std_logic;
+	signal s_irs_rc_mem:	std_logic;
 	-- control unit - IF signals 
 	signal sOpcode_IF	:	std_logic_vector(5 downto 0);
 	--signal sZ_IF		:	std_logic;
@@ -86,13 +97,13 @@ architecture arch of top is
 	signal sApm			:	std_logic_vector(7 downto 0);
 	signal sQpm			: 	std_logic_vector(31 downto 0);
 	-- data ram signals 
-   signal sCLKdr	:  std_logic;
-   signal sRSTdr 	:  std_logic;
-   signal sAdr 	:  std_logic_vector (7 downto 0); 
-   signal sWDdr  	:	std_logic_vector (31 downto 0);
-   signal sWEdr  	:	std_logic;
-   signal sOEdr  	:	std_logic;
-   signal sRDdr  	:	std_logic_vector (31 downto 0);
+   signal sCLKdr		:  std_logic;
+   signal sRSTdr 		:  std_logic;
+   signal sAdr 		:  std_logic_vector (7 downto 0); 
+   signal sWDdr  		:	std_logic_vector (31 downto 0);
+   signal sWEdr  		:	std_logic;
+   signal sOEdr  		:	std_logic;
+   signal sRDdr  		:	std_logic_vector (31 downto 0);
 	-- program counter signals
 	signal sPC_SEL		:	std_logic_vector(2 downto 0);
 	signal sCLKpc		:	std_logic;
@@ -107,7 +118,7 @@ architecture arch of top is
 	signal sWD			:	std_logic_vector(31 downto 0);
 	signal sWE			:	std_logic;
 	signal sCLKrf		:	std_logic;
-	signal sRSTrf			:	std_logic;
+	signal sRSTrf		:	std_logic;
 	signal sRD1			:	std_logic_vector(31 downto 0);
 	signal sRD2			:	std_logic_vector(31 downto 0);
 	-- al unit signals
@@ -164,7 +175,8 @@ begin
 	);
 	-- logic -in:
 	sOpcode_RF <= s_o_ir_rf;
-	-- TODO: resi multiplekser iz RD1 za sZ_IF
+	-- TODO: resi multiplekser iz RD1 za sZ_IF -- valjda ide ovako
+	sZ_RF <= '0';										 -- unused
 	
 	
 ---------------------------------------------------------------------------------------------------------------
@@ -238,7 +250,20 @@ begin
 	-- logic -in:
 	sCLKpr <= iCLK;
 	sRSTpr <= iRST;
-	s_i_pc_alu <=
+	s_i_pc_rf	<= sPC;
+	s_i_pc_alu	<= s_o_pc_rf;
+	s_i_pc_mem	<= s_o_pc_alu;
+	s_i_pc_wb	<= s_o_pc_mem;
+	s_i_ir_rf	<= sQpm 			when s_irs_rc_if 	= '0' else x"00000000";		-- regular instruction or NOP for pipeline "halt"
+	s_i_ir_alu	<= s_o_ir_rf 	when s_irs_rc_rf 	= '0' else x"00000000";		-- same
+	s_i_ir_mem	<= s_o_ir_alu 	when s_irs_rc_alu	= '0' else x"00000000";		-- same
+	s_i_ir_wb	<= s_o_ir_mem	when s_irs_rc_mem = '0' else x"00000000";  	-- same
+	s_i_a_alu	<= s_a_bypass;
+	s_i_b_alu	<= s_b_bypass	when sBSEL = '0'			else sEX;
+	s_i_y_mem	<= sOutput;
+	s_i_y_wb		<= s_o_y_mem;
+	s_i_d_alu	<= s_b_bypass;
+	s_i_d_mem	<= s_o_d_alu;
 	
 ---------------------------------------------------------------------------------------------------------------
 	-- program memory
@@ -247,6 +272,7 @@ begin
 		iA 		=> sApm,
       oQ 		=> sQpm
 	);
+	-- logic -in:
 	sApm 			<= sPC(7 downto 0);				-- potential bug???
 ---------------------------------------------------------------------------------------------------------------
 	-- data ram											-- ACTUALLY NOT COMPLETE??? - false
@@ -263,8 +289,10 @@ begin
 	-- logic -in:
 	sCLKdr 	<= iCLK;
 	sRSTdr 	<= iRST;
-	sAdr 		<= sOutput(7 downto 0);
-	sWDdr		<= sRD2;
+--	sAdr 		<= sOutput(7 downto 0);
+	sAdr 		<= s_o_y_mem
+--	sWDdr		<= sRD2;
+	sWDdr		<= s_o_d_mem;
 	sWEdr		<= sMWR_MEM;
 	sOEdr		<= sMOE_MEM;
 ---------------------------------------------------------------------------------------------------------------	
@@ -283,7 +311,7 @@ begin
 	sCLKpc 	<= iCLK;
 	sRSTpc	<=	iRST;
 	sJT		<= sRD1;
-	sSXT		<= x"00000000";									-- sxt not used!!!
+	sSXT		<= x"0000" & sQpm(15 downto 0);
 ---------------------------------------------------------------------------------------------------------------	
 	-- register file
 	regf_i	:	entity work.reg_file
@@ -341,7 +369,7 @@ begin
 --	with sQpm(15) select sEX <=
 --		x"0000" & sQpm(15 downto 0)	when '0',
 --		x"FFFF" & sQpm(15 downto 0)	when others;
-	with s_o_ir_rf(15) select sEX <=							-- sign extension
+	with s_o_ir_rf(15) select sEX <=							-- sign extension of constant 
 		x"0000" & s_o_ir_rf(15 downto 0) when '0',
 		x"FFFF" & s_o_ir_rf(15 downto 0) when others;
 
@@ -357,5 +385,13 @@ begin
 --	oIns <= sQpm(31 downto 26);
 	oZ 	<= s_o_y_wb;
 	oIns 	<= s_o_ir_wb;
-
+---------------------------------------------------------------------------------------------------------------
+	-- bypass muxes TODO
+	with s_a_ctrl select s_a_bypass <=
+		sRD1 			when "000",
+		x"babaceca" when others;
+	with s_b_ctrl select s_b_bypass <=
+		sRD2			when "000",
+		x"babaceca" when others;
+	
 end architecture;
