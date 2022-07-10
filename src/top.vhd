@@ -157,7 +157,7 @@ begin
 	cu_if		:	entity work.ControlUnit_IF
 	Port map(
 		iOpcode	=> sOpcode_IF,
-		--iZ			=> sZ_IF,
+		iZ			=> '0',
 		oPCSEL	=> sPCSEL_IF
 	);
 	-- logic -in:
@@ -174,7 +174,7 @@ begin
 		oWASEL	=> sWASEL_RF
 	);
 	-- logic -in:
-	sOpcode_RF <= s_o_ir_rf;
+	sOpcode_RF <= s_o_ir_rf(31 downto 26);
 	-- TODO: resi multiplekser iz RD1 za sZ_IF -- valjda ide ovako
 	sZ_RF <= '0';										 -- unused
 	
@@ -184,34 +184,37 @@ begin
 	cu_alu	:	entity work.ControlUnit_ALU 
 	Port map(
 		iOpcode	=>	sOpcode_ALU,
+		iZ			=> '0',
 		oALUFN	=>	sALUFN_ALU,
 		oASEL		=> sASEL_ALU,
 		oBSEL		=>	sBSEL_ALU
 	);
 	-- logic -in:
-	sOpcode_ALU <= s_o_ir_alu;
+	sOpcode_ALU <= s_o_ir_alu(31 downto 26);
 	
 ---------------------------------------------------------------------------------------------------------------
 -- control unit - MEM
 	cu_mem	:	entity work.ControlUnit_MEM
 	Port map(
 		iOpcode	=> sOpcode_MEM,
+		iZ			=> '0',
 		oMOE		=> sMOE_MEM,
 		oMWR		=> sMWR_MEM
 	);
 	-- logic -in:
-	sOpcode_MEM <= s_o_ir_mem;
+	sOpcode_MEM <= s_o_ir_mem(31 downto 26);
 	
 ---------------------------------------------------------------------------------------------------------------
 -- control unit - WB
 	cu_wb		:	entity work.ControlUnit_WB
 	Port map(
 		iOpcode	=> sOpcode_WB,
+		iZ			=> '0',
 		oWDSEL	=> sWDSEL_WB,
 		oWERF		=> sWERF_WB
 	);
 	-- logic -in:
-	sOpcode_WB <= s_o_ir_wb;
+	sOpcode_WB <= s_o_ir_wb(31 downto 26);
 	
 ---------------------------------------------------------------------------------------------------------------
 	reg_pipeline	:	entity work.reg_top_pipeline 
@@ -245,7 +248,7 @@ begin
 		o_y_mem	=> s_o_y_mem,	
 		o_y_wb	=> s_o_y_wb,	
 		o_d_alu	=> s_o_d_alu,	
-		o_d_mem	=> s_o_d_mem,	
+		o_d_mem	=> s_o_d_mem	
 	);
 	-- logic -in:
 	sCLKpr <= iCLK;
@@ -259,7 +262,7 @@ begin
 	s_i_ir_mem	<= s_o_ir_alu 	when s_irs_rc_alu	= '0' else x"00000000";		-- same
 	s_i_ir_wb	<= s_o_ir_mem	when s_irs_rc_mem = '0' else x"00000000";  	-- same
 	s_i_a_alu	<= s_a_bypass;
-	s_i_b_alu	<= s_b_bypass	when sBSEL = '0'			else sEX;
+	s_i_b_alu	<= s_b_bypass	when sBSEL_ALU = '0'			else sEX;
 	s_i_y_mem	<= sOutput;
 	s_i_y_wb		<= s_o_y_mem;
 	s_i_d_alu	<= s_b_bypass;
@@ -290,7 +293,7 @@ begin
 	sCLKdr 	<= iCLK;
 	sRSTdr 	<= iRST;
 --	sAdr 		<= sOutput(7 downto 0);
-	sAdr 		<= s_o_y_mem
+	sAdr 		<= s_o_y_mem(7 downto 0);
 --	sWDdr		<= sRD2;
 	sWDdr		<= s_o_d_mem;
 	sWEdr		<= sMWR_MEM;
@@ -337,7 +340,7 @@ begin
 --		sQpm(15 downto 11)	when others;
 	with sRA2SEL_RF select sRA2 <=
 		s_o_ir_rf(25 downto 21) when '1',
-		s_o_ir_rf(15 downto 11) when others
+		s_o_ir_rf(15 downto 11) when others;
 --	with sWASEL select sWA <=								-- sWA
 --		("11110")						when 	'1',			-- hardcoded reg30 exception
 --		sQpm(25 downto 21)	when others;
@@ -350,7 +353,7 @@ begin
 --		sRDdr							when others;
 	with sWDSEL_WB select sWD <=
 		-- TODO: da li treba ovako - valjda da
-		(o_pc_wb + 4)			when "00",
+		(s_o_pc_wb + 4)			when "00",
 		s_o_y_wb					when "01",
 		sRDdr						when others;
 ---------------------------------------------------------------------------------------------------------------		
@@ -379,12 +382,12 @@ begin
 --		sRD2									when others;
 	sB <= s_o_b_alu;
 	
-	sALUFNal <= sALUFNcu;
+	sALUFNal <= sALUFN_ALU;
 ---------------------------------------------------------------------------------------------------------------
 --	oZ <= sOutput;
 --	oIns <= sQpm(31 downto 26);
 	oZ 	<= s_o_y_wb;
-	oIns 	<= s_o_ir_wb;
+	oIns 	<= s_o_ir_wb(31 downto 26);
 ---------------------------------------------------------------------------------------------------------------
 	-- bypass muxes TODO
 	with s_a_ctrl select s_a_bypass <=

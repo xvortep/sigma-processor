@@ -1,5 +1,5 @@
-Analysis & Synthesis report for sigma-processor
-Sun May 15 19:54:05 2022
+Analysis & Elaboration report for sigma-processor
+Sun Jul 10 15:41:43 2022
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -7,10 +7,19 @@ Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 ; Table of Contents ;
 ---------------------
   1. Legal Notice
-  2. Analysis & Synthesis Summary
-  3. Analysis & Synthesis Settings
-  4. Parallel Compilation
-  5. Analysis & Synthesis Messages
+  2. Analysis & Elaboration Summary
+  3. Parallel Compilation
+  4. Analysis & Elaboration Settings
+  5. Port Connectivity Checks: "reg_file:regf_i"
+  6. Port Connectivity Checks: "PC:pc_i"
+  7. Port Connectivity Checks: "instr_rom:prog_i"
+  8. Port Connectivity Checks: "reg_top_pipeline:reg_pipeline"
+  9. Port Connectivity Checks: "ControlUnit_WB:cu_wb"
+ 10. Port Connectivity Checks: "ControlUnit_MEM:cu_mem"
+ 11. Port Connectivity Checks: "ControlUnit_ALU:cu_alu"
+ 12. Port Connectivity Checks: "ControlUnit_RF:cu_rf"
+ 13. Port Connectivity Checks: "ControlUnit_IF:cu_if"
+ 14. Analysis & Elaboration Messages
 
 
 
@@ -35,9 +44,9 @@ https://fpgasoftware.intel.com/eula.
 
 
 +----------------------------------------------------------------------------------+
-; Analysis & Synthesis Summary                                                     ;
+; Analysis & Elaboration Summary                                                   ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Failed - Sun May 15 19:54:05 2022           ;
+; Analysis & Elaboration Status      ; Successful - Sun Jul 10 15:41:42 2022       ;
 ; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                      ; sigma-processor                             ;
 ; Top-level Entity Name              ; top                                         ;
@@ -56,8 +65,24 @@ https://fpgasoftware.intel.com/eula.
 +------------------------------------+---------------------------------------------+
 
 
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 6           ;
+; Maximum allowed            ; 6           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
++----------------------------+-------------+
+
+
 +------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Settings                                                                              ;
+; Analysis & Elaboration Settings                                                                            ;
 +------------------------------------------------------------------+--------------------+--------------------+
 ; Option                                                           ; Setting            ; Default Value      ;
 +------------------------------------------------------------------+--------------------+--------------------+
@@ -142,88 +167,263 @@ https://fpgasoftware.intel.com/eula.
 +------------------------------------------------------------------+--------------------+--------------------+
 
 
-+------------------------------------------+
-; Parallel Compilation                     ;
-+----------------------------+-------------+
-; Processors                 ; Number      ;
-+----------------------------+-------------+
-; Number detected on machine ; 6           ;
-; Maximum allowed            ; 6           ;
-;                            ;             ;
-; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
-;                            ;             ;
-; Usage by Processor         ; % Time Used ;
-;     Processor 1            ; 100.0%      ;
-+----------------------------+-------------+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "reg_file:regf_i"                                                                    ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; ord2 ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
 
 
-+-------------------------------+
-; Analysis & Synthesis Messages ;
-+-------------------------------+
++------------------------------------------------+
+; Port Connectivity Checks: "PC:pc_i"            ;
++--------------+-------+----------+--------------+
+; Port         ; Type  ; Severity ; Details      ;
++--------------+-------+----------+--------------+
+; isxt[31..16] ; Input ; Info     ; Stuck at GND ;
++--------------+-------+----------+--------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "instr_rom:prog_i"                                                                         ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port       ; Type   ; Severity ; Details                                                                             ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+; oq[25..16] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "reg_top_pipeline:reg_pipeline"                                                                 ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port            ; Type   ; Severity ; Details                                                                             ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; i_ir_rf         ; Input  ; Info     ; Stuck at GND                                                                        ;
+; i_ir_alu        ; Input  ; Info     ; Stuck at GND                                                                        ;
+; i_ir_mem        ; Input  ; Info     ; Stuck at GND                                                                        ;
+; i_ir_wb         ; Input  ; Info     ; Stuck at GND                                                                        ;
+; i_a_alu[29..27] ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; i_a_alu[21..19] ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; i_a_alu[15..14] ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; i_a_alu[11..9]  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; i_a_alu[7..6]   ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; i_a_alu[13..12] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; i_a_alu[5..4]   ; Input  ; Info     ; Stuck at GND                                                                        ;
+; i_a_alu[31]     ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; i_a_alu[30]     ; Input  ; Info     ; Stuck at GND                                                                        ;
+; i_a_alu[26]     ; Input  ; Info     ; Stuck at GND                                                                        ;
+; i_a_alu[25]     ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; i_a_alu[24]     ; Input  ; Info     ; Stuck at GND                                                                        ;
+; i_a_alu[23]     ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; i_a_alu[22]     ; Input  ; Info     ; Stuck at GND                                                                        ;
+; i_a_alu[18]     ; Input  ; Info     ; Stuck at GND                                                                        ;
+; i_a_alu[17]     ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; i_a_alu[16]     ; Input  ; Info     ; Stuck at GND                                                                        ;
+; i_a_alu[8]      ; Input  ; Info     ; Stuck at GND                                                                        ;
+; i_a_alu[3]      ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; i_a_alu[2]      ; Input  ; Info     ; Stuck at GND                                                                        ;
+; i_a_alu[1]      ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; i_a_alu[0]      ; Input  ; Info     ; Stuck at GND                                                                        ;
+; i_d_alu[29..27] ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; i_d_alu[21..19] ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; i_d_alu[15..14] ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; i_d_alu[11..9]  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; i_d_alu[7..6]   ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; i_d_alu[13..12] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; i_d_alu[5..4]   ; Input  ; Info     ; Stuck at GND                                                                        ;
+; i_d_alu[31]     ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; i_d_alu[30]     ; Input  ; Info     ; Stuck at GND                                                                        ;
+; i_d_alu[26]     ; Input  ; Info     ; Stuck at GND                                                                        ;
+; i_d_alu[25]     ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; i_d_alu[24]     ; Input  ; Info     ; Stuck at GND                                                                        ;
+; i_d_alu[23]     ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; i_d_alu[22]     ; Input  ; Info     ; Stuck at GND                                                                        ;
+; i_d_alu[18]     ; Input  ; Info     ; Stuck at GND                                                                        ;
+; i_d_alu[17]     ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; i_d_alu[16]     ; Input  ; Info     ; Stuck at GND                                                                        ;
+; i_d_alu[8]      ; Input  ; Info     ; Stuck at GND                                                                        ;
+; i_d_alu[3]      ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; i_d_alu[2]      ; Input  ; Info     ; Stuck at GND                                                                        ;
+; i_d_alu[1]      ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; i_d_alu[0]      ; Input  ; Info     ; Stuck at GND                                                                        ;
+; o_ir_alu[25..0] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; o_ir_mem[25..0] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; o_ir_wb[25..0]  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------+
+; Port Connectivity Checks: "ControlUnit_WB:cu_wb" ;
++------+-------+----------+------------------------+
+; Port ; Type  ; Severity ; Details                ;
++------+-------+----------+------------------------+
+; iz   ; Input ; Info     ; Stuck at GND           ;
++------+-------+----------+------------------------+
+
+
++----------------------------------------------------+
+; Port Connectivity Checks: "ControlUnit_MEM:cu_mem" ;
++------+-------+----------+--------------------------+
+; Port ; Type  ; Severity ; Details                  ;
++------+-------+----------+--------------------------+
+; iz   ; Input ; Info     ; Stuck at GND             ;
++------+-------+----------+--------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ControlUnit_ALU:cu_alu"                                                              ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+; Port  ; Type   ; Severity ; Details                                                                             ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+; iz    ; Input  ; Info     ; Stuck at GND                                                                        ;
+; oasel ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------+
+; Port Connectivity Checks: "ControlUnit_RF:cu_rf" ;
++------+-------+----------+------------------------+
+; Port ; Type  ; Severity ; Details                ;
++------+-------+----------+------------------------+
+; iz   ; Input ; Info     ; Stuck at GND           ;
++------+-------+----------+------------------------+
+
+
++--------------------------------------------------+
+; Port Connectivity Checks: "ControlUnit_IF:cu_if" ;
++------+-------+----------+------------------------+
+; Port ; Type  ; Severity ; Details                ;
++------+-------+----------+------------------------+
+; iz   ; Input ; Info     ; Stuck at GND           ;
++------+-------+----------+------------------------+
+
+
++---------------------------------+
+; Analysis & Elaboration Messages ;
++---------------------------------+
 Info: *******************************************************************
-Info: Running Quartus Prime Analysis & Synthesis
+Info: Running Quartus Prime Analysis & Elaboration
     Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Sun May 15 19:54:00 2022
-Info: Command: quartus_map --read_settings_files=on --write_settings_files=off sigma-processor -c sigma-processor
+    Info: Processing started: Sun Jul 10 15:41:37 2022
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off sigma-processor -c sigma-processor --analysis_and_elaboration
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file reg_top_pipeline.vhd
+    Info (12022): Found design unit 1: reg_top_pipeline-Behavioral File: /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/reg_top_pipeline.vhd Line: 45
+    Info (12023): Found entity 1: reg_top_pipeline File: /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/reg_top_pipeline.vhd Line: 7
 Info (12021): Found 2 design units, including 1 entities, in source file prog_file.vhd
-    Info (12022): Found design unit 1: instr_rom-Behavioral File: /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/prog_file.vhd Line: 10
-    Info (12023): Found entity 1: instr_rom File: /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/prog_file.vhd Line: 5
+    Info (12022): Found design unit 1: instr_rom-Behavioral File: /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/prog_file.vhd Line: 10
+    Info (12023): Found entity 1: instr_rom File: /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/prog_file.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file data_file.vhd
-    Info (12022): Found design unit 1: data_ram-Behavioral File: /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/data_file.vhd Line: 15
-    Info (12023): Found entity 1: data_ram File: /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/data_file.vhd Line: 5
+    Info (12022): Found design unit 1: data_ram-Behavioral File: /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/data_file.vhd Line: 15
+    Info (12023): Found entity 1: data_ram File: /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/data_file.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file reg_file.vhd
-    Info (12022): Found design unit 1: reg_file-Behavioral File: /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/reg_file.vhd Line: 25
-    Info (12023): Found entity 1: reg_file File: /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/reg_file.vhd Line: 7
+    Info (12022): Found design unit 1: reg_file-Behavioral File: /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/reg_file.vhd Line: 25
+    Info (12023): Found entity 1: reg_file File: /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/reg_file.vhd Line: 7
 Info (12021): Found 2 design units, including 1 entities, in source file register.vhd
-    Info (12022): Found design unit 1: reg-Behavioral File: /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/register.vhd Line: 18
-    Info (12023): Found entity 1: reg File: /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/register.vhd Line: 4
+    Info (12022): Found design unit 1: reg-Behavioral File: /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/register.vhd Line: 18
+    Info (12023): Found entity 1: reg File: /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/register.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file ALU.vhd
-    Info (12022): Found design unit 1: ALU-Behavioral File: /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/ALU.vhd Line: 19
-    Info (12023): Found entity 1: ALU File: /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/ALU.vhd Line: 6
+    Info (12022): Found design unit 1: ALU-Behavioral File: /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/ALU.vhd Line: 19
+    Info (12023): Found entity 1: ALU File: /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/ALU.vhd Line: 6
 Info (12021): Found 2 design units, including 1 entities, in source file PC.vhd
-    Info (12022): Found design unit 1: PC-Behavioral File: /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/PC.vhd Line: 18
-    Info (12023): Found entity 1: PC File: /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/PC.vhd Line: 6
+    Info (12022): Found design unit 1: PC-Behavioral File: /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/PC.vhd Line: 18
+    Info (12023): Found entity 1: PC File: /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/PC.vhd Line: 6
 Info (12021): Found 2 design units, including 1 entities, in source file simulation/modelsim/PC_tb.vhd
-    Info (12022): Found design unit 1: PC_tb-Behavioral File: /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/simulation/modelsim/PC_tb.vhd Line: 7
-    Info (12023): Found entity 1: PC_tb File: /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/simulation/modelsim/PC_tb.vhd Line: 4
+    Info (12022): Found design unit 1: PC_tb-Behavioral File: /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/simulation/modelsim/PC_tb.vhd Line: 7
+    Info (12023): Found entity 1: PC_tb File: /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/simulation/modelsim/PC_tb.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file simulation/modelsim/ALU_tb.vhd
-    Info (12022): Found design unit 1: ALU_tb-Behavioral File: /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/simulation/modelsim/ALU_tb.vhd Line: 7
-    Info (12023): Found entity 1: ALU_tb File: /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/simulation/modelsim/ALU_tb.vhd Line: 4
+    Info (12022): Found design unit 1: ALU_tb-Behavioral File: /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/simulation/modelsim/ALU_tb.vhd Line: 7
+    Info (12023): Found entity 1: ALU_tb File: /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/simulation/modelsim/ALU_tb.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file simulation/modelsim/CU_tb.vhd
-    Info (12022): Found design unit 1: CU_tb-Behavioral File: /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/simulation/modelsim/CU_tb.vhd Line: 7
-    Info (12023): Found entity 1: CU_tb File: /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/simulation/modelsim/CU_tb.vhd Line: 4
+    Info (12022): Found design unit 1: CU_tb-Behavioral File: /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/simulation/modelsim/CU_tb.vhd Line: 7
+    Info (12023): Found entity 1: CU_tb File: /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/simulation/modelsim/CU_tb.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file top.vhd
-    Info (12022): Found design unit 1: top-arch File: /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/top.vhd Line: 17
-    Info (12023): Found entity 1: top File: /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/top.vhd Line: 7
+    Info (12022): Found design unit 1: top-arch File: /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/top.vhd Line: 17
+    Info (12023): Found entity 1: top File: /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/top.vhd Line: 7
 Info (12021): Found 2 design units, including 1 entities, in source file simulation/modelsim/top_tb.vhd
-    Info (12022): Found design unit 1: top_tb-Behavioral File: /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/simulation/modelsim/top_tb.vhd Line: 7
-    Info (12023): Found entity 1: top_tb File: /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/simulation/modelsim/top_tb.vhd Line: 4
+    Info (12022): Found design unit 1: top_tb-Behavioral File: /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/simulation/modelsim/top_tb.vhd Line: 7
+    Info (12023): Found entity 1: top_tb File: /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/simulation/modelsim/top_tb.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file CU_IF.vhd
-    Info (12022): Found design unit 1: ControlUnit_IF-Behavioral File: /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/CU_IF.vhd Line: 17
-    Info (12023): Found entity 1: ControlUnit_IF File: /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/CU_IF.vhd Line: 5
+    Info (12022): Found design unit 1: ControlUnit_IF-Behavioral File: /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/CU_IF.vhd Line: 17
+    Info (12023): Found entity 1: ControlUnit_IF File: /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/CU_IF.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file CU_RF.vhd
-    Info (12022): Found design unit 1: ControlUnit_RF-Behavioral File: /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/CU_RF.vhd Line: 17
-    Info (12023): Found entity 1: ControlUnit_RF File: /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/CU_RF.vhd Line: 5
+    Info (12022): Found design unit 1: ControlUnit_RF-Behavioral File: /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/CU_RF.vhd Line: 18
+    Info (12023): Found entity 1: ControlUnit_RF File: /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/CU_RF.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file CU_ALU.vhd
-    Info (12022): Found design unit 1: ControlUnit_ALU-Behavioral File: /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/CU_ALU.vhd Line: 18
-    Info (12023): Found entity 1: ControlUnit_ALU File: /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/CU_ALU.vhd Line: 5
+    Info (12022): Found design unit 1: ControlUnit_ALU-Behavioral File: /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/CU_ALU.vhd Line: 19
+    Info (12023): Found entity 1: ControlUnit_ALU File: /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/CU_ALU.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file CU_MEM.vhd
-    Info (12022): Found design unit 1: ControlUnit_MEM-Behavioral File: /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/CU_MEM.vhd Line: 17
-    Info (12023): Found entity 1: ControlUnit_MEM File: /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/CU_MEM.vhd Line: 5
+    Info (12022): Found design unit 1: ControlUnit_MEM-Behavioral File: /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/CU_MEM.vhd Line: 18
+    Info (12023): Found entity 1: ControlUnit_MEM File: /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/CU_MEM.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file CU_WB.vhd
-    Info (12022): Found design unit 1: ControlUnit_WB-Behavioral File: /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/CU_WB.vhd Line: 17
-    Info (12023): Found entity 1: ControlUnit_WB File: /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/CU_WB.vhd Line: 5
+    Info (12022): Found design unit 1: ControlUnit_WB-Behavioral File: /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/CU_WB.vhd Line: 18
+    Info (12023): Found entity 1: ControlUnit_WB File: /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/CU_WB.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file ins_queue.vhd
-    Info (12022): Found design unit 1: ins_queue-Behavioral File: /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/ins_queue.vhd Line: 19
-    Info (12023): Found entity 1: ins_queue File: /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/ins_queue.vhd Line: 6
-Error (10481): VHDL Use Clause error at top.vhd(69): design library "work" does not contain primary unit "ControlUnit". Verify that the primary unit exists in the library and has been successfully compiled. File: /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/top.vhd Line: 69
-Error: Quartus Prime Analysis & Synthesis was unsuccessful. 1 error, 1 warning
-    Error: Peak virtual memory: 418 megabytes
-    Error: Processing ended: Sun May 15 19:54:05 2022
-    Error: Elapsed time: 00:00:05
-    Error: Total CPU time (on all processors): 00:00:11
+    Info (12022): Found design unit 1: ins_queue-Behavioral File: /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/ins_queue.vhd Line: 19
+    Info (12023): Found entity 1: ins_queue File: /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/ins_queue.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file register_nWE.vhd
+    Info (12022): Found design unit 1: reg_nwe-Behavioral File: /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/register_nWE.vhd Line: 17
+    Info (12023): Found entity 1: reg_nwe File: /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/register_nWE.vhd Line: 4
+Info (12127): Elaborating entity "top" for the top level hierarchy
+Warning (10541): VHDL Signal Declaration warning at top.vhd(36): used implicit default value for signal "s_a_ctrl" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/top.vhd Line: 36
+Warning (10541): VHDL Signal Declaration warning at top.vhd(37): used implicit default value for signal "s_b_ctrl" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/top.vhd Line: 37
+Warning (10541): VHDL Signal Declaration warning at top.vhd(39): used implicit default value for signal "s_irs_rc_if" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/top.vhd Line: 39
+Warning (10541): VHDL Signal Declaration warning at top.vhd(40): used implicit default value for signal "s_irs_rc_rf" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/top.vhd Line: 40
+Warning (10541): VHDL Signal Declaration warning at top.vhd(41): used implicit default value for signal "s_irs_rc_alu" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/top.vhd Line: 41
+Warning (10541): VHDL Signal Declaration warning at top.vhd(42): used implicit default value for signal "s_irs_rc_mem" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/top.vhd Line: 42
+Warning (10036): Verilog HDL or VHDL warning at top.vhd(55): object "sASEL_ALU" assigned a value but never read File: /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/top.vhd Line: 55
+Info (12128): Elaborating entity "ControlUnit_IF" for hierarchy "ControlUnit_IF:cu_if" File: /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/top.vhd Line: 157
+Warning (10540): VHDL Signal Declaration warning at CU_IF.vhd(59): used explicit default value for signal "sOpTable" because signal was never assigned a value File: /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/CU_IF.vhd Line: 59
+Info (12128): Elaborating entity "ControlUnit_RF" for hierarchy "ControlUnit_RF:cu_rf" File: /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/top.vhd Line: 169
+Warning (10540): VHDL Signal Declaration warning at CU_RF.vhd(60): used explicit default value for signal "sOpTable" because signal was never assigned a value File: /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/CU_RF.vhd Line: 60
+Info (12128): Elaborating entity "ControlUnit_ALU" for hierarchy "ControlUnit_ALU:cu_alu" File: /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/top.vhd Line: 184
+Warning (10540): VHDL Signal Declaration warning at CU_ALU.vhd(61): used explicit default value for signal "sOpTable" because signal was never assigned a value File: /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/CU_ALU.vhd Line: 61
+Info (12128): Elaborating entity "ControlUnit_MEM" for hierarchy "ControlUnit_MEM:cu_mem" File: /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/top.vhd Line: 197
+Warning (10540): VHDL Signal Declaration warning at CU_MEM.vhd(60): used explicit default value for signal "sOpTable" because signal was never assigned a value File: /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/CU_MEM.vhd Line: 60
+Info (12128): Elaborating entity "ControlUnit_WB" for hierarchy "ControlUnit_WB:cu_wb" File: /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/top.vhd Line: 209
+Warning (10540): VHDL Signal Declaration warning at CU_WB.vhd(60): used explicit default value for signal "sOpTable" because signal was never assigned a value File: /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/CU_WB.vhd Line: 60
+Info (12128): Elaborating entity "reg_top_pipeline" for hierarchy "reg_top_pipeline:reg_pipeline" File: /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/top.vhd Line: 220
+Info (12128): Elaborating entity "reg_nwe" for hierarchy "reg_top_pipeline:reg_pipeline|reg_nwe:r_pc_rf" File: /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/reg_top_pipeline.vhd Line: 47
+Info (12128): Elaborating entity "instr_rom" for hierarchy "instr_rom:prog_i" File: /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/top.vhd Line: 273
+Info (12128): Elaborating entity "data_ram" for hierarchy "data_ram:data_i" File: /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/top.vhd Line: 282
+Warning (10492): VHDL Process Statement warning at data_file.vhd(26): signal "sMEM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/data_file.vhd Line: 26
+Warning (10027): Verilog HDL or VHDL warning at the data_file.vhd(30): index expression is not wide enough to address all of the elements in the array File: /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/data_file.vhd Line: 30
+Warning (10631): VHDL Process Statement warning at data_file.vhd(23): inferring latch(es) for signal or variable "rMEM", which holds its previous value in one or more paths through the process File: /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/data_file.vhd Line: 23
+Info (12128): Elaborating entity "PC" for hierarchy "PC:pc_i" File: /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/top.vhd Line: 303
+Info (12128): Elaborating entity "reg_file" for hierarchy "reg_file:regf_i" File: /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/top.vhd Line: 320
+Info (12128): Elaborating entity "reg" for hierarchy "reg_file:regf_i|reg:r0_i" File: /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/reg_file.vhd Line: 81
+Info (12128): Elaborating entity "ALU" for hierarchy "ALU:alu_i" File: /home/rtrk/Documents/ra211-2019-beta/sigma-processor/src/top.vhd Line: 361
+Warning (20013): Ignored 24 assignments for entity "sigma-processor" -- entity does not exist in design
+    Warning (20014): Assignment for entity set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -entity "sigma-processor" -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -entity "sigma-processor" -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -entity "sigma-processor" -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_PRESERVE_HIGH_SPEED_TILES ON -entity "sigma-processor" -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IGNORE_SOURCE_FILE_CHANGES OFF -entity "sigma-processor" -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_ALWAYS_USE_QXP_NETLIST OFF -entity "sigma-processor" -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_COLOR 16764057 -entity "sigma-processor" -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_ASSIGNMENTS ON -entity "sigma-processor" -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_EXISTING_ASSIGNMENTS REPLACE_CONFLICTING -entity "sigma-processor" -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_EXISTING_LOGICLOCK_REGIONS UPDATE_CONFLICTING -entity "sigma-processor" -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_PIN_ASSIGNMENTS ON -entity "sigma-processor" -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_PROMOTE_ASSIGNMENTS ON -entity "sigma-processor" -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_TYPE STANDARD_PARTITION -entity "sigma-processor" -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name ALLOW_MULTIPLE_PERSONAS OFF -entity "sigma-processor" -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_ASD_REGION_ID 1 -entity "sigma-processor" -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name CROSS_BOUNDARY_OPTIMIZATIONS OFF -entity "sigma-processor" -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PROPAGATE_CONSTANTS_ON_INPUTS ON -entity "sigma-processor" -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PROPAGATE_INVERSIONS_ON_INPUTS ON -entity "sigma-processor" -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name REMOVE_LOGIC_ON_UNCONNECTED_OUTPUTS ON -entity "sigma-processor" -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name MERGE_EQUIVALENT_INPUTS ON -entity "sigma-processor" -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name MERGE_EQUIVALENT_BIDIRS ON -entity "sigma-processor" -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name ABSORB_PATHS_FROM_OUTPUTS_TO_INPUTS ON -entity "sigma-processor" -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_EXTRACT_HARD_BLOCK_NODES ON -entity "sigma-processor" -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_ENABLE_STRICT_PRESERVATION OFF -entity "sigma-processor" -section_id Top was ignored
+Info: Quartus Prime Analysis & Elaboration was successful. 0 errors, 41 warnings
+    Info: Peak virtual memory: 751 megabytes
+    Info: Processing ended: Sun Jul 10 15:41:43 2022
+    Info: Elapsed time: 00:00:06
+    Info: Total CPU time (on all processors): 00:00:12
 
 

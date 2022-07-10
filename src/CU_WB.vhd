@@ -7,6 +7,7 @@ entity ControlUnit_WB is
 	(
 		--inputs
 		iOpcode	:	in		std_logic_vector(5 downto 0);
+		iZ			:	in		std_logic;
 		
 		--outputs
 		oWDSEL	:	out	std_logic_vector(1 downto 0);

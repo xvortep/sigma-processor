@@ -7,6 +7,7 @@ entity ControlUnit_MEM is
 	(
 		--inputs
 		iOpcode	:	in		std_logic_vector(5 downto 0);
+		iZ			:	in		std_logic;
 		
 		--outputs
 		oMOE		:	out	std_logic;
