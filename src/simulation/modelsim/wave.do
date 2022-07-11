@@ -92,5 +92,5 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ns
 update
-WaveRestoreZoom {0 ps} {166144 ps}
 run {500 ns}
+WaveRestoreZoom {95 ns} {265 ns}
