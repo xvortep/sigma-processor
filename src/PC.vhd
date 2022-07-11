@@ -32,7 +32,8 @@ architecture Behavioral of PC is
 	begin
 
 		sPC_4 <= sPC + 4;
-		sPC_BRANCH <= sPC_4 + (iSXT(29 downto 2) & "00"); -- sPC + (iSXT << 2)
+		-- sPC_BRANCH <= sPC_4 + (iSXT(29 downto 2) & "00"); -- sPC + (iSXT << 2)
+		sPC_BRANCH <= iSXT(31 downto 2) & "00";
 
 		with iPC_SEL select sPC_NEXT <= 
 			sPC_4				when	o"0",

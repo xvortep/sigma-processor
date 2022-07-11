@@ -321,7 +321,7 @@ begin
 	sPC_SEL 	<= sPCSEL_IF;											-- take calculated pcsel from cu to pc mux
 	sCLKpc 	<= iCLK;
 	sRSTpc	<=	iRST;
-	sJT		<= sRD1;
+	sJT		<= sSXT;
 	sSXT		<= x"0000" & sQpm(15 downto 0);
 ---------------------------------------------------------------------------------------------------------------	
 	-- register file
