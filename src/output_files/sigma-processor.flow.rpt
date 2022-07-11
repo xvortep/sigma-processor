@@ -1,5 +1,5 @@
 Flow report for sigma-processor
-Mon Jul 11 11:11:28 2022
+Mon Jul 11 12:20:53 2022
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -41,7 +41,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Mon Jul 11 11:11:28 2022       ;
+; Flow Status                        ; Successful - Mon Jul 11 12:20:53 2022       ;
 ; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                      ; sigma-processor                             ;
 ; Top-level Entity Name              ; top                                         ;
@@ -67,62 +67,63 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 07/11/2022 11:11:22 ;
+; Start date & time ; 07/11/2022 12:20:47 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; sigma-processor     ;
 +-------------------+---------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------+
-; Flow Non-Default Global Settings                                                                                                                  ;
-+--------------------------------------+----------------------------------------+-----------------+-------------+-----------------------------------+
-; Assignment Name                      ; Value                                  ; Default Value   ; Entity Name ; Section Id                        ;
-+--------------------------------------+----------------------------------------+-----------------+-------------+-----------------------------------+
-; COMPILER_SIGNATURE_ID                ; 49410865336700.165753068205215         ; --              ; --          ; --                                ;
-; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --              ; --          ; ALU_tb.vhd                        ;
-; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --              ; --          ; CU_tb                             ;
-; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --              ; --          ; PC_tb.vhd                         ;
-; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --              ; --          ; top_tb                            ;
-; EDA_GENERATE_FUNCTIONAL_NETLIST      ; Off                                    ; --              ; --          ; eda_board_design_timing           ;
-; EDA_GENERATE_FUNCTIONAL_NETLIST      ; Off                                    ; --              ; --          ; eda_board_design_boundary_scan    ;
-; EDA_GENERATE_FUNCTIONAL_NETLIST      ; Off                                    ; --              ; --          ; eda_board_design_signal_integrity ;
-; EDA_GENERATE_FUNCTIONAL_NETLIST      ; Off                                    ; --              ; --          ; eda_board_design_symbol           ;
-; EDA_NATIVELINK_SIMULATION_TEST_BENCH ; top_tb                                 ; --              ; --          ; eda_simulation                    ;
-; EDA_OUTPUT_DATA_FORMAT               ; Vhdl                                   ; --              ; --          ; eda_simulation                    ;
-; EDA_SIMULATION_TOOL                  ; ModelSim-Altera (VHDL)                 ; <None>          ; --          ; --                                ;
-; EDA_TEST_BENCH_ENABLE_STATUS         ; TEST_BENCH_MODE                        ; --              ; --          ; eda_simulation                    ;
-; EDA_TEST_BENCH_FILE                  ; simulation/modelsim/ALU_tb.vhd         ; --              ; --          ; ALU_tb.vhd                        ;
-; EDA_TEST_BENCH_FILE                  ; simulation/modelsim/CU_tb.vhd          ; --              ; --          ; CU_tb                             ;
-; EDA_TEST_BENCH_FILE                  ; simulation/modelsim/PC_tb.vhd          ; --              ; --          ; PC_tb.vhd                         ;
-; EDA_TEST_BENCH_FILE                  ; simulation/modelsim/top_tb.vhd         ; --              ; --          ; top_tb                            ;
-; EDA_TEST_BENCH_MODULE_NAME           ; ALU_tb                                 ; --              ; --          ; ALU_tb.vhd                        ;
-; EDA_TEST_BENCH_MODULE_NAME           ; CU_tb                                  ; --              ; --          ; CU_tb                             ;
-; EDA_TEST_BENCH_MODULE_NAME           ; PC_tb.vhd                              ; --              ; --          ; PC_tb.vhd                         ;
-; EDA_TEST_BENCH_MODULE_NAME           ; top_tb                                 ; --              ; --          ; top_tb                            ;
-; EDA_TEST_BENCH_NAME                  ; PC_tb.vhd                              ; --              ; --          ; eda_simulation                    ;
-; EDA_TEST_BENCH_NAME                  ; ALU_tb.vhd                             ; --              ; --          ; eda_simulation                    ;
-; EDA_TEST_BENCH_NAME                  ; CU_tb                                  ; --              ; --          ; eda_simulation                    ;
-; EDA_TEST_BENCH_NAME                  ; top_tb                                 ; --              ; --          ; eda_simulation                    ;
-; EDA_TEST_BENCH_RUN_SIM_FOR           ; 1 us                                   ; --              ; --          ; ALU_tb.vhd                        ;
-; EDA_TEST_BENCH_RUN_SIM_FOR           ; 100 ns                                 ; --              ; --          ; CU_tb                             ;
-; EDA_TEST_BENCH_RUN_SIM_FOR           ; 1 us                                   ; --              ; --          ; PC_tb.vhd                         ;
-; EDA_TEST_BENCH_RUN_SIM_FOR           ; 100 ns                                 ; --              ; --          ; top_tb                            ;
-; EDA_TIME_SCALE                       ; 1 ps                                   ; --              ; --          ; eda_simulation                    ;
-; FLOW_ENABLE_POWER_ANALYZER           ; On                                     ; Off             ; --          ; --                                ;
-; MAX_CORE_JUNCTION_TEMP               ; 85                                     ; --              ; --          ; --                                ;
-; MIN_CORE_JUNCTION_TEMP               ; 0                                      ; --              ; --          ; --                                ;
-; PARTITION_COLOR                      ; -- (Not supported for targeted family) ; --              ; --          ; Top                               ;
-; PARTITION_COLOR                      ; -- (Not supported for targeted family) ; --              ; top         ; Top                               ;
-; PARTITION_FITTER_PRESERVATION_LEVEL  ; -- (Not supported for targeted family) ; --              ; --          ; Top                               ;
-; PARTITION_FITTER_PRESERVATION_LEVEL  ; -- (Not supported for targeted family) ; --              ; top         ; Top                               ;
-; PARTITION_NETLIST_TYPE               ; -- (Not supported for targeted family) ; --              ; --          ; Top                               ;
-; PARTITION_NETLIST_TYPE               ; -- (Not supported for targeted family) ; --              ; top         ; Top                               ;
-; POWER_BOARD_THERMAL_MODEL            ; None (CONSERVATIVE)                    ; --              ; --          ; --                                ;
-; POWER_DEFAULT_INPUT_IO_TOGGLE_RATE   ; 12.5 %                                 ; 12.5%           ; --          ; --                                ;
-; POWER_PRESET_COOLING_SOLUTION        ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW  ; --              ; --          ; --                                ;
-; PROJECT_OUTPUT_DIRECTORY             ; output_files                           ; --              ; --          ; --                                ;
-; TOP_LEVEL_ENTITY                     ; top                                    ; sigma-processor ; --          ; --                                ;
-+--------------------------------------+----------------------------------------+-----------------+-------------+-----------------------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                                                    ;
++----------------------------------------+----------------------------------------+-----------------+-------------+-----------------------------------+
+; Assignment Name                        ; Value                                  ; Default Value   ; Entity Name ; Section Id                        ;
++----------------------------------------+----------------------------------------+-----------------+-------------+-----------------------------------+
+; COMPILER_SIGNATURE_ID                  ; 49410865228367.165753484707064         ; --              ; --          ; --                                ;
+; EDA_DESIGN_INSTANCE_NAME               ; NA                                     ; --              ; --          ; ALU_tb.vhd                        ;
+; EDA_DESIGN_INSTANCE_NAME               ; NA                                     ; --              ; --          ; CU_tb                             ;
+; EDA_DESIGN_INSTANCE_NAME               ; NA                                     ; --              ; --          ; PC_tb.vhd                         ;
+; EDA_DESIGN_INSTANCE_NAME               ; NA                                     ; --              ; --          ; top_tb                            ;
+; EDA_GENERATE_FUNCTIONAL_NETLIST        ; Off                                    ; --              ; --          ; eda_board_design_timing           ;
+; EDA_GENERATE_FUNCTIONAL_NETLIST        ; Off                                    ; --              ; --          ; eda_board_design_boundary_scan    ;
+; EDA_GENERATE_FUNCTIONAL_NETLIST        ; Off                                    ; --              ; --          ; eda_board_design_signal_integrity ;
+; EDA_GENERATE_FUNCTIONAL_NETLIST        ; Off                                    ; --              ; --          ; eda_board_design_symbol           ;
+; EDA_NATIVELINK_SIMULATION_SETUP_SCRIPT ; simulation/modelsim/wave.do            ; --              ; --          ; eda_simulation                    ;
+; EDA_NATIVELINK_SIMULATION_TEST_BENCH   ; top_tb                                 ; --              ; --          ; eda_simulation                    ;
+; EDA_OUTPUT_DATA_FORMAT                 ; Vhdl                                   ; --              ; --          ; eda_simulation                    ;
+; EDA_SIMULATION_TOOL                    ; ModelSim-Altera (VHDL)                 ; <None>          ; --          ; --                                ;
+; EDA_TEST_BENCH_ENABLE_STATUS           ; TEST_BENCH_MODE                        ; --              ; --          ; eda_simulation                    ;
+; EDA_TEST_BENCH_FILE                    ; simulation/modelsim/ALU_tb.vhd         ; --              ; --          ; ALU_tb.vhd                        ;
+; EDA_TEST_BENCH_FILE                    ; simulation/modelsim/CU_tb.vhd          ; --              ; --          ; CU_tb                             ;
+; EDA_TEST_BENCH_FILE                    ; simulation/modelsim/PC_tb.vhd          ; --              ; --          ; PC_tb.vhd                         ;
+; EDA_TEST_BENCH_FILE                    ; simulation/modelsim/top_tb.vhd         ; --              ; --          ; top_tb                            ;
+; EDA_TEST_BENCH_MODULE_NAME             ; ALU_tb                                 ; --              ; --          ; ALU_tb.vhd                        ;
+; EDA_TEST_BENCH_MODULE_NAME             ; CU_tb                                  ; --              ; --          ; CU_tb                             ;
+; EDA_TEST_BENCH_MODULE_NAME             ; PC_tb.vhd                              ; --              ; --          ; PC_tb.vhd                         ;
+; EDA_TEST_BENCH_MODULE_NAME             ; top_tb                                 ; --              ; --          ; top_tb                            ;
+; EDA_TEST_BENCH_NAME                    ; PC_tb.vhd                              ; --              ; --          ; eda_simulation                    ;
+; EDA_TEST_BENCH_NAME                    ; ALU_tb.vhd                             ; --              ; --          ; eda_simulation                    ;
+; EDA_TEST_BENCH_NAME                    ; CU_tb                                  ; --              ; --          ; eda_simulation                    ;
+; EDA_TEST_BENCH_NAME                    ; top_tb                                 ; --              ; --          ; eda_simulation                    ;
+; EDA_TEST_BENCH_RUN_SIM_FOR             ; 1 us                                   ; --              ; --          ; ALU_tb.vhd                        ;
+; EDA_TEST_BENCH_RUN_SIM_FOR             ; 100 ns                                 ; --              ; --          ; CU_tb                             ;
+; EDA_TEST_BENCH_RUN_SIM_FOR             ; 1 us                                   ; --              ; --          ; PC_tb.vhd                         ;
+; EDA_TEST_BENCH_RUN_SIM_FOR             ; 500 ns                                 ; --              ; --          ; top_tb                            ;
+; EDA_TIME_SCALE                         ; 1 ps                                   ; --              ; --          ; eda_simulation                    ;
+; FLOW_ENABLE_POWER_ANALYZER             ; On                                     ; Off             ; --          ; --                                ;
+; MAX_CORE_JUNCTION_TEMP                 ; 85                                     ; --              ; --          ; --                                ;
+; MIN_CORE_JUNCTION_TEMP                 ; 0                                      ; --              ; --          ; --                                ;
+; PARTITION_COLOR                        ; -- (Not supported for targeted family) ; --              ; --          ; Top                               ;
+; PARTITION_COLOR                        ; -- (Not supported for targeted family) ; --              ; top         ; Top                               ;
+; PARTITION_FITTER_PRESERVATION_LEVEL    ; -- (Not supported for targeted family) ; --              ; --          ; Top                               ;
+; PARTITION_FITTER_PRESERVATION_LEVEL    ; -- (Not supported for targeted family) ; --              ; top         ; Top                               ;
+; PARTITION_NETLIST_TYPE                 ; -- (Not supported for targeted family) ; --              ; --          ; Top                               ;
+; PARTITION_NETLIST_TYPE                 ; -- (Not supported for targeted family) ; --              ; top         ; Top                               ;
+; POWER_BOARD_THERMAL_MODEL              ; None (CONSERVATIVE)                    ; --              ; --          ; --                                ;
+; POWER_DEFAULT_INPUT_IO_TOGGLE_RATE     ; 12.5 %                                 ; 12.5%           ; --          ; --                                ;
+; POWER_PRESET_COOLING_SOLUTION          ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW  ; --              ; --          ; --                                ;
+; PROJECT_OUTPUT_DIRECTORY               ; output_files                           ; --              ; --          ; --                                ;
+; TOP_LEVEL_ENTITY                       ; top                                    ; sigma-processor ; --          ; --                                ;
++----------------------------------------+----------------------------------------+-----------------+-------------+-----------------------------------+
 
 
 +----------------------------------------------------------------------------------------------------------------------------+
@@ -130,7 +131,7 @@ https://fpgasoftware.intel.com/eula.
 +------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name            ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Elaboration ; 00:00:06     ; 1.0                     ; 755 MB              ; 00:00:12                           ;
+; Analysis & Elaboration ; 00:00:06     ; 1.0                     ; 749 MB              ; 00:00:12                           ;
 ; Total                  ; 00:00:06     ; --                      ; --                  ; 00:00:12                           ;
 +------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
@@ -140,7 +141,7 @@ https://fpgasoftware.intel.com/eula.
 +------------------------+------------------+----------------+------------+----------------+
 ; Module Name            ; Machine Hostname ; OS Name        ; OS Version ; Processor type ;
 +------------------------+------------------+----------------+------------+----------------+
-; Analysis & Elaboration ; rtrkf060-lin     ; Ubuntu 20.04.4 ; 20         ; x86_64         ;
+; Analysis & Elaboration ; rtrkf056-lin     ; Ubuntu 20.04.4 ; 20         ; x86_64         ;
 +------------------------+------------------+----------------+------------+----------------+
 
 

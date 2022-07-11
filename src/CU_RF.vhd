@@ -11,7 +11,9 @@ entity ControlUnit_RF is
 		
 		--outputs
 		oRA2SEL	:	out	std_logic;
-		oWASEL	:	out	std_logic
+		oWASEL	:	out	std_logic;
+		oASEL		:	out	std_logic;
+		oBSEL		:	out	std_logic
 	);
 end entity;
 
@@ -137,5 +139,7 @@ architecture Behavioral of ControlUnit_RF is
 	
 		oRA2SEL	<= sCodeWord(4);
 		oWASEL	<= sCodeWord(3);
+		oASEL		<= sCodeWord(11);
+		oBSEL		<= sCodeWord(10);
 
 end architecture;

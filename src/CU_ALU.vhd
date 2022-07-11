@@ -10,9 +10,7 @@ entity ControlUnit_ALU is
 		iZ			:	in		std_logic;
 		
 		--outputs
-		oALUFN	:	out	std_logic_vector(5 downto 0);
-		oASEL		:	out	std_logic;
-		oBSEL		:	out	std_logic
+		oALUFN	:	out	std_logic_vector(5 downto 0)
 	);
 end entity;
 
@@ -137,7 +135,5 @@ architecture Behavioral of ControlUnit_ALU is
 		"------" & "-" & "-" & "0" & "0" & "---" & "-" & "-" & "--" & "0" 			when others;	-- NOP
 	
 		oALUFN	<= sCodeWord(17 downto 12);
-		oASEL		<= sCodeWord(11);
-		oBSEL		<= sCodeWord(10);
 
 end architecture;

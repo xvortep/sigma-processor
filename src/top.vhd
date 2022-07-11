@@ -49,11 +49,11 @@ architecture arch of top is
 	signal sZ_RF		:	std_logic;
 	signal sRA2SEL_RF	:	std_logic;
 	signal sWASEL_RF	:	std_logic;
+	signal sASEL_RF	:	std_logic;
+	signal sBSEL_RF	:	std_logic;
 	-- control unit - ALU signals 
 	signal sOpcode_ALU	:	std_logic_vector(5 downto 0);
 	signal sALUFN_ALU		:	std_logic_vector(5 downto 0);
-	signal sASEL_ALU		:	std_logic;
-	signal sBSEL_ALU		:	std_logic;
 	-- control unit - MEM signals 
 	signal sOpcode_MEM	:	std_logic_vector(5 downto 0);
 	signal sMOE_MEM		:	std_logic;
@@ -171,7 +171,9 @@ begin
 		iOpcode	=> sOpcode_RF,
 		iZ			=> sZ_RF,
 		oRA2SEL	=> sRA2SEL_RF,
-		oWASEL	=> sWASEL_RF
+		oWASEL	=> sWASEL_RF,
+		oASEL		=> sASEL_RF,
+		oBSEL		=>	sBSEL_RF
 	);
 	-- logic -in:
 --	sOpcode_RF <= s_o_ir_rf(31 downto 26);
@@ -186,9 +188,7 @@ begin
 	Port map(
 		iOpcode	=>	sOpcode_ALU,
 		iZ			=> '0',
-		oALUFN	=>	sALUFN_ALU,
-		oASEL		=> sASEL_ALU,
-		oBSEL		=>	sBSEL_ALU
+		oALUFN	=>	sALUFN_ALU
 	);
 	-- logic -in:
 --	sOpcode_ALU <= s_o_ir_alu(31 downto 26);
@@ -265,7 +265,7 @@ begin
 	s_i_ir_mem	<= s_o_ir_alu 	when s_irs_rc_alu	= '0' else x"00000000";		-- same
 	s_i_ir_wb	<= s_o_ir_mem	when s_irs_rc_mem = '0' else x"00000000";  	-- same
 	s_i_a_alu	<= s_a_bypass;
-	s_i_b_alu	<= s_b_bypass	when sBSEL_ALU = '0'		else sEX;
+	s_i_b_alu	<= s_b_bypass	when sBSEL_RF = '0'		else sEX;
 	s_i_y_mem	<= sOutput;
 	s_i_y_wb		<= s_o_y_mem;
 	s_i_d_alu	<= s_b_bypass;
@@ -375,9 +375,9 @@ begin
 --	with sQpm(15) select sEX <=
 --		x"0000" & sQpm(15 downto 0)	when '0',
 --		x"FFFF" & sQpm(15 downto 0)	when others;
-	with s_o_ir_rf(15) select sEX <=							-- sign extension of constant 
-		x"0000" & s_o_ir_rf(15 downto 0) when '0',
-		x"FFFF" & s_o_ir_rf(15 downto 0) when others;
+	with s_i_ir_alu(15) select sEX <=							-- sign extension of constant 
+		x"0000" & s_i_ir_alu(15 downto 0) when '0',
+		x"FFFF" & s_i_ir_alu(15 downto 0) when others;
 
 -- TODO: овај мукс преместити у стејџ изнад
 --	with sBSEL select sB <=
