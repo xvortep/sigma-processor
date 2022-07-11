@@ -78,6 +78,35 @@ add wave -noupdate -radix hexadecimal /top_tb/uut/regf_i/r27_i/sREG
 add wave -noupdate -radix hexadecimal /top_tb/uut/regf_i/r28_i/sREG
 add wave -noupdate -radix hexadecimal /top_tb/uut/regf_i/r29_i/sREG
 add wave -noupdate -radix hexadecimal /top_tb/uut/regf_i/r30_i/sREG
+add wave -noupdate -divider -height 30 PIPELINE
+add wave -noupdate -radix hexadecimal /top_tb/uut/reg_pipeline/i_pc_rf
+add wave -noupdate -radix hexadecimal /top_tb/uut/reg_pipeline/o_pc_rf
+add wave -noupdate -radix hexadecimal /top_tb/uut/reg_pipeline/i_pc_alu
+add wave -noupdate -radix hexadecimal /top_tb/uut/reg_pipeline/o_pc_alu
+add wave -noupdate -radix hexadecimal /top_tb/uut/reg_pipeline/i_pc_mem
+add wave -noupdate -radix hexadecimal /top_tb/uut/reg_pipeline/o_pc_mem
+add wave -noupdate -radix hexadecimal /top_tb/uut/reg_pipeline/i_pc_wb
+add wave -noupdate -radix hexadecimal /top_tb/uut/reg_pipeline/o_pc_wb
+add wave -noupdate -radix hexadecimal /top_tb/uut/reg_pipeline/i_ir_rf
+add wave -noupdate -radix hexadecimal /top_tb/uut/reg_pipeline/o_ir_rf
+add wave -noupdate -radix hexadecimal /top_tb/uut/reg_pipeline/i_ir_alu
+add wave -noupdate -radix hexadecimal /top_tb/uut/reg_pipeline/o_ir_alu
+add wave -noupdate -radix hexadecimal /top_tb/uut/reg_pipeline/i_ir_mem
+add wave -noupdate -radix hexadecimal /top_tb/uut/reg_pipeline/o_ir_mem
+add wave -noupdate -radix hexadecimal /top_tb/uut/reg_pipeline/i_ir_wb
+add wave -noupdate -radix hexadecimal /top_tb/uut/reg_pipeline/o_ir_wb
+add wave -noupdate -radix hexadecimal /top_tb/uut/reg_pipeline/i_a_alu
+add wave -noupdate -radix hexadecimal /top_tb/uut/reg_pipeline/o_a_alu
+add wave -noupdate -radix hexadecimal /top_tb/uut/reg_pipeline/i_b_alu
+add wave -noupdate -radix hexadecimal /top_tb/uut/reg_pipeline/o_b_alu
+add wave -noupdate -radix hexadecimal /top_tb/uut/reg_pipeline/i_y_mem
+add wave -noupdate -radix hexadecimal /top_tb/uut/reg_pipeline/o_y_mem
+add wave -noupdate -radix hexadecimal /top_tb/uut/reg_pipeline/i_y_wb
+add wave -noupdate -radix hexadecimal /top_tb/uut/reg_pipeline/o_y_wb
+add wave -noupdate -radix hexadecimal /top_tb/uut/reg_pipeline/i_d_alu
+add wave -noupdate -radix hexadecimal /top_tb/uut/reg_pipeline/o_d_alu
+add wave -noupdate -radix hexadecimal /top_tb/uut/reg_pipeline/i_d_mem
+add wave -noupdate -radix hexadecimal /top_tb/uut/reg_pipeline/o_d_mem
 TreeUpdate [SetDefaultTree]
 WaveRestoreCursors {{Cursor 1} {95 ns} 0}
 quietly wave cursor active 1
