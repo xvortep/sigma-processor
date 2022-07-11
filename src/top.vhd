@@ -79,6 +79,7 @@ architecture arch of top is
 	signal s_i_y_wb	:	std_logic_vector(31 downto 0);
 	signal s_i_d_alu	:	std_logic_vector(31 downto 0);
 	signal s_i_d_mem	:	std_logic_vector(31 downto 0);
+	signal s_i_d_wb	:	std_logic_vector(31 downto 0);
 	signal s_o_pc_rf	:	std_logic_vector(31 downto 0);
 	signal s_o_pc_alu	:	std_logic_vector(31 downto 0);
 	signal s_o_pc_mem	:	std_logic_vector(31 downto 0);
@@ -93,6 +94,7 @@ architecture arch of top is
 	signal s_o_y_wb	:	std_logic_vector(31 downto 0);
 	signal s_o_d_alu	:	std_logic_vector(31 downto 0);
 	signal s_o_d_mem	:	std_logic_vector(31 downto 0);
+	signal s_o_d_wb	:	std_logic_vector(31 downto 0);
 	-- program memory signals
 	signal sApm			:	std_logic_vector(7 downto 0);
 	signal sQpm			: 	std_logic_vector(31 downto 0);
@@ -237,7 +239,8 @@ begin
 		i_y_mem	=> s_i_y_mem,	
 		i_y_wb	=> s_i_y_wb,	
 		i_d_alu	=> s_i_d_alu,	
-		i_d_mem	=> s_i_d_mem,	
+		i_d_mem	=> s_i_d_mem,
+		i_d_wb	=>	s_i_d_wb,
 		o_pc_rf	=> s_o_pc_rf,	
 		o_pc_alu	=> s_o_pc_alu,
 		o_pc_mem	=> s_o_pc_mem,	
@@ -251,7 +254,8 @@ begin
 		o_y_mem	=> s_o_y_mem,	
 		o_y_wb	=> s_o_y_wb,	
 		o_d_alu	=> s_o_d_alu,	
-		o_d_mem	=> s_o_d_mem	
+		o_d_mem	=> s_o_d_mem,
+		o_d_wb	=>	s_o_d_wb
 	);
 	-- logic -in:
 	sCLKpr <= iCLK;
@@ -270,6 +274,7 @@ begin
 	s_i_y_wb		<= s_o_y_mem;
 	s_i_d_alu	<= s_b_bypass;
 	s_i_d_mem	<= s_o_d_alu;
+	s_i_d_wb		<= sRDdr;
 	
 ---------------------------------------------------------------------------------------------------------------
 	-- program memory<3
@@ -357,8 +362,8 @@ begin
 	with sWDSEL_WB select sWD <=
 		-- TODO: da li treba ovako - valjda da
 		(s_o_pc_wb + 4)			when "00",
-		s_o_y_wb					when "01",
-		sRDdr						when others;
+		s_o_y_wb						when "01",
+		s_o_d_wb						when others;
 ---------------------------------------------------------------------------------------------------------------		
 	-- al unit
 	alu_i	:	entity work.ALU

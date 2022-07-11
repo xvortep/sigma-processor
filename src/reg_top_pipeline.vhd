@@ -24,6 +24,8 @@ entity reg_top_pipeline is
 		i_y_wb	:	in		std_logic_vector(31 downto 0);
 		i_d_alu	:	in		std_logic_vector(31 downto 0);
 		i_d_mem	:	in		std_logic_vector(31 downto 0);
+		i_d_wb	:	in		std_logic_vector(31 downto 0);
+		
 		-- outputs
 		o_pc_rf	:	out	std_logic_vector(31 downto 0);
 		o_pc_alu	:	out	std_logic_vector(31 downto 0);
@@ -38,7 +40,8 @@ entity reg_top_pipeline is
 		o_y_mem	:	out	std_logic_vector(31 downto 0);
 		o_y_wb	:	out	std_logic_vector(31 downto 0);
 		o_d_alu	:	out	std_logic_vector(31 downto 0);
-		o_d_mem	:	out	std_logic_vector(31 downto 0)
+		o_d_mem	:	out	std_logic_vector(31 downto 0);
+		o_d_wb	:	out	std_logic_vector(31 downto 0)
 	);
 end entity reg_top_pipeline;
 
@@ -171,12 +174,15 @@ architecture Behavioral of reg_top_pipeline is begin
 		oREG	=>	o_d_mem
 	);
 	
-	
-	
+	r_d_wb	:	entity work.reg_nwe
+	port map
+	(
+		iD		=> i_d_wb,
+		iCLK	=> iCLK,
+		iRST	=> iRST,
+		oREG	=>	o_d_wb
+	);
 	
 
-	
-	
-	
 	
 end architecture;

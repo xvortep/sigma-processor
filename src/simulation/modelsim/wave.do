@@ -107,6 +107,8 @@ add wave -noupdate -radix hexadecimal /top_tb/uut/reg_pipeline/i_d_alu
 add wave -noupdate -radix hexadecimal /top_tb/uut/reg_pipeline/o_d_alu
 add wave -noupdate -radix hexadecimal /top_tb/uut/reg_pipeline/i_d_mem
 add wave -noupdate -radix hexadecimal /top_tb/uut/reg_pipeline/o_d_mem
+add wave -noupdate -radix hexadecimal /top_tb/uut/reg_pipeline/i_d_wb
+add wave -noupdate -radix hexadecimal /top_tb/uut/reg_pipeline/o_d_wb
 TreeUpdate [SetDefaultTree]
 WaveRestoreCursors {{Cursor 1} {95 ns} 0}
 quietly wave cursor active 1
@@ -124,5 +126,5 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ns
 update
-run {500 ns}
+run {3 us}
 WaveRestoreZoom {95 ns} {265 ns}
