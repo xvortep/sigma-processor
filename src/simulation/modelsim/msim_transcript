@@ -10,7 +10,7 @@
 # 
 # vcom -93 -work work {/home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/prog_file.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 11:45:26 on Jul 11,2022
+# Start time: 11:53:40 on Jul 11,2022
 # vcom -reportprogress 300 -93 -work work /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/prog_file.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -19,11 +19,11 @@
 # -- Loading package STD_LOGIC_SIGNED
 # -- Compiling entity instr_rom
 # -- Compiling architecture Behavioral of instr_rom
-# End time: 11:45:26 on Jul 11,2022, Elapsed time: 0:00:00
+# End time: 11:53:40 on Jul 11,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {/home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/data_file.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 11:45:26 on Jul 11,2022
+# Start time: 11:53:40 on Jul 11,2022
 # vcom -reportprogress 300 -93 -work work /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/data_file.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -31,22 +31,22 @@
 # -- Loading package NUMERIC_STD
 # -- Compiling entity data_ram
 # -- Compiling architecture Behavioral of data_ram
-# End time: 11:45:26 on Jul 11,2022, Elapsed time: 0:00:00
+# End time: 11:53:40 on Jul 11,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {/home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/register.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 11:45:26 on Jul 11,2022
+# Start time: 11:53:40 on Jul 11,2022
 # vcom -reportprogress 300 -93 -work work /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/register.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity reg
 # -- Compiling architecture Behavioral of reg
-# End time: 11:45:26 on Jul 11,2022, Elapsed time: 0:00:00
+# End time: 11:53:40 on Jul 11,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {/home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/ALU.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 11:45:26 on Jul 11,2022
+# Start time: 11:53:40 on Jul 11,2022
 # vcom -reportprogress 300 -93 -work work /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/ALU.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -55,11 +55,11 @@
 # -- Loading package STD_LOGIC_UNSIGNED
 # -- Compiling entity ALU
 # -- Compiling architecture Behavioral of ALU
-# End time: 11:45:26 on Jul 11,2022, Elapsed time: 0:00:00
+# End time: 11:53:40 on Jul 11,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {/home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/PC.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 11:45:26 on Jul 11,2022
+# Start time: 11:53:40 on Jul 11,2022
 # vcom -reportprogress 300 -93 -work work /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/PC.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -68,11 +68,11 @@
 # -- Loading package STD_LOGIC_UNSIGNED
 # -- Compiling entity PC
 # -- Compiling architecture Behavioral of PC
-# End time: 11:45:26 on Jul 11,2022, Elapsed time: 0:00:00
+# End time: 11:53:40 on Jul 11,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {/home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/CU_IF.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 11:45:26 on Jul 11,2022
+# Start time: 11:53:40 on Jul 11,2022
 # vcom -reportprogress 300 -93 -work work /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/CU_IF.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -80,11 +80,11 @@
 # -- Loading package std_logic_arith
 # -- Compiling entity ControlUnit_IF
 # -- Compiling architecture Behavioral of ControlUnit_IF
-# End time: 11:45:26 on Jul 11,2022, Elapsed time: 0:00:00
+# End time: 11:53:40 on Jul 11,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {/home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/CU_RF.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 11:45:26 on Jul 11,2022
+# Start time: 11:53:40 on Jul 11,2022
 # vcom -reportprogress 300 -93 -work work /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/CU_RF.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -92,11 +92,11 @@
 # -- Loading package std_logic_arith
 # -- Compiling entity ControlUnit_RF
 # -- Compiling architecture Behavioral of ControlUnit_RF
-# End time: 11:45:26 on Jul 11,2022, Elapsed time: 0:00:00
+# End time: 11:53:40 on Jul 11,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {/home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/CU_ALU.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 11:45:26 on Jul 11,2022
+# Start time: 11:53:40 on Jul 11,2022
 # vcom -reportprogress 300 -93 -work work /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/CU_ALU.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -104,11 +104,11 @@
 # -- Loading package std_logic_arith
 # -- Compiling entity ControlUnit_ALU
 # -- Compiling architecture Behavioral of ControlUnit_ALU
-# End time: 11:45:26 on Jul 11,2022, Elapsed time: 0:00:00
+# End time: 11:53:40 on Jul 11,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {/home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/CU_MEM.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 11:45:26 on Jul 11,2022
+# Start time: 11:53:40 on Jul 11,2022
 # vcom -reportprogress 300 -93 -work work /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/CU_MEM.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -116,11 +116,11 @@
 # -- Loading package std_logic_arith
 # -- Compiling entity ControlUnit_MEM
 # -- Compiling architecture Behavioral of ControlUnit_MEM
-# End time: 11:45:26 on Jul 11,2022, Elapsed time: 0:00:00
+# End time: 11:53:40 on Jul 11,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {/home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/CU_WB.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 11:45:26 on Jul 11,2022
+# Start time: 11:53:40 on Jul 11,2022
 # vcom -reportprogress 300 -93 -work work /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/CU_WB.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -128,22 +128,22 @@
 # -- Loading package std_logic_arith
 # -- Compiling entity ControlUnit_WB
 # -- Compiling architecture Behavioral of ControlUnit_WB
-# End time: 11:45:26 on Jul 11,2022, Elapsed time: 0:00:00
+# End time: 11:53:40 on Jul 11,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {/home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/register_nWE.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 11:45:26 on Jul 11,2022
+# Start time: 11:53:40 on Jul 11,2022
 # vcom -reportprogress 300 -93 -work work /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/register_nWE.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity reg_nwe
 # -- Compiling architecture Behavioral of reg_nwe
-# End time: 11:45:26 on Jul 11,2022, Elapsed time: 0:00:00
+# End time: 11:53:41 on Jul 11,2022, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {/home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/reg_top_pipeline.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 11:45:26 on Jul 11,2022
+# Start time: 11:53:41 on Jul 11,2022
 # vcom -reportprogress 300 -93 -work work /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/reg_top_pipeline.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -152,11 +152,11 @@
 # -- Compiling entity reg_top_pipeline
 # -- Compiling architecture Behavioral of reg_top_pipeline
 # -- Loading entity reg_nwe
-# End time: 11:45:26 on Jul 11,2022, Elapsed time: 0:00:00
+# End time: 11:53:41 on Jul 11,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {/home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/reg_file.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 11:45:26 on Jul 11,2022
+# Start time: 11:53:41 on Jul 11,2022
 # vcom -reportprogress 300 -93 -work work /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/reg_file.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -165,11 +165,11 @@
 # -- Compiling entity reg_file
 # -- Compiling architecture Behavioral of reg_file
 # -- Loading entity reg
-# End time: 11:45:26 on Jul 11,2022, Elapsed time: 0:00:00
+# End time: 11:53:41 on Jul 11,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {/home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/top.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 11:45:26 on Jul 11,2022
+# Start time: 11:53:41 on Jul 11,2022
 # vcom -reportprogress 300 -93 -work work /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/top.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -191,24 +191,24 @@
 # -- Loading entity PC
 # -- Loading entity reg_file
 # -- Loading entity ALU
-# End time: 11:45:26 on Jul 11,2022, Elapsed time: 0:00:00
+# End time: 11:53:41 on Jul 11,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vcom -93 -work work {/home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/simulation/modelsim/top_tb.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 11:45:26 on Jul 11,2022
+# Start time: 11:53:41 on Jul 11,2022
 # vcom -reportprogress 300 -93 -work work /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/simulation/modelsim/top_tb.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity top_tb
 # -- Compiling architecture Behavioral of top_tb
-# End time: 11:45:26 on Jul 11,2022, Elapsed time: 0:00:00
+# End time: 11:53:41 on Jul 11,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L fiftyfivenm -L rtl_work -L work -voptargs="+acc"  top_tb
 # vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L fiftyfivenm -L rtl_work -L work -voptargs=""+acc"" top_tb 
-# Start time: 11:45:26 on Jul 11,2022
+# Start time: 11:53:41 on Jul 11,2022
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
@@ -246,7 +246,7 @@
 # add wave -noupdate -divider {INSTRUCTION MEMORY}
 # add wave -noupdate -radix hexadecimal /top_tb/uut/prog_i/iA
 # add wave -noupdate -radix hexadecimal /top_tb/uut/prog_i/oQ
-# add wave -noupdate -radix binary -childformat {{/top_tb/uut/prog_i/Instruction(5) -radix binary} {/top_tb/uut/prog_i/Instruction(4) -radix binary} {/top_tb/uut/prog_i/Instruction(3) -radix binary} {/top_tb/uut/prog_i/Instruction(2) -radix binary} {/top_tb/uut/prog_i/Instruction(1) -radix binary} {/top_tb/uut/prog_i/Instruction(0) -radix binary}} -subitemconfig {/top_tb/uut/prog_i/oQ(31) {-radix binary} /top_tb/uut/prog_i/oQ(30) {-radix binary} /top_tb/uut/prog_i/oQ(29) {-radix binary} /top_tb/uut/prog_i/oQ(28) {-radix binary} /top_tb/uut/prog_i/oQ(27) {-radix binary} /top_tb/uut/prog_i/oQ(26) {-radix binary}} /top_tb/uut/prog_i/Instruction
+# add wave -noupdate -radix binary -childformat {{/top_tb/uut/prog_i/Instruction(31) -radix binary} {/top_tb/uut/prog_i/Instruction(30) -radix binary} {/top_tb/uut/prog_i/Instruction(29) -radix binary} {/top_tb/uut/prog_i/Instruction(28) -radix binary} {/top_tb/uut/prog_i/Instruction(27) -radix binary} {/top_tb/uut/prog_i/Instruction(26) -radix binary}} -subitemconfig {/top_tb/uut/prog_i/oQ(31) {-radix binary} /top_tb/uut/prog_i/oQ(30) {-radix binary} /top_tb/uut/prog_i/oQ(29) {-radix binary} /top_tb/uut/prog_i/oQ(28) {-radix binary} /top_tb/uut/prog_i/oQ(27) {-radix binary} /top_tb/uut/prog_i/oQ(26) {-radix binary}} /top_tb/uut/prog_i/Instruction
 # add wave -noupdate -divider {DATA MEMORY}
 # add wave -noupdate -radix binary /top_tb/uut/data_i/iWE
 # add wave -noupdate -radix binary /top_tb/uut/data_i/iOE
@@ -278,8 +278,40 @@
 # add wave -noupdate -divider {CU WB}
 # add wave -noupdate -radix binary /top_tb/uut/cu_wb/oWDSEL
 # add wave -noupdate -radix binary /top_tb/uut/cu_wb/oWERF
+# add wave -noupdate -divider REGS
+# add wave -noupdate -radix hexadecimal /top_tb/uut/regf_i/r0_i/sREG
+# add wave -noupdate -radix hexadecimal /top_tb/uut/regf_i/r1_i/sREG
+# add wave -noupdate -radix hexadecimal /top_tb/uut/regf_i/r2_i/sREG
+# add wave -noupdate -radix hexadecimal /top_tb/uut/regf_i/r3_i/sREG
+# add wave -noupdate -radix hexadecimal /top_tb/uut/regf_i/r4_i/sREG
+# add wave -noupdate -radix hexadecimal /top_tb/uut/regf_i/r5_i/sREG
+# add wave -noupdate -radix hexadecimal /top_tb/uut/regf_i/r6_i/sREG
+# add wave -noupdate -radix hexadecimal /top_tb/uut/regf_i/r7_i/sREG
+# add wave -noupdate -radix hexadecimal /top_tb/uut/regf_i/r8_i/sREG
+# add wave -noupdate -radix hexadecimal /top_tb/uut/regf_i/r9_i/sREG
+# add wave -noupdate -radix hexadecimal /top_tb/uut/regf_i/r10_i/sREG
+# add wave -noupdate -radix hexadecimal /top_tb/uut/regf_i/r11_i/sREG
+# add wave -noupdate -radix hexadecimal /top_tb/uut/regf_i/r12_i/sREG
+# add wave -noupdate -radix hexadecimal /top_tb/uut/regf_i/r13_i/sREG
+# add wave -noupdate -radix hexadecimal /top_tb/uut/regf_i/r14_i/sREG
+# add wave -noupdate -radix hexadecimal /top_tb/uut/regf_i/r15_i/sREG
+# add wave -noupdate -radix hexadecimal /top_tb/uut/regf_i/r16_i/sREG
+# add wave -noupdate -radix hexadecimal /top_tb/uut/regf_i/r17_i/sREG
+# add wave -noupdate -radix hexadecimal /top_tb/uut/regf_i/r18_i/sREG
+# add wave -noupdate -radix hexadecimal /top_tb/uut/regf_i/r19_i/sREG
+# add wave -noupdate -radix hexadecimal /top_tb/uut/regf_i/r20_i/sREG
+# add wave -noupdate -radix hexadecimal /top_tb/uut/regf_i/r21_i/sREG
+# add wave -noupdate -radix hexadecimal /top_tb/uut/regf_i/r22_i/sREG
+# add wave -noupdate -radix hexadecimal /top_tb/uut/regf_i/r23_i/sREG
+# add wave -noupdate -radix hexadecimal /top_tb/uut/regf_i/r24_i/sREG
+# add wave -noupdate -radix hexadecimal /top_tb/uut/regf_i/r25_i/sREG
+# add wave -noupdate -radix hexadecimal /top_tb/uut/regf_i/r26_i/sREG
+# add wave -noupdate -radix hexadecimal /top_tb/uut/regf_i/r27_i/sREG
+# add wave -noupdate -radix hexadecimal /top_tb/uut/regf_i/r28_i/sREG
+# add wave -noupdate -radix hexadecimal /top_tb/uut/regf_i/r29_i/sREG
+# add wave -noupdate -radix hexadecimal /top_tb/uut/regf_i/r30_i/sREG
 # TreeUpdate [SetDefaultTree]
-# WaveRestoreCursors {{Cursor 1} {0 ps} 0}
+# WaveRestoreCursors {{Cursor 1} {176014 ps} 0}
 # quietly wave cursor active 1
 # configure wave -namecolwidth 225
 # configure wave -valuecolwidth 144
@@ -296,7 +328,7 @@
 # configure wave -timelineunits ns
 # update
 # WaveRestoreZoom {0 ps} {166144 ps}
-run
+# run {500 ns}
 # ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
 #    Time: 0 ps  Iteration: 0  Instance: /top_tb/uut/alu_i
 # ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
@@ -353,127 +385,3 @@ run
 #    Time: 0 ps  Iteration: 4  Instance: /top_tb/uut/regf_i
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 #    Time: 0 ps  Iteration: 4  Instance: /top_tb/uut/regf_i
-add wave -position insertpoint  \
-sim:/top_tb/uut/regf_i/r0_i/sREG
-add wave -position insertpoint  \
-sim:/top_tb/uut/regf_i/r1_i/sREG
-add wave -position insertpoint  \
-sim:/top_tb/uut/regf_i/r2_i/sREG
-add wave -position insertpoint  \
-sim:/top_tb/uut/regf_i/r3_i/sREG
-add wave -position insertpoint  \
-sim:/top_tb/uut/regf_i/r4_i/sREG
-add wave -position insertpoint  \
-sim:/top_tb/uut/regf_i/r5_i/sREG
-add wave -position insertpoint  \
-sim:/top_tb/uut/regf_i/r6_i/sREG
-add wave -position insertpoint  \
-sim:/top_tb/uut/regf_i/r7_i/sREG
-add wave -position insertpoint  \
-sim:/top_tb/uut/regf_i/r8_i/sREG
-add wave -position insertpoint  \
-sim:/top_tb/uut/regf_i/r9_i/sREG
-add wave -position insertpoint  \
-sim:/top_tb/uut/regf_i/r10_i/sREG
-add wave -position insertpoint  \
-sim:/top_tb/uut/regf_i/r11_i/sREG
-add wave -position insertpoint  \
-sim:/top_tb/uut/regf_i/r12_i/sREG
-add wave -position insertpoint  \
-sim:/top_tb/uut/regf_i/r13_i/sREG
-add wave -position insertpoint  \
-sim:/top_tb/uut/regf_i/r14_i/sREG
-add wave -position insertpoint  \
-sim:/top_tb/uut/regf_i/r15_i/sREG
-add wave -position insertpoint  \
-sim:/top_tb/uut/regf_i/r16_i/sREG
-add wave -position insertpoint  \
-sim:/top_tb/uut/regf_i/r17_i/sREG
-add wave -position insertpoint  \
-sim:/top_tb/uut/regf_i/r18_i/sREG
-add wave -position insertpoint  \
-sim:/top_tb/uut/regf_i/r19_i/sREG
-add wave -position insertpoint  \
-sim:/top_tb/uut/regf_i/r20_i/sREG
-add wave -position insertpoint  \
-sim:/top_tb/uut/regf_i/r21_i/sREG
-add wave -position insertpoint  \
-sim:/top_tb/uut/regf_i/r22_i/sREG
-add wave -position insertpoint  \
-sim:/top_tb/uut/regf_i/r23_i/sREG
-add wave -position insertpoint  \
-sim:/top_tb/uut/regf_i/r24_i/sREG
-add wave -position insertpoint  \
-sim:/top_tb/uut/regf_i/r25_i/sREG
-add wave -position insertpoint  \
-sim:/top_tb/uut/regf_i/r26_i/sREG
-add wave -position insertpoint  \
-sim:/top_tb/uut/regf_i/r27_i/sREG
-add wave -position insertpoint  \
-sim:/top_tb/uut/regf_i/r28_i/sREG
-add wave -position insertpoint  \
-sim:/top_tb/uut/regf_i/r29_i/sREG
-add wave -position insertpoint  \
-sim:/top_tb/uut/regf_i/r30_i/sREG
-restart
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-run
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 0  Instance: /top_tb/uut/alu_i
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 0  Instance: /top_tb/uut/alu_i
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 0  Instance: /top_tb/uut/alu_i
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 0  Instance: /top_tb/uut/alu_i
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 0  Instance: /top_tb/uut/alu_i
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 0  Instance: /top_tb/uut/alu_i
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ps  Iteration: 0  Instance: /top_tb/uut/regf_i
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ps  Iteration: 0  Instance: /top_tb/uut/regf_i
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 0  Instance: /top_tb/uut/pc_i
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 0  Instance: /top_tb/uut/pc_i
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 0  Instance: /top_tb/uut/pc_i
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 0  Instance: /top_tb/uut/pc_i
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 0  Instance: /top_tb/uut/prog_i
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 0  Instance: /top_tb/uut/prog_i
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 0  Instance: /top_tb/uut/prog_i
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 0  Instance: /top_tb/uut/prog_i
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 0  Instance: /top_tb/uut/prog_i
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 0  Instance: /top_tb/uut/prog_i
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 0  Instance: /top_tb/uut/prog_i
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 0  Instance: /top_tb/uut/prog_i
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 0  Instance: /top_tb/uut/prog_i
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ps  Iteration: 1  Instance: /top_tb/uut/regf_i
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ps  Iteration: 1  Instance: /top_tb/uut/regf_i
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 1  Instance: /top_tb/uut/pc_i
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 1  Instance: /top_tb/uut/pc_i
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 2  Instance: /top_tb/uut/pc_i
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ps  Iteration: 4  Instance: /top_tb/uut/regf_i
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ps  Iteration: 4  Instance: /top_tb/uut/regf_i
-write format wave -window .main_pane.wave.interior.cs.body.pw.wf /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/simulation/modelsim/wave.do
-# End time: 11:49:21 on Jul 11,2022, Elapsed time: 0:03:55
-# Errors: 0, Warnings: 28
