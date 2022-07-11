@@ -349,7 +349,7 @@ begin
 --		sQpm(25 downto 21)	when others;
 	with sWASEL_RF select sWA <=
 		("11110") 					when '1',
-		s_o_ir_rf(25 downto 21)	when others;
+		s_o_ir_wb(25 downto 21)	when others;
 --	with sWDSEL select sWD <=								-- wdsel
 --		(sPC + 4)					when	"00",
 --		sOutput						when	"01",
