@@ -76,7 +76,7 @@ add wave -noupdate -radix hexadecimal /top_tb/uut/regf_i/r28_i/sREG
 add wave -noupdate -radix hexadecimal /top_tb/uut/regf_i/r29_i/sREG
 add wave -noupdate -radix hexadecimal /top_tb/uut/regf_i/r30_i/sREG
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {176014 ps} 0}
+WaveRestoreCursors {{Cursor 1} {95 ns} 0}
 quietly wave cursor active 1
 configure wave -namecolwidth 225
 configure wave -valuecolwidth 144
