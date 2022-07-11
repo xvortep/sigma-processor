@@ -33,6 +33,7 @@ add wave -noupdate -radix binary /top_tb/uut/cu_if/iOpcode
 add wave -noupdate -radix binary /top_tb/uut/cu_if/oPCSEL
 add wave -noupdate -divider {CU RF}
 add wave -noupdate -radix binary /top_tb/uut/cu_rf/iOpcode
+add wave -noupdate -radix binary /top_tb/uut/cu_rf/iZ
 add wave -noupdate -radix binary /top_tb/uut/cu_rf/oRA2SEL
 add wave -noupdate -radix binary /top_tb/uut/cu_rf/oWASEL
 add wave -noupdate -divider {CU ALU}

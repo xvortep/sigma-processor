@@ -181,7 +181,9 @@ begin
 --	sOpcode_RF <= s_o_ir_rf(31 downto 26);
 	sOpcode_RF <= s_i_ir_alu(31 downto 26);
 	-- TODO: resi multiplekser iz RD1 za sZ_IF -- valjda ide ovako
-	sZ_RF <= '0';										 -- unused
+	with s_a_bypass select sZ_RF <=
+		'1'		when x"00000000",
+		'0'		when others;
 	
 	
 ---------------------------------------------------------------------------------------------------------------
