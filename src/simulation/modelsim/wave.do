@@ -29,18 +29,21 @@ add wave -noupdate -radix hexadecimal /top_tb/uut/regf_i/iWD
 add wave -noupdate -radix hexadecimal /top_tb/uut/regf_i/oRD1
 add wave -noupdate -radix hexadecimal /top_tb/uut/regf_i/oRD2
 add wave -noupdate -divider {CU IF}
+add wave -noupdate -radix binary /top_tb/uut/cu_if/iOpcode
 add wave -noupdate -radix binary /top_tb/uut/cu_if/oPCSEL
 add wave -noupdate -divider {CU RF}
+add wave -noupdate -radix binary /top_tb/uut/cu_rf/iOpcode
 add wave -noupdate -radix binary /top_tb/uut/cu_rf/oRA2SEL
 add wave -noupdate -radix binary /top_tb/uut/cu_rf/oWASEL
 add wave -noupdate -divider {CU ALU}
+add wave -noupdate -radix binary /top_tb/uut/cu_alu/iOpcode
 add wave -noupdate -radix binary /top_tb/uut/cu_alu/oALUFN
-add wave -noupdate -radix binary /top_tb/uut/cu_alu/oASEL
-add wave -noupdate -radix binary /top_tb/uut/cu_alu/oBSEL
 add wave -noupdate -divider {CU MEM}
+add wave -noupdate -radix binary /top_tb/uut/cu_mem/iOpcode
 add wave -noupdate -radix binary /top_tb/uut/cu_mem/oMOE
 add wave -noupdate -radix binary /top_tb/uut/cu_mem/oMWR
 add wave -noupdate -divider {CU WB}
+add wave -noupdate -radix binary /top_tb/uut/cu_wb/iOpcode
 add wave -noupdate -radix binary /top_tb/uut/cu_wb/oWDSEL
 add wave -noupdate -radix binary /top_tb/uut/cu_wb/oWERF
 add wave -noupdate -divider REGS
@@ -93,4 +96,4 @@ configure wave -timeline 0
 configure wave -timelineunits ns
 update
 run {500 ns}
-WaveRestoreZoom {95 ns} {265 ns}
+WaveRestoreZoom {95 ps} {265 ns}
