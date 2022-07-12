@@ -1,5 +1,6 @@
 onerror {resume}
 quietly virtual signal -install /top_tb/uut/prog_i { /top_tb/uut/prog_i/oQ(31 downto 26)} Instruction
+quietly virtual signal -install /top_tb/uut/branch_handler { /top_tb/uut/branch_handler/iJMP_INSTR(7 downto 0)} Address
 radix define ins { 
 "1'b011000" "LD" -color "white",
 "1'b011001" "ST" -color "white",
@@ -51,7 +52,6 @@ radix define alufn {
 "1'b110001" "SHR" -color "white",
 "1'b110011" "SRA" -color "white",
 }
-add wave -noupdate -radix radix_ampm /tb/clock/ampm 
 quietly WaveActivateNextPane {} 0
 add wave -noupdate -divider {CONTROL SIGNALS}
 add wave -noupdate -radix binary /top_tb/sRST
@@ -80,6 +80,17 @@ add wave -noupdate -radix binary /top_tb/uut/regf_i/iWE
 add wave -noupdate -radix hexadecimal /top_tb/uut/regf_i/iWD
 add wave -noupdate -radix hexadecimal /top_tb/uut/regf_i/oRD1
 add wave -noupdate -radix hexadecimal /top_tb/uut/regf_i/oRD2
+add wave -noupdate -divider {BRANCH HANDLER}
+add wave -noupdate -radix hexadecimal /top_tb/uut/branch_handler/iPC_NEXT
+add wave -noupdate -radix hexadecimal /top_tb/uut/branch_handler/iNEXT_INSTR
+add wave -noupdate -radix hexadecimal /top_tb/uut/branch_handler/iJMP_INSTR
+add wave -noupdate -radix hexadecimal -childformat {{/top_tb/uut/branch_handler/Address(7) -radix binary} {/top_tb/uut/branch_handler/Address(6) -radix binary} {/top_tb/uut/branch_handler/Address(5) -radix binary} {/top_tb/uut/branch_handler/Address(4) -radix binary} {/top_tb/uut/branch_handler/Address(3) -radix binary} {/top_tb/uut/branch_handler/Address(2) -radix binary} {/top_tb/uut/branch_handler/Address(1) -radix binary} {/top_tb/uut/branch_handler/Address(0) -radix binary}} -subitemconfig {/top_tb/uut/branch_handler/iJMP_INSTR(7) {-radix binary} /top_tb/uut/branch_handler/iJMP_INSTR(6) {-radix binary} /top_tb/uut/branch_handler/iJMP_INSTR(5) {-radix binary} /top_tb/uut/branch_handler/iJMP_INSTR(4) {-radix binary} /top_tb/uut/branch_handler/iJMP_INSTR(3) {-radix binary} /top_tb/uut/branch_handler/iJMP_INSTR(2) {-radix binary} /top_tb/uut/branch_handler/iJMP_INSTR(1) {-radix binary} /top_tb/uut/branch_handler/iJMP_INSTR(0) {-radix binary}} /top_tb/uut/branch_handler/Address
+add wave -noupdate -radix binary /top_tb/uut/branch_handler/iPCSEL_RF
+add wave -noupdate -radix binary /top_tb/uut/branch_handler/iZ
+add wave -noupdate -radix binary /top_tb/uut/branch_handler/s_jumped
+add wave -noupdate -radix binary /top_tb/uut/branch_handler/s_to_jump
+add wave -noupdate -radix hexadecimal /top_tb/uut/branch_handler/oINS_ADDR
+add wave -noupdate -radix binary /top_tb/uut/branch_handler/oNOP_IF
 add wave -noupdate -divider {CU IF}
 add wave -noupdate -radix ins /top_tb/uut/cu_if/iOpcode
 add wave -noupdate -radix binary /top_tb/uut/cu_if/oPCSEL
@@ -88,6 +99,7 @@ add wave -noupdate -radix ins /top_tb/uut/cu_rf/iOpcode
 add wave -noupdate -radix binary /top_tb/uut/cu_rf/iZ
 add wave -noupdate -radix binary /top_tb/uut/cu_rf/oRA2SEL
 add wave -noupdate -radix binary /top_tb/uut/cu_rf/oWASEL
+add wave -noupdate -radix binary /top_tb/uut/cu_rf/oPCSEL
 add wave -noupdate -divider {CU ALU}
 add wave -noupdate -radix ins /top_tb/uut/cu_alu/iOpcode
 add wave -noupdate -radix alufn /top_tb/uut/cu_alu/oALUFN
@@ -99,6 +111,19 @@ add wave -noupdate -divider {CU WB}
 add wave -noupdate -radix ins /top_tb/uut/cu_wb/iOpcode
 add wave -noupdate -radix binary /top_tb/uut/cu_wb/oWDSEL
 add wave -noupdate -radix binary /top_tb/uut/cu_wb/oWERF
+add wave -noupdate -divider {CU BYPASS}
+add wave -noupdate -radix binary /top_tb/uut/cu_bypass/iRA1
+add wave -noupdate -radix binary /top_tb/uut/cu_bypass/iRA2
+add wave -noupdate -radix binary /top_tb/uut/cu_bypass/iALUadr
+add wave -noupdate -radix binary /top_tb/uut/cu_bypass/iMEMadr
+add wave -noupdate -radix binary /top_tb/uut/cu_bypass/iWBadr
+add wave -noupdate -radix hexadecimal /top_tb/uut/cu_bypass/iRD1
+add wave -noupdate -radix hexadecimal /top_tb/uut/cu_bypass/iRD2
+add wave -noupdate -radix hexadecimal /top_tb/uut/cu_bypass/iALU
+add wave -noupdate -radix hexadecimal /top_tb/uut/cu_bypass/iMEM
+add wave -noupdate -radix hexadecimal /top_tb/uut/cu_bypass/iWB
+add wave -noupdate -radix hexadecimal /top_tb/uut/cu_bypass/oA_by
+add wave -noupdate -radix hexadecimal /top_tb/uut/cu_bypass/oB_by
 add wave -noupdate -divider REGS
 add wave -noupdate -radix hexadecimal /top_tb/uut/regf_i/r0_i/sREG
 add wave -noupdate -radix hexadecimal /top_tb/uut/regf_i/r1_i/sREG

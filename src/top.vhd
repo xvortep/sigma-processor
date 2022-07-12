@@ -29,10 +29,15 @@ architecture arch of top is
 --	signal sWDSEL		:	std_logic_vector(1 downto 0);
 --	signal sWERF		:	std_logic;
 
+	-- end signal
+	signal sEND			:	std_logic;
 
 	-- bypass signals
 	signal s_a_bypass	:	std_logic_vector(31 downto 0);
-	signal s_b_bypass	:	std_logic_vector(31 downto 0);
+	signal s_b_bypass	:	std_logic_vector(31 downto 0);	s_irs_rc_rf 	<= '0';
+	s_irs_rc_alu	<= '0';
+	s_irs_rc_mem	<= '0';
+
 	signal s_a_ctrl	: 	std_logic_vector(2 downto 0);
 	signal s_b_ctrl	: 	std_logic_vector(2 downto 0);
 	-- pipeline misc signals
@@ -51,6 +56,7 @@ architecture arch of top is
 	signal sWASEL_RF	:	std_logic;
 	signal sASEL_RF	:	std_logic;
 	signal sBSEL_RF	:	std_logic;
+	signal sPCSEL_RF	:	std_logic_vector(2 downto 0);
 	-- control unit - ALU signals 
 	signal sOpcode_ALU	:	std_logic_vector(5 downto 0);
 	signal sALUFN_ALU		:	std_logic_vector(5 downto 0);
@@ -88,7 +94,10 @@ architecture arch of top is
 	signal s_o_ir_alu	:	std_logic_vector(31 downto 0);
 	signal s_o_ir_mem	:	std_logic_vector(31 downto 0);
 	signal s_o_ir_wb	:	std_logic_vector(31 downto 0);
-	signal s_o_a_alu	:	std_logic_vector(31 downto 0);
+	signal s_o_a_alu	:	std_logic_vector(31 downto 0);	s_irs_rc_rf 	<= '0';
+	s_irs_rc_alu	<= '0';
+	s_irs_rc_mem	<= '0';
+
 	signal s_o_b_alu	:	std_logic_vector(31 downto 0);
 	signal s_o_y_mem	:	std_logic_vector(31 downto 0);
 	signal s_o_y_wb	:	std_logic_vector(31 downto 0);
@@ -129,6 +138,9 @@ architecture arch of top is
 	signal sALUFNal	:	std_logic_vector(5 downto 0);
 	signal sOutput		:	std_logic_vector(31 downto 0);
 	signal sEX			:	std_logic_vector(31 downto 0);
+	-- branch handler signals
+	signal s_bh_ins	:	std_logic_vector(7 downto 0);
+	signal s_bh_next	:	std_logic_vector(31 downto 0);
 
 begin
 ---------------------------------------------------------------------------------------------------------------
@@ -160,11 +172,16 @@ begin
 	Port map(
 		iOpcode	=> sOpcode_IF,
 		iZ			=> '0',
+		iSXT		=> sQpm(15 downto 0),
+		iADDR		=> sApm,
 		oPCSEL	=> sPCSEL_IF
 	);
 	-- logic -in:
 	sOpcode_IF <= sQpm(31 downto 26) when s_irs_rc_if 	= '0' else "000000";
-	
+		s_irs_rc_rf 	<= '0';
+	s_irs_rc_alu	<= '0';
+	s_irs_rc_mem	<= '0';
+
 	
 ---------------------------------------------------------------------------------------------------------------
 -- control unit - RF
@@ -172,10 +189,13 @@ begin
 	Port map(
 		iOpcode	=> sOpcode_RF,
 		iZ			=> sZ_RF,
+		iSXT		=> s_o_ir_rf(15 downto 0),
+		iADDR		=> s_o_pc_alu(7 downto 0),
 		oRA2SEL	=> sRA2SEL_RF,
 		oWASEL	=> sWASEL_RF,
 		oASEL		=> sASEL_RF,
-		oBSEL		=>	sBSEL_RF
+		oBSEL		=>	sBSEL_RF,
+		oPCSEL	=>	sPCSEL_RF
 	);
 	-- logic -in:
 --	sOpcode_RF <= s_o_ir_rf(31 downto 26);
@@ -212,7 +232,10 @@ begin
 	sOpcode_MEM <= s_i_ir_wb(31 downto 26);
 	
 ---------------------------------------------------------------------------------------------------------------
--- control unit - WB
+-- control unit - WB	s_irs_rc_rf 	<= '0';
+	s_irs_rc_alu	<= '0';
+	s_irs_rc_mem	<= '0';
+
 	cu_wb		:	entity work.ControlUnit_WB
 	Port map(
 		iOpcode	=> sOpcode_WB,
@@ -286,7 +309,7 @@ begin
       oQ 		=> sQpm
 	);
 	-- logic -in:
-	sApm 			<= sPC(7 downto 0);				-- potential bug???
+	sApm 			<= s_bh_ins;						-- potential bug??? - false
 ---------------------------------------------------------------------------------------------------------------
 	-- data ram											-- ACTUALLY NOT COMPLETE??? - false
     data_i	:	entity work.data_ram
@@ -317,6 +340,8 @@ begin
 		iRST			=>	sRSTpc,
 		iJT			=>	sJT,
 		iSXT			=>	sSXT,
+		iEXTERN		=> s_bh_ins,
+		iEXTERN_FL	=> s_irs_rc_if,
 		oPC			=>	sPC
 	);
 	-- logic -in:
@@ -366,7 +391,23 @@ begin
 		(s_o_pc_wb + 4)			when "00",
 		s_o_y_wb						when "01",
 		s_o_d_wb						when others;
----------------------------------------------------------------------------------------------------------------		
+---------------------------------------------------------------------------------------------------------------
+	-- branch handler
+	branch_handler : entity work.branch_handler
+	port map
+	(
+		iPC_NEXT			=> sPC,
+		iNEXT_INSTR		=> s_bh_next,
+		iJMP_INSTR		=> s_i_ir_alu,
+		iPCSEL_RF		=> sPCSEL_RF,
+		iZ					=> sZ_RF,
+		oINS_ADDR		=> s_bh_ins,
+		oNOP_IF			=> s_irs_rc_if
+	);
+	
+	s_bh_next	<=	(s_i_pc_alu + 4);
+
+---------------------------------------------------------------------------------------------------------------
 	-- al unit
 	alu_i	:	entity work.ALU
 	port map(
@@ -394,26 +435,56 @@ begin
 	
 	sALUFNal <= sALUFN_ALU;
 ---------------------------------------------------------------------------------------------------------------
+	--CU_bypass
+	cu_bypass :	entity work.CU_bypass
+	port map
+	(
+		iRD1		=> sRD1,
+		iRD2		=> sRD2,
+		iALU		=> sOutput,
+		iMEM		=> s_o_y_mem,
+		iWB		=> sWD,
+		iRA1		=> sRA1,
+		iRA2		=> sRA2,	s_irs_rc_rf 	<= '0';
+	s_irs_rc_alu	<= '0';
+	s_irs_rc_mem	<= '0';
+
+		iALUadr	=> s_i_ir_mem(25 downto 21),
+		iMEMadr	=> s_i_ir_wb(25 downto 21),
+		iWBadr	=> s_o_ir_wb(25 downto 21),
+		iRA2SEL	=> sRA2SEL_RF,
+		oA_by		=> s_a_bypass,
+		oB_by		=> s_b_bypass
+	);
+
+---------------------------------------------------------------------------------------------------------------
 --	oZ <= sOutput;
 --	oIns <= sQpm(31 downto 26);
 	oZ 	<= s_o_y_wb;
 	oIns 	<= s_o_ir_wb(31 downto 26);
 ---------------------------------------------------------------------------------------------------------------
-	-- bypass muxes TODO
-	with s_a_ctrl select s_a_bypass <=
-		sRD1 			when "000",
-		x"babaceca" when others;
-	with s_b_ctrl select s_b_bypass <=
-		sRD2			when "000",
-		x"babaceca" when others;
+	-- bypass muxes TODO - obsolete
+--	with s_a_ctrl select s_a_bypass <=
+--		sRD1 			when "000",
+--		x"babaceca" when others;
+--	with s_b_ctrl select s_b_bypass <=
+--		sRD2			when "000",
+--		x"babaceca" when others;
 		
 	-- control
-	s_irs_rc_if 	<= '0';
+--	s_irs_rc_if 	<= '0';
 	s_irs_rc_rf 	<= '0';
 	s_irs_rc_alu	<= '0';
 	s_irs_rc_mem	<= '0';
-	
-	s_a_ctrl			<= "000";
-	s_b_ctrl 		<= "000";
+
+	-- obsolete
+--	s_a_ctrl			<= "000";
+--	s_b_ctrl 		<= "000";
+
+---------------------------------------------------------------------------------------------------------------
+	-- end program
+	sEND <= '1' when s_o_ir_wb(31 downto 26) = o"77" else iRST;
+
+---------------------------------------------------------------------------------------------------------------
 	
 end architecture;

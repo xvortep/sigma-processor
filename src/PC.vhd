@@ -6,11 +6,16 @@ use ieee.std_logic_arith.all;
 entity PC is
 	port
 	(
+		--inputs
 		iPC_SEL		:	in		std_logic_vector(2 downto 0);
 		iCLK			:	in		std_logic;
 		iRST			:	in		std_logic;
 		iJT			:	in		std_logic_vector(31 downto 0);
 		iSXT			:	in		std_logic_vector(31 downto 0);
+		iEXTERN		:	in		std_logic_vector(7 downto 0);
+		iEXTERN_FL	:	in		std_logic;
+		
+		--outputs
 		oPC			:	out	std_logic_vector(31 downto 0)
 	);
 end entity;
@@ -48,11 +53,15 @@ architecture Behavioral of PC is
 --			RESET		when others;
 			
 		--Program counter register
-		process(iCLK, iRST) begin
+		process(iCLK, iRST, iEXTERN, iEXTERN_FL) begin
 			if(iRST = '1') then
 				sPC <= x"00000000";
 			elsif(rising_edge(iCLK)) then
-				sPC <= sPC_NEXT;
+				if(iEXTERN_FL = '0') then
+					sPC <= sPC_NEXT;
+				else
+					sPC <= x"000000" & iEXTERN;
+				end if;
 			end if;
 		end process;
 

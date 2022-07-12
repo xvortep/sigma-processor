@@ -136,6 +136,14 @@
 					"strict" : false
 				},
 				{
+					"name" : "oIns[1]",
+					"strict" : false
+				},
+				{
+					"name" : "oIns[2]",
+					"strict" : false
+				},
+				{
 					"name" : "oIns[3]",
 					"strict" : false
 				},

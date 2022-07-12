@@ -8,6 +8,8 @@ entity ControlUnit_IF is
 		--inputs
 		iOpcode	:	in		std_logic_vector(5 downto 0);
 		iZ			:	in		std_logic;
+		iSXT		:	in		std_logic_vector(15 downto 0);
+		iADDR		:	in		std_logic_vector(7 downto 0);
 		
 		--outputs
 		oPCSEL	:	out	std_logic_vector(2 downto 0)
@@ -69,6 +71,7 @@ architecture Behavioral of ControlUnit_IF is
 	);
 	
 	signal sCodeWord	:	std_logic_vector(17 downto 0);
+	signal sJump		:	std_logic;
 	
 	--coordinates
 	signal sX : integer range 0 to 7;
@@ -96,13 +99,16 @@ architecture Behavioral of ControlUnit_IF is
 		6	when o"6",
 		7	when others;
 		
+		--jump prediction
+		sJump <= '0' when iSXT > iADDR else '1';
+		
 		--get codeword
 		with sOpTable(sX, sY) select sCodeWord <=
 		"010000" & "0" & "1" & "1" & "0" & "000" & "-" & "0" & "10" & "-" 			when 1,			-- LD
 		"010000" & "0" & "1" & "0" & "1" & "000" & "1" & "-" & "00" & "0" 			when 2, 			-- ST
 		"------" & "-" & "-" & "0" & "0" & "010" & "-" & "0" & "00" & "1" 			when 3, 			-- JMP
-		"------" & "-" & "-" & "0" & "0" & "00" & iZ & "-" & "0" & "00" & "1" 		when 4, 			-- BEQ
-		"------" & "-" & "-" & "0" & "0" & "00" & not(iZ) & "-" & "0" & "00" & "1"	when 5, 			-- BNE
+		"------" & "-" & "-" & "0" & "0" & "00" & sJump & "-" & "0" & "00" & "1" 	when 4, 			-- BEQ
+		"------" & "-" & "-" & "0" & "0" & "00" & sJump & "-" & "0" & "00" & "1"	when 5, 			-- BNE
 		"101010" & "-" & "-" & "1" & "0" & "000" & "-" & "0" & "10" & "1" 			when 6, 			-- LDR
 		"010000" & "0" & "0" & "0" & "0" & "000" & "0" & "0" & "01" & "1" 			when 7, 			-- ADD
 		"010001" & "0" & "0" & "0" & "0" & "000" & "0" & "0" & "01" & "1" 			when 8, 			-- SUB
