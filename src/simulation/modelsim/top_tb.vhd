@@ -7,10 +7,11 @@ end entity;
 architecture Behavioral of top_tb is
 
 	--signals
-	signal sRST	:	std_logic;
+	signal sRST		:	std_logic;
 	--------------------------
-	signal sZ	:	std_logic_vector(31 downto 0);
-	signal sIns	:	std_logic_vector(5 downto 0);
+	signal sZ		:	std_logic_vector(31 downto 0);
+	signal sIns		:	std_logic_vector(5 downto 0);
+	signal sHALT	:	std_logic;
 	
 	--clock
 	constant iCLK_period	:	time := 10 ns;
@@ -26,7 +27,8 @@ architecture Behavioral of top_tb is
 			
 			--outputs
 			oZ		:	out	std_logic_vector(31 downto 0);
-			oIns	:	out	std_logic_vector(5 downto 0)
+			oIns	:	out	std_logic_vector(5 downto 0);
+			oHALT	:	out	std_logic
 		);
 	end component;
 	
@@ -36,7 +38,8 @@ architecture Behavioral of top_tb is
 			iCLK	=>	sCLK,
 			iRST	=>	sRST,
 			oZ		=>	sZ,
-			oIns	=> sIns
+			oIns	=> sIns,
+			oHALT	=>	sHALT
 		);
 		
 		iCLK_process : process

@@ -56,6 +56,7 @@ quietly WaveActivateNextPane {} 0
 add wave -noupdate -divider {CONTROL SIGNALS}
 add wave -noupdate -radix binary /top_tb/sRST
 add wave -noupdate -radix binary /top_tb/sCLK
+add wave -noupdate -radix binary /top_tb/sHALT
 add wave -noupdate -divider {PROGRAM COUNTER}
 add wave -noupdate -radix hexadecimal /top_tb/uut/pc_i/sPC
 add wave -noupdate -radix hexadecimal /top_tb/uut/pc_i/sPC_NEXT

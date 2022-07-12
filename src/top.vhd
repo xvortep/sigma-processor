@@ -10,7 +10,8 @@ entity top is
 		iRST	:	in		std_logic;
 		
 		oZ		:	out	std_logic_vector(31 downto 0);
-		oIns	:	out	std_logic_vector(5 downto 0)
+		oIns	:	out	std_logic_vector(5 downto 0);
+		oHALT	:	out	std_logic
 	);
 end entity;
 
@@ -31,13 +32,12 @@ architecture arch of top is
 
 	-- end signal
 	signal sEND			:	std_logic;
+	signal sRST			:	std_logic;
+	signal sCLK			:	std_logic;
 
 	-- bypass signals
 	signal s_a_bypass	:	std_logic_vector(31 downto 0);
-	signal s_b_bypass	:	std_logic_vector(31 downto 0);	s_irs_rc_rf 	<= '0';
-	s_irs_rc_alu	<= '0';
-	s_irs_rc_mem	<= '0';
-
+	signal s_b_bypass	:	std_logic_vector(31 downto 0);
 	signal s_a_ctrl	: 	std_logic_vector(2 downto 0);
 	signal s_b_ctrl	: 	std_logic_vector(2 downto 0);
 	-- pipeline misc signals
@@ -94,9 +94,7 @@ architecture arch of top is
 	signal s_o_ir_alu	:	std_logic_vector(31 downto 0);
 	signal s_o_ir_mem	:	std_logic_vector(31 downto 0);
 	signal s_o_ir_wb	:	std_logic_vector(31 downto 0);
-	signal s_o_a_alu	:	std_logic_vector(31 downto 0);	s_irs_rc_rf 	<= '0';
-	s_irs_rc_alu	<= '0';
-	s_irs_rc_mem	<= '0';
+	signal s_o_a_alu	:	std_logic_vector(31 downto 0);
 
 	signal s_o_b_alu	:	std_logic_vector(31 downto 0);
 	signal s_o_y_mem	:	std_logic_vector(31 downto 0);
@@ -283,7 +281,7 @@ begin
 		o_d_wb	=>	s_o_d_wb
 	);
 	-- logic -in:
-	sCLKpr <= iCLK;
+	sCLKpr <= sCLK;
 	sRSTpr <= iRST;
 	s_i_pc_rf	<= sPC;
 	s_i_pc_alu	<= s_o_pc_rf;
@@ -323,7 +321,7 @@ begin
       oRD  => sRDdr
 	);
 	-- logic -in:
-	sCLKdr 	<= iCLK;
+	sCLKdr 	<= sCLK;
 	sRSTdr 	<= iRST;
 --	sAdr 		<= sOutput(7 downto 0);
 	sAdr 		<= s_o_y_mem(7 downto 0);
@@ -346,7 +344,7 @@ begin
 	);
 	-- logic -in:
 	sPC_SEL 	<= sPCSEL_IF;											-- take calculated pcsel from cu to pc mux
-	sCLKpc 	<= iCLK;
+	sCLKpc 	<= sCLK;
 	sRSTpc	<=	iRST;
 	sJT		<= sSXT;
 	sSXT		<= x"0000" & sQpm(15 downto 0);
@@ -365,7 +363,7 @@ begin
 		oRD2	=>	sRD2
 	);
 	-- logic -in:
-	sCLKrf	<= iCLK;
+	sCLKrf	<= sCLK;
 	sRSTrf	<=	iRST;
 	sWE 		<= sWERF_WB;
 --	sRA1 		<= sQpm(20 downto 16);		 				-- sRA1
@@ -445,10 +443,7 @@ begin
 		iMEM		=> s_o_y_mem,
 		iWB		=> sWD,
 		iRA1		=> sRA1,
-		iRA2		=> sRA2,	s_irs_rc_rf 	<= '0';
-	s_irs_rc_alu	<= '0';
-	s_irs_rc_mem	<= '0';
-
+		iRA2		=> sRA2,
 		iALUadr	=> s_i_ir_mem(25 downto 21),
 		iMEMadr	=> s_i_ir_wb(25 downto 21),
 		iWBadr	=> s_o_ir_wb(25 downto 21),
@@ -483,7 +478,11 @@ begin
 
 ---------------------------------------------------------------------------------------------------------------
 	-- end program
-	sEND <= '1' when s_o_ir_wb(31 downto 26) = o"77" else iRST;
+--	sEND <= '1' when s_o_ir_wb(31 downto 26) = o"77" else iRST;
+	sEND 	<= '1' when s_o_ir_wb(31 downto 26) = o"77" else '0';
+	sCLK 	<= '1' when sEND = '1' else iCLK;
+	oHALT	<= sEND;
+	
 
 ---------------------------------------------------------------------------------------------------------------
 	
