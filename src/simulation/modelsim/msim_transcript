@@ -10,7 +10,7 @@
 # 
 # vcom -93 -work work {/home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/prog_file.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 13:11:40 on Jul 12,2022
+# Start time: 13:25:12 on Jul 12,2022
 # vcom -reportprogress 300 -93 -work work /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/prog_file.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -19,11 +19,11 @@
 # -- Loading package STD_LOGIC_SIGNED
 # -- Compiling entity instr_rom
 # -- Compiling architecture Behavioral of instr_rom
-# End time: 13:11:40 on Jul 12,2022, Elapsed time: 0:00:00
+# End time: 13:25:12 on Jul 12,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {/home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/data_file.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 13:11:40 on Jul 12,2022
+# Start time: 13:25:12 on Jul 12,2022
 # vcom -reportprogress 300 -93 -work work /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/data_file.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -31,22 +31,22 @@
 # -- Loading package NUMERIC_STD
 # -- Compiling entity data_ram
 # -- Compiling architecture Behavioral of data_ram
-# End time: 13:11:40 on Jul 12,2022, Elapsed time: 0:00:00
+# End time: 13:25:12 on Jul 12,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {/home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/register.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 13:11:40 on Jul 12,2022
+# Start time: 13:25:12 on Jul 12,2022
 # vcom -reportprogress 300 -93 -work work /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/register.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity reg
 # -- Compiling architecture Behavioral of reg
-# End time: 13:11:40 on Jul 12,2022, Elapsed time: 0:00:00
+# End time: 13:25:13 on Jul 12,2022, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {/home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/ALU.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 13:11:40 on Jul 12,2022
+# Start time: 13:25:13 on Jul 12,2022
 # vcom -reportprogress 300 -93 -work work /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/ALU.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -55,11 +55,11 @@
 # -- Loading package STD_LOGIC_UNSIGNED
 # -- Compiling entity ALU
 # -- Compiling architecture Behavioral of ALU
-# End time: 13:11:40 on Jul 12,2022, Elapsed time: 0:00:00
+# End time: 13:25:13 on Jul 12,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {/home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/PC.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 13:11:40 on Jul 12,2022
+# Start time: 13:25:13 on Jul 12,2022
 # vcom -reportprogress 300 -93 -work work /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/PC.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -68,11 +68,11 @@
 # -- Loading package STD_LOGIC_UNSIGNED
 # -- Compiling entity PC
 # -- Compiling architecture Behavioral of PC
-# End time: 13:11:40 on Jul 12,2022, Elapsed time: 0:00:00
+# End time: 13:25:13 on Jul 12,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {/home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/CU_IF.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 13:11:40 on Jul 12,2022
+# Start time: 13:25:13 on Jul 12,2022
 # vcom -reportprogress 300 -93 -work work /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/CU_IF.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -80,11 +80,11 @@
 # -- Loading package std_logic_arith
 # -- Compiling entity ControlUnit_IF
 # -- Compiling architecture Behavioral of ControlUnit_IF
-# End time: 13:11:40 on Jul 12,2022, Elapsed time: 0:00:00
+# End time: 13:25:13 on Jul 12,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {/home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/CU_RF.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 13:11:40 on Jul 12,2022
+# Start time: 13:25:13 on Jul 12,2022
 # vcom -reportprogress 300 -93 -work work /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/CU_RF.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -92,11 +92,11 @@
 # -- Loading package std_logic_arith
 # -- Compiling entity ControlUnit_RF
 # -- Compiling architecture Behavioral of ControlUnit_RF
-# End time: 13:11:40 on Jul 12,2022, Elapsed time: 0:00:00
+# End time: 13:25:13 on Jul 12,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {/home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/CU_ALU.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 13:11:40 on Jul 12,2022
+# Start time: 13:25:13 on Jul 12,2022
 # vcom -reportprogress 300 -93 -work work /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/CU_ALU.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -104,11 +104,11 @@
 # -- Loading package std_logic_arith
 # -- Compiling entity ControlUnit_ALU
 # -- Compiling architecture Behavioral of ControlUnit_ALU
-# End time: 13:11:40 on Jul 12,2022, Elapsed time: 0:00:00
+# End time: 13:25:13 on Jul 12,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {/home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/CU_MEM.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 13:11:40 on Jul 12,2022
+# Start time: 13:25:13 on Jul 12,2022
 # vcom -reportprogress 300 -93 -work work /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/CU_MEM.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -116,11 +116,11 @@
 # -- Loading package std_logic_arith
 # -- Compiling entity ControlUnit_MEM
 # -- Compiling architecture Behavioral of ControlUnit_MEM
-# End time: 13:11:40 on Jul 12,2022, Elapsed time: 0:00:00
+# End time: 13:25:13 on Jul 12,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {/home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/CU_WB.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 13:11:40 on Jul 12,2022
+# Start time: 13:25:13 on Jul 12,2022
 # vcom -reportprogress 300 -93 -work work /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/CU_WB.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -128,22 +128,22 @@
 # -- Loading package std_logic_arith
 # -- Compiling entity ControlUnit_WB
 # -- Compiling architecture Behavioral of ControlUnit_WB
-# End time: 13:11:40 on Jul 12,2022, Elapsed time: 0:00:00
+# End time: 13:25:13 on Jul 12,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {/home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/register_nWE.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 13:11:40 on Jul 12,2022
+# Start time: 13:25:13 on Jul 12,2022
 # vcom -reportprogress 300 -93 -work work /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/register_nWE.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity reg_nwe
 # -- Compiling architecture Behavioral of reg_nwe
-# End time: 13:11:40 on Jul 12,2022, Elapsed time: 0:00:00
+# End time: 13:25:13 on Jul 12,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {/home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/reg_top_pipeline.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 13:11:40 on Jul 12,2022
+# Start time: 13:25:13 on Jul 12,2022
 # vcom -reportprogress 300 -93 -work work /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/reg_top_pipeline.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -152,11 +152,11 @@
 # -- Compiling entity reg_top_pipeline
 # -- Compiling architecture Behavioral of reg_top_pipeline
 # -- Loading entity reg_nwe
-# End time: 13:11:40 on Jul 12,2022, Elapsed time: 0:00:00
+# End time: 13:25:13 on Jul 12,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {/home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/reg_file.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 13:11:40 on Jul 12,2022
+# Start time: 13:25:13 on Jul 12,2022
 # vcom -reportprogress 300 -93 -work work /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/reg_file.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -165,11 +165,11 @@
 # -- Compiling entity reg_file
 # -- Compiling architecture Behavioral of reg_file
 # -- Loading entity reg
-# End time: 13:11:40 on Jul 12,2022, Elapsed time: 0:00:00
+# End time: 13:25:13 on Jul 12,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {/home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/top.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 13:11:40 on Jul 12,2022
+# Start time: 13:25:13 on Jul 12,2022
 # vcom -reportprogress 300 -93 -work work /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/top.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -191,24 +191,24 @@
 # -- Loading entity PC
 # -- Loading entity reg_file
 # -- Loading entity ALU
-# End time: 13:11:40 on Jul 12,2022, Elapsed time: 0:00:00
+# End time: 13:25:13 on Jul 12,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vcom -93 -work work {/home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/simulation/modelsim/top_tb.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 13:11:40 on Jul 12,2022
+# Start time: 13:25:13 on Jul 12,2022
 # vcom -reportprogress 300 -93 -work work /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/simulation/modelsim/top_tb.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity top_tb
 # -- Compiling architecture Behavioral of top_tb
-# End time: 13:11:40 on Jul 12,2022, Elapsed time: 0:00:00
+# End time: 13:25:13 on Jul 12,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L fiftyfivenm -L rtl_work -L work -voptargs="+acc"  top_tb
 # vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L fiftyfivenm -L rtl_work -L work -voptargs=""+acc"" top_tb 
-# Start time: 13:11:40 on Jul 12,2022
+# Start time: 13:25:13 on Jul 12,2022
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
@@ -238,37 +238,38 @@
 # radix define ins { 
 # "1'b011000" "LD" -color "white",
 # "1'b011001" "ST" -color "white",
-# "1'b011011" "JMP " -color "white",
-# "1'b011100" "BEQ " -color "white",
-# "1'b011101" "BNE " -color "white",
-# "1'b100000" "ADD " -color "white",
-# "1'b100001" "SUB " -color "white",
-# "1'b100010" "MUL " -color "white",
-# "1'b100011" "DIV " -color "white",
+# "1'b011011" "JMP" -color "white",
+# "1'b011100" "BEQ" -color "white",
+# "1'b011101" "BNE" -color "white",
+# "1'b100000" "ADD" -color "white",
+# "1'b100001" "SUB" -color "white",
+# "1'b100010" "MUL" -color "white",
+# "1'b100011" "DIV" -color "white",
 # "1'b100100" "CMPEQ" -color "white",
 # "1'b100101" "CMPLT" -color "white",
 # "1'b100110" "CMPLE" -color "white",
-# "1'b101000" "AND " -color "white",
+# "1'b101000" "AND" -color "white",
 # "1'b101001" "OR" -color "white",
-# "1'b101010" "XOR " -color "white",
-# "1'b101011" "XNOR " -color "white",
-# "1'b101100" "SHL " -color "white",
-# "1'b101101" "SHR " -color "white",
-# "1'b101110" "SRA " -color "white",
-# "1'b110000" "ADDC " -color "white",
-# "1'b110001" "SUBC " -color "white",
-# "1'b110010" "MULC " -color "white",
-# "1'b110011" "DIVC " -color "white",
+# "1'b101010" "XOR" -color "white",
+# "1'b101011" "XNOR" -color "white",
+# "1'b101100" "SHL" -color "white",
+# "1'b101101" "SHR" -color "white",
+# "1'b101110" "SRA" -color "white",
+# "1'b110000" "ADDC" -color "white",
+# "1'b110001" "SUBC" -color "white",
+# "1'b110010" "MULC" -color "white",
+# "1'b110011" "DIVC" -color "white",
 # "1'b110100" "CMPEQC" -color "white",
 # "1'b110101" "CMPLTC" -color "white",
 # "1'b110110" "CMPLEC" -color "white",
-# "1'b111000" "ANDC " -color "white",
-# "1'b111001" "ORC " -color "white",
-# "1'b111010" "XORC " -color "white",
+# "1'b111000" "ANDC" -color "white",
+# "1'b111001" "ORC" -color "white",
+# "1'b111010" "XORC" -color "white",
 # "1'b111011" "XNORC" -color "white",
-# "1'b111100" "SHLC " -color "white",
-# "1'b111101" "SHRC " -color "white",
-# "1'b111110" "SRAC " -color "white"
+# "1'b111100" "SHLC" -color "white",
+# "1'b111101" "SHRC" -color "white",
+# "1'b111110" "SRAC" -color "white",
+# "1'b000000" "NOP" -color "white"
 # } 
 # radix define alufn {
 # "1'b000011" "CMPEQ" -color "white",
@@ -288,7 +289,7 @@
 # add wave -noupdate -radix radix_ampm /tb/clock/ampm 
 # Bad -radix option "radix_ampm". Use binary, octal, decimal, signed, unsigned, hexadecimal, ascii or default.
 # ** UI-Msg: (vish-4014) No objects found matching '/tb/clock/ampm'.
-# Executing ONERROR command at macro /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/simulation/modelsim/wave.do line 53
+# Executing ONERROR command at macro /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/simulation/modelsim/wave.do line 54
 # quietly WaveActivateNextPane {} 0
 # add wave -noupdate -divider {CONTROL SIGNALS}
 # add wave -noupdate -radix binary /top_tb/sRST
@@ -528,3 +529,5 @@
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 #    Time: 0 ps  Iteration: 4  Instance: /top_tb/uut/regf_i
 # WaveRestoreZoom {95 ns} {265 ns}
+# End time: 13:25:39 on Jul 12,2022, Elapsed time: 0:00:26
+# Errors: 0, Warnings: 55

@@ -133,7 +133,7 @@ architecture Behavioral of ControlUnit_WB is
 		"110000" & "0" & "1" & "0" & "0" & "000" & "0" & "0" & "01" & "1" 			when 32,			-- SHLC
 		"110001" & "0" & "1" & "0" & "0" & "000" & "0" & "0" & "01" & "1" 			when 33,			-- SHRC
 		"110011" & "0" & "1" & "0" & "0" & "000" & "0" & "0" & "01" & "1" 			when 34,			-- SRAC
-		"------" & "-" & "-" & "0" & "0" & "---" & "-" & "-" & "--" & "0" 			when others;	-- NOP
+		"------" & "-" & "-" & "0" & "0" & "000" & "-" & "-" & "--" & "0" 			when others;	-- NOP
 
 		oWDSEL	<= sCodeWord(2 downto 1);
 		oWERF		<= sCodeWord(0);
