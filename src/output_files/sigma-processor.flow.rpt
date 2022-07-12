@@ -1,5 +1,5 @@
 Flow report for sigma-processor
-Mon Jul 11 12:20:53 2022
+Tue Jul 12 12:22:13 2022
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -41,7 +41,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Mon Jul 11 12:20:53 2022       ;
+; Flow Status                        ; Successful - Tue Jul 12 12:22:13 2022       ;
 ; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                      ; sigma-processor                             ;
 ; Top-level Entity Name              ; top                                         ;
@@ -67,7 +67,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 07/11/2022 12:20:47 ;
+; Start date & time ; 07/12/2022 12:22:07 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; sigma-processor     ;
 +-------------------+---------------------+
@@ -78,7 +78,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------+----------------------------------------+-----------------+-------------+-----------------------------------+
 ; Assignment Name                        ; Value                                  ; Default Value   ; Entity Name ; Section Id                        ;
 +----------------------------------------+----------------------------------------+-----------------+-------------+-----------------------------------+
-; COMPILER_SIGNATURE_ID                  ; 49410865228367.165753484707064         ; --              ; --          ; --                                ;
+; COMPILER_SIGNATURE_ID                  ; 49410865336700.165762132704066         ; --              ; --          ; --                                ;
 ; EDA_DESIGN_INSTANCE_NAME               ; NA                                     ; --              ; --          ; ALU_tb.vhd                        ;
 ; EDA_DESIGN_INSTANCE_NAME               ; NA                                     ; --              ; --          ; CU_tb                             ;
 ; EDA_DESIGN_INSTANCE_NAME               ; NA                                     ; --              ; --          ; PC_tb.vhd                         ;
@@ -131,7 +131,7 @@ https://fpgasoftware.intel.com/eula.
 +------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name            ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Elaboration ; 00:00:06     ; 1.0                     ; 749 MB              ; 00:00:12                           ;
+; Analysis & Elaboration ; 00:00:06     ; 1.0                     ; 752 MB              ; 00:00:12                           ;
 ; Total                  ; 00:00:06     ; --                      ; --                  ; 00:00:12                           ;
 +------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
@@ -141,7 +141,7 @@ https://fpgasoftware.intel.com/eula.
 +------------------------+------------------+----------------+------------+----------------+
 ; Module Name            ; Machine Hostname ; OS Name        ; OS Version ; Processor type ;
 +------------------------+------------------+----------------+------------+----------------+
-; Analysis & Elaboration ; rtrkf056-lin     ; Ubuntu 20.04.4 ; 20         ; x86_64         ;
+; Analysis & Elaboration ; rtrkf060-lin     ; Ubuntu 20.04.4 ; 20         ; x86_64         ;
 +------------------------+------------------+----------------+------------+----------------+
 
 

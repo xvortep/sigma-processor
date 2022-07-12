@@ -1,5 +1,56 @@
 onerror {resume}
 quietly virtual signal -install /top_tb/uut/prog_i { /top_tb/uut/prog_i/oQ(31 downto 26)} Instruction
+radix define ins { 
+"1'b011000" "LD" -color "white",
+"1'b011001" "ST" -color "white",
+"1'b011011" "JMP " -color "white",
+"1'b011100" "BEQ " -color "white",
+"1'b011101" "BNE " -color "white",
+"1'b100000" "ADD " -color "white",
+"1'b100001" "SUB " -color "white",
+"1'b100010" "MUL " -color "white",
+"1'b100011" "DIV " -color "white",
+"1'b100100" "CMPEQ" -color "white",
+"1'b100101" "CMPLT" -color "white",
+"1'b100110" "CMPLE" -color "white",
+"1'b101000" "AND " -color "white",
+"1'b101001" "OR" -color "white",
+"1'b101010" "XOR " -color "white",
+"1'b101011" "XNOR " -color "white",
+"1'b101100" "SHL " -color "white",
+"1'b101101" "SHR " -color "white",
+"1'b101110" "SRA " -color "white",
+"1'b110000" "ADDC " -color "white",
+"1'b110001" "SUBC " -color "white",
+"1'b110010" "MULC " -color "white",
+"1'b110011" "DIVC " -color "white",
+"1'b110100" "CMPEQC" -color "white",
+"1'b110101" "CMPLTC" -color "white",
+"1'b110110" "CMPLEC" -color "white",
+"1'b111000" "ANDC " -color "white",
+"1'b111001" "ORC " -color "white",
+"1'b111010" "XORC " -color "white",
+"1'b111011" "XNORC" -color "white",
+"1'b111100" "SHLC " -color "white",
+"1'b111101" "SHRC " -color "white",
+"1'b111110" "SRAC " -color "white"
+} 
+radix define alufn {
+"1'b000011" "CMPEQ" -color "white",
+"1'b000101" "CMPLT" -color "white",
+"1'b000111" "CMPLE" -color "white",
+"1'b010000" "ADD" -color "white",
+"1'b010001" "SUB" -color "white",
+"1'b101000" "AND" -color "white",
+"1'b101110" "OR" -color "white",
+"1'b100110" "XOR" -color "white",
+"1'b101001" "XNOR" -color "white",
+"1'b101010" "MOVE" -color "white",
+"1'b110000" "SHL" -color "white",
+"1'b110001" "SHR" -color "white",
+"1'b110011" "SRA" -color "white",
+}
+add wave -noupdate -radix radix_ampm /tb/clock/ampm 
 quietly WaveActivateNextPane {} 0
 add wave -noupdate -divider {CONTROL SIGNALS}
 add wave -noupdate -radix binary /top_tb/sRST
@@ -11,7 +62,7 @@ add wave -noupdate -radix hexadecimal /top_tb/uut/pc_i/sPC_BRANCH
 add wave -noupdate -divider {INSTRUCTION MEMORY}
 add wave -noupdate -radix hexadecimal /top_tb/uut/prog_i/iA
 add wave -noupdate -radix hexadecimal /top_tb/uut/prog_i/oQ
-add wave -noupdate -radix binary -childformat {{/top_tb/uut/prog_i/Instruction(31) -radix binary} {/top_tb/uut/prog_i/Instruction(30) -radix binary} {/top_tb/uut/prog_i/Instruction(29) -radix binary} {/top_tb/uut/prog_i/Instruction(28) -radix binary} {/top_tb/uut/prog_i/Instruction(27) -radix binary} {/top_tb/uut/prog_i/Instruction(26) -radix binary}} -subitemconfig {/top_tb/uut/prog_i/oQ(31) {-radix binary} /top_tb/uut/prog_i/oQ(30) {-radix binary} /top_tb/uut/prog_i/oQ(29) {-radix binary} /top_tb/uut/prog_i/oQ(28) {-radix binary} /top_tb/uut/prog_i/oQ(27) {-radix binary} /top_tb/uut/prog_i/oQ(26) {-radix binary}} /top_tb/uut/prog_i/Instruction
+add wave -noupdate -radix ins -childformat {{/top_tb/uut/prog_i/Instruction(31) -radix binary} {/top_tb/uut/prog_i/Instruction(30) -radix binary} {/top_tb/uut/prog_i/Instruction(29) -radix binary} {/top_tb/uut/prog_i/Instruction(28) -radix binary} {/top_tb/uut/prog_i/Instruction(27) -radix binary} {/top_tb/uut/prog_i/Instruction(26) -radix binary}} -subitemconfig {/top_tb/uut/prog_i/oQ(31) {-radix binary} /top_tb/uut/prog_i/oQ(30) {-radix binary} /top_tb/uut/prog_i/oQ(29) {-radix binary} /top_tb/uut/prog_i/oQ(28) {-radix binary} /top_tb/uut/prog_i/oQ(27) {-radix binary} /top_tb/uut/prog_i/oQ(26) {-radix binary}} /top_tb/uut/prog_i/Instruction
 add wave -noupdate -divider {DATA MEMORY}
 add wave -noupdate -radix binary /top_tb/uut/data_i/iWE
 add wave -noupdate -radix binary /top_tb/uut/data_i/iOE
@@ -19,7 +70,7 @@ add wave -noupdate -radix hexadecimal /top_tb/uut/data_i/iAdr
 add wave -noupdate -radix hexadecimal /top_tb/uut/data_i/iWD
 add wave -noupdate -radix hexadecimal /top_tb/uut/data_i/oRD
 add wave -noupdate -divider ALU
-add wave -noupdate -radix binary /top_tb/uut/alu_i/sALUFN
+add wave -noupdate -radix alufn /top_tb/uut/alu_i/sALUFN
 add wave -noupdate -radix hexadecimal /top_tb/uut/alu_i/sA
 add wave -noupdate -radix hexadecimal /top_tb/uut/alu_i/sB
 add wave -noupdate -radix hexadecimal /top_tb/uut/alu_i/sOutput
@@ -38,7 +89,7 @@ add wave -noupdate -radix binary /top_tb/uut/cu_rf/oRA2SEL
 add wave -noupdate -radix binary /top_tb/uut/cu_rf/oWASEL
 add wave -noupdate -divider {CU ALU}
 add wave -noupdate -radix binary /top_tb/uut/cu_alu/iOpcode
-add wave -noupdate -radix binary /top_tb/uut/cu_alu/oALUFN
+add wave -noupdate -radix alufn /top_tb/uut/cu_alu/oALUFN
 add wave -noupdate -divider {CU MEM}
 add wave -noupdate -radix binary /top_tb/uut/cu_mem/iOpcode
 add wave -noupdate -radix binary /top_tb/uut/cu_mem/oMOE
