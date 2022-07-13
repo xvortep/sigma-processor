@@ -6,11 +6,17 @@ use ieee.std_logic_arith.all;
 entity PC is
 	port
 	(
+		--inputs
 		iPC_SEL		:	in		std_logic_vector(2 downto 0);
 		iCLK			:	in		std_logic;
 		iRST			:	in		std_logic;
 		iJT			:	in		std_logic_vector(31 downto 0);
 		iSXT			:	in		std_logic_vector(31 downto 0);
+		iEXTERN		:	in		std_logic_vector(7 downto 0);
+		iEXTERN_FL	:	in		std_logic;
+		iSTALL		:	in		std_logic;
+		
+		--outputs
 		oPC			:	out	std_logic_vector(31 downto 0)
 	);
 end entity;
@@ -27,12 +33,12 @@ architecture Behavioral of PC is
 	signal sPC_NEXT	:	std_logic_vector(31 downto 0);
 	signal sPC_BRANCH	:	std_logic_vector(31 downto 0);
 	signal sPC_4		:	std_logic_vector(31 downto 0);
-
-
+	
 	begin
 
 		sPC_4 <= sPC + 4;
-		sPC_BRANCH <= iSXT; -- sPC + (iSXT << 2)
+		-- sPC_BRANCH <= sPC_4 + (iSXT(29 downto 2) & "00"); -- sPC + (iSXT << 2)
+		sPC_BRANCH <= iSXT(31 downto 2) & "00";
 
 		with iPC_SEL select sPC_NEXT <= 
 			sPC_4				when	o"0",
@@ -47,11 +53,15 @@ architecture Behavioral of PC is
 --			RESET		when others;
 			
 		--Program counter register
-		process(iCLK, iRST) begin
+		process(iCLK, iRST, iEXTERN, iEXTERN_FL) begin
 			if(iRST = '1') then
 				sPC <= x"00000000";
-			elsif(rising_edge(iCLK)) then
-				sPC <= sPC_NEXT;
+			elsif(rising_edge(iCLK) and (iSTALL = '0')) then
+				if(iEXTERN_FL = '0') then
+					sPC <= sPC_NEXT;
+				else
+					sPC <= x"000000" & iEXTERN;
+				end if;
 			end if;
 		end process;
 

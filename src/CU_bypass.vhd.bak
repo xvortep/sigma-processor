@@ -1,0 +1,16 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_unsigned.all;
+
+entity CU_bypass is
+	port
+	(
+		--input
+		iRA1		:	in		std_logic_vector(31 downto 0);
+		iRA2		:	in		std_logic_vector(31 downto 0);
+		
+		--output
+		oA_by		:	out	std_logic_vector(2 downto 0);
+		oB_by		:	out	std_logic_vector(2 downto 0)
+	);
+end entity;

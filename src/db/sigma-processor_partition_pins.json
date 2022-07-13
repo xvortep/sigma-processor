@@ -136,6 +136,14 @@
 					"strict" : false
 				},
 				{
+					"name" : "oIns[1]",
+					"strict" : false
+				},
+				{
+					"name" : "oIns[2]",
+					"strict" : false
+				},
+				{
 					"name" : "oIns[3]",
 					"strict" : false
 				},
@@ -148,11 +156,15 @@
 					"strict" : false
 				},
 				{
-					"name" : "iCLK",
+					"name" : "oHALT",
 					"strict" : false
 				},
 				{
 					"name" : "iRST",
+					"strict" : false
+				},
+				{
+					"name" : "iCLK",
 					"strict" : false
 				}
 			]

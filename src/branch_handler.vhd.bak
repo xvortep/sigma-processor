@@ -1,0 +1,14 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_unsigned.all;
+
+entity top is
+	port(
+		--inputs
+		
+		--outputs
+	);
+end entity;
+
+architecture arch of top is
+end architecture;
