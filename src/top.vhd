@@ -30,11 +30,12 @@ architecture arch of top is
 --	signal sWDSEL		:	std_logic_vector(1 downto 0);
 --	signal sWERF		:	std_logic;
 
-	-- end signal
+	-- end signals
 	signal sEND			:	std_logic;
 	signal sRST			:	std_logic;
 	signal sCLK			:	std_logic;
-
+	-- stall signals
+	signal sStall		:	std_logic;
 	-- bypass signals
 	signal s_a_bypass	:	std_logic_vector(31 downto 0);
 	signal s_b_bypass	:	std_logic_vector(31 downto 0);
@@ -176,9 +177,6 @@ begin
 	);
 	-- logic -in:
 	sOpcode_IF <= sQpm(31 downto 26) when s_irs_rc_if 	= '0' else "000000";
-		s_irs_rc_rf 	<= '0';
-	s_irs_rc_alu	<= '0';
-	s_irs_rc_mem	<= '0';
 
 	
 ---------------------------------------------------------------------------------------------------------------
@@ -448,9 +446,16 @@ begin
 		iMEMadr	=> s_i_ir_wb(25 downto 21),
 		iWBadr	=> s_o_ir_wb(25 downto 21),
 		iRA2SEL	=> sRA2SEL_RF,
+		iOpALU	=> s_i_ir_mem(31 downto 26),
+		iOpMEM	=> s_i_ir_wb(31 downto 26),
+		iRaRF		=> s_i_ir_alu(20 downto 16),
+		iRbRF		=>	s_i_ir_alu(15 downto 11),
+		oStall	=> sStall,
 		oA_by		=> s_a_bypass,
 		oB_by		=> s_b_bypass
 	);
+	
+	s_irs_rc_rf 	<= sStall;
 
 ---------------------------------------------------------------------------------------------------------------
 --	oZ <= sOutput;
@@ -468,7 +473,7 @@ begin
 		
 	-- control
 --	s_irs_rc_if 	<= '0';
-	s_irs_rc_rf 	<= '0';
+--	s_irs_rc_rf 	<= '0';
 	s_irs_rc_alu	<= '0';
 	s_irs_rc_mem	<= '0';
 

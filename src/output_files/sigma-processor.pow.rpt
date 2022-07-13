@@ -1,5 +1,5 @@
 Power Analyzer report for sigma-processor
-Tue Jul 12 14:19:28 2022
+Wed Jul 13 12:09:56 2022
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -53,19 +53,19 @@ https://fpgasoftware.intel.com/eula.
 ; Number detected on machine ; 6           ;
 ; Maximum allowed            ; 6           ;
 ;                            ;             ;
-; Average used               ; 1.82        ;
+; Average used               ; 2.19        ;
 ; Maximum used               ; 6           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-6         ;  16.5%      ;
+;     Processors 2-6         ;  23.8%      ;
 +----------------------------+-------------+
 
 
 +-------------------------------------------------------------------------------------------+
 ; Power Analyzer Summary                                                                    ;
 +----------------------------------------+--------------------------------------------------+
-; Power Analyzer Status                  ; Successful - Tue Jul 12 14:19:27 2022            ;
+; Power Analyzer Status                  ; Successful - Wed Jul 13 12:09:56 2022            ;
 ; Quartus Prime Version                  ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition      ;
 ; Revision Name                          ; sigma-processor                                  ;
 ; Top-level Entity Name                  ; top                                              ;
@@ -111,10 +111,10 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+-----------------------------+
 ; Node              ; Reason                      ;
 +-------------------+-----------------------------+
-; iCLK              ; No valid clock domain found ;
 ; iRST              ; No valid clock domain found ;
+; iCLK              ; No valid clock domain found ;
 ; iRST~inputclkctrl ; No valid clock domain found ;
-; iCLK~inputclkctrl ; No valid clock domain found ;
+; sCLKrf~clkctrl    ; No valid clock domain found ;
 +-------------------+-----------------------------+
 
 
@@ -172,7 +172,9 @@ https://fpgasoftware.intel.com/eula.
 ; |top                                             ; 0.21 mW (0.21 mW)                    ; 0.00 mW (0.00 mW)               ; 0.21 mW (0.21 mW)                 ; 0.00 mW (0.00 mW)                 ; |top                                                                                                                                  ;
 ;     |ALU:alu_i                                   ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top|ALU:alu_i                                                                                                                        ;
 ;     |hard_block:auto_generated_inst              ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top|hard_block:auto_generated_inst                                                                                                   ;
+;     |branch_handler:branch_handler               ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top|branch_handler:branch_handler                                                                                                    ;
 ;     |ControlUnit_ALU:cu_alu                      ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top|ControlUnit_ALU:cu_alu                                                                                                           ;
+;     |CU_bypass:cu_bypass                         ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top|CU_bypass:cu_bypass                                                                                                              ;
 ;     |ControlUnit_IF:cu_if                        ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top|ControlUnit_IF:cu_if                                                                                                             ;
 ;     |ControlUnit_MEM:cu_mem                      ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top|ControlUnit_MEM:cu_mem                                                                                                           ;
 ;     |ControlUnit_RF:cu_rf                        ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top|ControlUnit_RF:cu_rf                                                                                                             ;
@@ -190,12 +192,15 @@ https://fpgasoftware.intel.com/eula.
 ;         |reg_nwe:r_ir_mem                        ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top|reg_top_pipeline:reg_pipeline|reg_nwe:r_ir_mem                                                                                   ;
 ;         |reg_nwe:r_ir_rf                         ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top|reg_top_pipeline:reg_pipeline|reg_nwe:r_ir_rf                                                                                    ;
 ;         |reg_nwe:r_ir_wb                         ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top|reg_top_pipeline:reg_pipeline|reg_nwe:r_ir_wb                                                                                    ;
+;         |reg_nwe:r_pc_alu                        ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top|reg_top_pipeline:reg_pipeline|reg_nwe:r_pc_alu                                                                                   ;
+;         |reg_nwe:r_pc_mem                        ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top|reg_top_pipeline:reg_pipeline|reg_nwe:r_pc_mem                                                                                   ;
 ;         |reg_nwe:r_pc_rf                         ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top|reg_top_pipeline:reg_pipeline|reg_nwe:r_pc_rf                                                                                    ;
 ;             |altshift_taps:sREG_rtl_0            ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top|reg_top_pipeline:reg_pipeline|reg_nwe:r_pc_rf|altshift_taps:sREG_rtl_0                                                           ;
-;                 |shift_taps_3vl:auto_generated   ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top|reg_top_pipeline:reg_pipeline|reg_nwe:r_pc_rf|altshift_taps:sREG_rtl_0|shift_taps_3vl:auto_generated                             ;
-;                     |altsyncram_eca1:altsyncram2 ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top|reg_top_pipeline:reg_pipeline|reg_nwe:r_pc_rf|altshift_taps:sREG_rtl_0|shift_taps_3vl:auto_generated|altsyncram_eca1:altsyncram2 ;
-;                     |cntr_q3f:cntr1              ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top|reg_top_pipeline:reg_pipeline|reg_nwe:r_pc_rf|altshift_taps:sREG_rtl_0|shift_taps_3vl:auto_generated|cntr_q3f:cntr1              ;
-;                     |cntr_hjg:cntr3              ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top|reg_top_pipeline:reg_pipeline|reg_nwe:r_pc_rf|altshift_taps:sREG_rtl_0|shift_taps_3vl:auto_generated|cntr_hjg:cntr3              ;
+;                 |shift_taps_4vl:auto_generated   ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top|reg_top_pipeline:reg_pipeline|reg_nwe:r_pc_rf|altshift_taps:sREG_rtl_0|shift_taps_4vl:auto_generated                             ;
+;                     |altsyncram_gca1:altsyncram2 ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top|reg_top_pipeline:reg_pipeline|reg_nwe:r_pc_rf|altshift_taps:sREG_rtl_0|shift_taps_4vl:auto_generated|altsyncram_gca1:altsyncram2 ;
+;                     |cntr_q3f:cntr1              ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top|reg_top_pipeline:reg_pipeline|reg_nwe:r_pc_rf|altshift_taps:sREG_rtl_0|shift_taps_4vl:auto_generated|cntr_q3f:cntr1              ;
+;                     |cntr_hjg:cntr3              ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top|reg_top_pipeline:reg_pipeline|reg_nwe:r_pc_rf|altshift_taps:sREG_rtl_0|shift_taps_4vl:auto_generated|cntr_hjg:cntr3              ;
+;         |reg_nwe:r_pc_wb                         ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top|reg_top_pipeline:reg_pipeline|reg_nwe:r_pc_wb                                                                                    ;
 ;         |reg_nwe:r_y_mem                         ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top|reg_top_pipeline:reg_pipeline|reg_nwe:r_y_mem                                                                                    ;
 ;         |reg_nwe:r_y_wb                          ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top|reg_top_pipeline:reg_pipeline|reg_nwe:r_y_wb                                                                                     ;
 ;     |reg_file:regf_i                             ; 0.00 mW (0.00 mW)                    ; 0.00 mW (0.00 mW)               ; --                                ; 0.00 mW (0.00 mW)                 ; |top|reg_file:regf_i                                                                                                                  ;
@@ -227,7 +232,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------+-------------------------+---------------------------+--------------------------+----------------------------------+
 ; Voltage Supply ; Total Current Drawn (1) ; Dynamic Current Drawn (1) ; Static Current Drawn (1) ; Minimum Power Supply Current (2) ;
 +----------------+-------------------------+---------------------------+--------------------------+----------------------------------+
-; VCCIO          ; 2.04 mA                 ; 0.00 mA                   ; 2.04 mA                  ; 2.04 mA                          ;
+; VCCIO          ; 2.05 mA                 ; 0.00 mA                   ; 2.05 mA                  ; 2.05 mA                          ;
 ; VCCA           ; 0.00 mA                 ; 0.00 mA                   ; 0.00 mA                  ; 0.00 mA                          ;
 ; VCC_ONE        ; 71.86 mA                ; 0.00 mA                   ; 71.86 mA                 ; 71.86 mA                         ;
 +----------------+-------------------------+---------------------------+--------------------------+----------------------------------+
@@ -240,15 +245,15 @@ https://fpgasoftware.intel.com/eula.
 +----------+---------------+---------------------+-----------------------+----------------------+
 ; I/O Bank ; VCCIO Voltage ; Total Current Drawn ; Dynamic Current Drawn ; Static Current Drawn ;
 +----------+---------------+---------------------+-----------------------+----------------------+
-; 1A       ; 2.5V          ; 0.28 mA             ; 0.00 mA               ; 0.28 mA              ;
+; 1A       ; 2.5V          ; 0.30 mA             ; 0.00 mA               ; 0.30 mA              ;
 ; 1B       ; 2.5V          ; 0.28 mA             ; 0.00 mA               ; 0.28 mA              ;
 ; 2        ; 2.5V          ; 0.28 mA             ; 0.00 mA               ; 0.28 mA              ;
-; 3        ; 2.5V          ; 0.28 mA             ; 0.00 mA               ; 0.28 mA              ;
+; 3        ; 2.5V          ; 0.29 mA             ; 0.00 mA               ; 0.29 mA              ;
 ; 4        ; --            ; --                  ; --                    ; --                   ;
 ; 5        ; 2.5V          ; 0.30 mA             ; 0.00 mA               ; 0.30 mA              ;
-; 6        ; 2.5V          ; 0.32 mA             ; 0.00 mA               ; 0.32 mA              ;
+; 6        ; 2.5V          ; 0.29 mA             ; 0.00 mA               ; 0.29 mA              ;
 ; 7        ; --            ; --                  ; --                    ; --                   ;
-; 8        ; 2.5V          ; 0.30 mA             ; 0.00 mA               ; 0.30 mA              ;
+; 8        ; 2.5V          ; 0.32 mA             ; 0.00 mA               ; 0.32 mA              ;
 +----------+---------------+---------------------+-----------------------+----------------------+
 
 
@@ -257,7 +262,7 @@ https://fpgasoftware.intel.com/eula.
 +---------------+-------------------------+---------------------------+--------------------------+----------------------------------+
 ; VCCIO Voltage ; Total Current Drawn (1) ; Dynamic Current Drawn (1) ; Static Current Drawn (1) ; Minimum Power Supply Current (2) ;
 +---------------+-------------------------+---------------------------+--------------------------+----------------------------------+
-; 2.5V          ; 2.04 mA                 ; 0.00 mA                   ; 2.04 mA                  ; 2.04 mA                          ;
+; 2.5V          ; 2.05 mA                 ; 0.00 mA                   ; 2.05 mA                  ; 2.05 mA                          ;
 +---------------+-------------------------+---------------------------+--------------------------+----------------------------------+
 (1) Currents reported in columns "Total Current Drawn", "Dynamic Current Drawn", and "Static Current Drawn" are sufficient for user operation of the device.  
 (2) Currents reported in column "Minimum Power Supply Current" are sufficient for power-up, configuration, and user operation of the device.
@@ -277,16 +282,16 @@ https://fpgasoftware.intel.com/eula.
 ;     -- Number of signals with Static Probability from Node, entity or clock assignment ; 2 (0.0%)     ; 0 (0.0%)   ; 0 (0.0%)      ; 2 (0.1%)      ;
 ;                                                                                        ;              ;            ;               ;               ;
 ; Vectorless estimation                                                                  ;              ;            ;               ;               ;
-;     -- Number of signals with Toggle Rate from Vectorless estimation                   ; 6227 (99.9%) ; 40 (83.3%) ; 2644 (100.0%) ; 3543 (100.0%) ;
-;     -- Number of signals with Zero toggle rate, from Vectorless estimation             ; 5 (0.1%)     ; 1 (2.1%)   ; 0 (0.0%)      ; 4 (0.1%)      ;
-;     -- Number of signals with Static Probability from Vectorless estimation            ; 6225 (99.8%) ; 40 (83.3%) ; 2644 (100.0%) ; 3541 (99.9%)  ;
+;     -- Number of signals with Toggle Rate from Vectorless estimation                   ; 6496 (99.9%) ; 41 (83.7%) ; 2667 (100.0%) ; 3788 (100.0%) ;
+;     -- Number of signals with Zero toggle rate, from Vectorless estimation             ; 4 (0.1%)     ; 1 (2.0%)   ; 0 (0.0%)      ; 3 (0.1%)      ;
+;     -- Number of signals with Static Probability from Vectorless estimation            ; 6494 (99.8%) ; 41 (83.7%) ; 2667 (100.0%) ; 3786 (99.9%)  ;
 ;                                                                                        ;              ;            ;               ;               ;
 ; Default assignment                                                                     ;              ;            ;               ;               ;
 ;     -- Number of signals with Toggle Rate from Default assignment                      ; 0 (0.0%)     ; 0 (0.0%)   ; 0 (0.0%)      ; 0 (0.0%)      ;
-;     -- Number of signals with Static Probability from Default assignment               ; 8 (0.1%)     ; 8 (16.7%)  ; 0 (0.0%)      ; 0 (0.0%)      ;
+;     -- Number of signals with Static Probability from Default assignment               ; 8 (0.1%)     ; 8 (16.3%)  ; 0 (0.0%)      ; 0 (0.0%)      ;
 ;                                                                                        ;              ;            ;               ;               ;
 ; Assumed 0                                                                              ;              ;            ;               ;               ;
-;     -- Number of signals with Toggle Rate assumed 0                                    ; 8 (0.1%)     ; 8 (16.7%)  ; 0 (0.0%)      ; 0 (0.0%)      ;
+;     -- Number of signals with Toggle Rate assumed 0                                    ; 8 (0.1%)     ; 8 (16.3%)  ; 0 (0.0%)      ; 0 (0.0%)      ;
 +----------------------------------------------------------------------------------------+--------------+------------+---------------+---------------+
 
 
@@ -304,14 +309,14 @@ https://fpgasoftware.intel.com/eula.
 Info: *******************************************************************
 Info: Running Quartus Prime Power Analyzer
     Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Tue Jul 12 14:19:23 2022
+    Info: Processing started: Wed Jul 13 12:09:53 2022
 Info: Command: quartus_pow --read_settings_files=off --write_settings_files=off sigma-processor -c sigma-processor
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (21077): Low junction temperature is 0 degrees C
 Info (21077): High junction temperature is 85 degrees C
 Critical Warning (332012): Synopsys Design Constraints File file not found: 'sigma-processor.sdc'. A Synopsys Design Constraints File is required by the Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
 Warning (332060): Node: iCLK was determined to be a clock but was found without an associated clock assignment.
-    Info (13166): Register reg_top_pipeline:reg_pipeline|reg_nwe:r_y_mem|sREG[3] is being clocked by iCLK
+    Info (13166): Register reg_top_pipeline:reg_pipeline|reg_nwe:r_b_alu|sREG[1] is being clocked by iCLK
 Warning (332068): No clocks defined in design.
 Info (223000): Starting Vectorless Power Activity Estimation
 Warning (222013): Relative toggle rates could not be calculated because no clock domain could be identified for some nodes
@@ -322,9 +327,9 @@ Info (334004): Delay annotation completed successfully
 Info (215049): Average toggle rate for this design is 0.000 millions of transitions / sec
 Info (215031): Total thermal power estimate for the design is 220.59 mW
 Info: Quartus Prime Power Analyzer was successful. 0 errors, 5 warnings
-    Info: Peak virtual memory: 854 megabytes
-    Info: Processing ended: Tue Jul 12 14:19:28 2022
-    Info: Elapsed time: 00:00:05
-    Info: Total CPU time (on all processors): 00:00:09
+    Info: Peak virtual memory: 836 megabytes
+    Info: Processing ended: Wed Jul 13 12:09:57 2022
+    Info: Elapsed time: 00:00:04
+    Info: Total CPU time (on all processors): 00:00:08
 
 

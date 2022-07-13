@@ -156,11 +156,15 @@
 					"strict" : false
 				},
 				{
-					"name" : "iCLK",
+					"name" : "oHALT",
 					"strict" : false
 				},
 				{
 					"name" : "iRST",
+					"strict" : false
+				},
+				{
+					"name" : "iCLK",
 					"strict" : false
 				}
 			]

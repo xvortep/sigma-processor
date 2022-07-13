@@ -1,6 +1,5 @@
 onerror {resume}
 quietly virtual signal -install /top_tb/uut/prog_i { /top_tb/uut/prog_i/oQ(31 downto 26)} Instruction
-quietly virtual signal -install /top_tb/uut/branch_handler { /top_tb/uut/branch_handler/iJMP_INSTR(7 downto 0)} Address
 radix define ins { 
 "1'b011000" "LD" -color "white",
 "1'b011001" "ST" -color "white",
@@ -36,6 +35,7 @@ radix define ins {
 "1'b111101" "SHRC" -color "white",
 "1'b111110" "SRAC" -color "white",
 "1'b000000" "NOP" -color "white"
+"1'b111111" "HALT" -color "white"
 } 
 radix define alufn {
 "1'b000011" "CMPEQ" -color "white",
@@ -85,7 +85,6 @@ add wave -noupdate -divider {BRANCH HANDLER}
 add wave -noupdate -radix hexadecimal /top_tb/uut/branch_handler/iPC_NEXT
 add wave -noupdate -radix hexadecimal /top_tb/uut/branch_handler/iNEXT_INSTR
 add wave -noupdate -radix hexadecimal /top_tb/uut/branch_handler/iJMP_INSTR
-add wave -noupdate -radix hexadecimal -childformat {{/top_tb/uut/branch_handler/Address(7) -radix binary} {/top_tb/uut/branch_handler/Address(6) -radix binary} {/top_tb/uut/branch_handler/Address(5) -radix binary} {/top_tb/uut/branch_handler/Address(4) -radix binary} {/top_tb/uut/branch_handler/Address(3) -radix binary} {/top_tb/uut/branch_handler/Address(2) -radix binary} {/top_tb/uut/branch_handler/Address(1) -radix binary} {/top_tb/uut/branch_handler/Address(0) -radix binary}} -subitemconfig {/top_tb/uut/branch_handler/iJMP_INSTR(7) {-radix binary} /top_tb/uut/branch_handler/iJMP_INSTR(6) {-radix binary} /top_tb/uut/branch_handler/iJMP_INSTR(5) {-radix binary} /top_tb/uut/branch_handler/iJMP_INSTR(4) {-radix binary} /top_tb/uut/branch_handler/iJMP_INSTR(3) {-radix binary} /top_tb/uut/branch_handler/iJMP_INSTR(2) {-radix binary} /top_tb/uut/branch_handler/iJMP_INSTR(1) {-radix binary} /top_tb/uut/branch_handler/iJMP_INSTR(0) {-radix binary}} /top_tb/uut/branch_handler/Address
 add wave -noupdate -radix binary /top_tb/uut/branch_handler/iPCSEL_RF
 add wave -noupdate -radix binary /top_tb/uut/branch_handler/iZ
 add wave -noupdate -radix binary /top_tb/uut/branch_handler/s_jumped

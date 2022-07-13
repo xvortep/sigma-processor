@@ -25,9 +25,9 @@ VZPj40zg1@O_0F`zQb_AY[0
 !s100 CDoUZI7[K`nQgB?VU5VKO0
 Z8 OV;C;2020.1;71
 31
-Z9 !s110 1657641934
+Z9 !s110 1657713822
 !i10b 1
-Z10 !s108 1657641934.000000
+Z10 !s108 1657713822.000000
 Z11 !s90 -reportprogress|300|-93|-work|work|/home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/ALU.vhd|
 Z12 !s107 /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/ALU.vhd|
 !i113 1
@@ -70,9 +70,9 @@ VanbE_`QD3ZI`m^@7H]?`@2
 !s100 I`_X`lcdhFzQZ;4A:D3Ij2
 R8
 31
-Z19 !s110 1657641935
+Z19 !s110 1657713823
 !i10b 1
-Z20 !s108 1657641935.000000
+Z20 !s108 1657713823.000000
 Z21 !s90 -reportprogress|300|-93|-work|work|/home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/branch_handler.vhd|
 Z22 !s107 /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/branch_handler.vhd|
 !i113 1
@@ -114,9 +114,9 @@ VVSgCl1K:k851Idk@A<k3?1
 !s100 @_mDYIW`c2K1:VnZjgb@O3
 R8
 31
-R9
+R19
 !i10b 1
-R10
+R20
 Z27 !s90 -reportprogress|300|-93|-work|work|/home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/CU_ALU.vhd|
 Z28 !s107 /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/CU_ALU.vhd|
 !i113 1
@@ -134,9 +134,9 @@ VlF6nDI4VbJ;?LVcCKX:id3
 !s100 ;:eN=;6j2bQo?Z>5NmBWL3
 R8
 31
-R9
+R19
 !i10b 1
-R10
+R20
 R27
 R28
 !i113 1
@@ -200,9 +200,9 @@ V0nlcdMi@=_i6R><NUHM`51
 !s100 Ri331oXSBGb0]06XEKG_M3
 R8
 31
-R9
+R19
 !i10b 1
-R10
+R20
 Z39 !s90 -reportprogress|300|-93|-work|work|/home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/CU_MEM.vhd|
 Z40 !s107 /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/CU_MEM.vhd|
 !i113 1
@@ -220,9 +220,9 @@ VcdIc;KLXACKaA<hX]jzNc3
 !s100 3@YJ>;51@^L@O>??8]nd01
 R8
 31
-R9
+R19
 !i10b 1
-R10
+R20
 R39
 R40
 !i113 1
@@ -243,7 +243,7 @@ VF^IZYVZj;M[GDWB6h[iML1
 !s100 giCViMGUK13:_4Wz1T:GK3
 R8
 31
-R9
+R19
 !i10b 1
 R10
 Z46 !s90 -reportprogress|300|-93|-work|work|/home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/CU_RF.vhd|
@@ -263,7 +263,7 @@ VJnJP7HHh0KBgL:M;HizWY2
 !s100 1h0JfHKkdKOhz?Ch<OfV<3
 R8
 31
-R9
+R19
 !i10b 1
 R10
 R46
@@ -288,7 +288,7 @@ R8
 31
 R19
 !i10b 1
-R10
+R20
 Z52 !s90 -reportprogress|300|-93|-work|work|/home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/CU_WB.vhd|
 Z53 !s107 /home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/CU_WB.vhd|
 !i113 1
@@ -308,14 +308,14 @@ R8
 31
 R19
 !i10b 1
-R10
+R20
 R52
 R53
 !i113 1
 R13
 R14
 Ecu_bypass
-Z55 w1657629113
+Z55 w1657713203
 R2
 R3
 R4
@@ -326,8 +326,8 @@ Z56 8/home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/CU_bypass.
 Z57 F/home/rtrk/Documents/.RA206/RA206-2019_Beta+/sigma-processor/src/CU_bypass.vhd
 l0
 L5 1
-VWI]AAEb`^Oiez36z<K@[61
-!s100 M_b;OO@B6=Dj[KYMMe]0V1
+V4NQgb_c5@JCli^R>bUl^G2
+!s100 =Xnf;RQjk_GYb9DflX>JN3
 R8
 31
 R19
@@ -343,12 +343,12 @@ R2
 R3
 R4
 R5
-Z60 DEx4 work 9 cu_bypass 0 22 WI]AAEb`^Oiez36z<K@[61
+Z60 DEx4 work 9 cu_bypass 0 22 4NQgb_c5@JCli^R>bUl^G2
 !i122 11
-l33
-L27 40
-V1K:7mIf=jh9Q0W3R:Md3B3
-!s100 aGKO;fcf0@;=Ok[XYm]j92
+l39
+L32 51
+V6ge6Kagn7gGR`5F3mGm0b2
+!s100 nLUET3Y1e_8S_jQL]`3kV1
 R8
 31
 R19
@@ -360,7 +360,7 @@ R59
 R13
 R14
 Edata_ram
-Z61 w1657640207
+Z61 w1657713280
 Z62 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
 R4
 R5
@@ -434,9 +434,9 @@ R5
 Z73 DEx4 work 9 instr_rom 0 22 Pi>_ml`?_L<<jSH=LF6ke1
 !i122 0
 l11
-L10 26
-V`oShBURIPTi3:TdbKLF<n3
-!s100 ZOgZ^HWUU3nYfLJdI3DPZ3
+L10 22
+V8WRcJ^eTYQG]OkiJ8jD9k1
+!s100 @O=D38jbK17gWICLdR2l52
 R8
 31
 R9
@@ -663,7 +663,7 @@ R101
 R13
 R14
 Etop
-Z103 w1657641444
+Z103 w1657713113
 R2
 R3
 R4
@@ -708,10 +708,10 @@ R4
 R5
 DEx4 work 3 top 0 22 DzCNFV2e?Xbj=3e<3KCYT1
 !i122 15
-l143
-L18 472
-V1lBCDmBDOT>4ZN19fTIN03
-!s100 K25fcYWY7`jQR@hj?6ANf1
+l144
+L18 477
+VS`z<O42E<QGS>5c[fc8_n0
+!s100 @No<<;HZS_>TJm40:]`V52
 R8
 31
 R19
