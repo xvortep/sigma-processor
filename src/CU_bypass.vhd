@@ -35,6 +35,9 @@ architecture behavioral of CU_bypass is
 	signal s_a_bypass	:	std_logic_vector(31 downto 0);
 	signal s_b_bypass	:	std_logic_vector(31 downto 0);
 	signal s_b_ra2sel	:	std_logic_vector(31 downto 0);
+	signal sStall		:	std_logic;
+	signal s_stl_alu	:	std_logic;
+	signal s_stl_mem	:	std_logic;
 
 	begin
 	
@@ -51,32 +54,24 @@ architecture behavioral of CU_bypass is
 	with iRA2SEL select s_b_ra2sel <=
 		s_b_bypass	when '0',
 		iRD2			when others;
+
+	oA_by <= s_a_bypass;
+	oB_by <= s_b_ra2sel;
 		
 ---------------------------------------------------------------------------------
 	
-	process(iOpALU, iOpMEM, iALUadr, iMEMadr, iRaRF, iRbRF) begin
-		if (iOpALU = "011000") then
-			if (iALUadr = iRaRF) then
-				oStall <= '1';
-			elsif (iALUadr = iRbRF) then
-				oStall <= '1';
-			else
-				oStall <= '0';
-			end if;
-		elsif (iOpMEM = "011000") then
-			if (iMEMadr = iRaRF) then
-				oStall <= '1';
-			elsif (iMEMadr = iRbRF) then
-				oStall <= '1';
-			else
-				oStall <= '0';
-			end if;
-		else
-			oStall <= '0';
-		end if;
-	end process;
+	s_stl_alu <= '1' when (iALUadr = iRaRF) else
+					 '1' when (iALUadr = iRbRF) else
+					 '0';
+					 
+	s_stl_mem <= '1' when (iMEMadr = iRaRF) else
+					 '1' when (iMEMadr = iRbRF) else
+					 '0';
+					 
+	sStall <= s_stl_alu or s_stl_mem;
 	
-	oA_by <= s_a_bypass;
-	oB_by <= s_b_ra2sel;
+	oStall <= sStall when (iOpALU = "011000") else
+				 sStall when (iOpMEM = "011000") else
+				 '0';
 
 end architecture;

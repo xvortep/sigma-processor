@@ -57,10 +57,12 @@ add wave -noupdate -divider {CONTROL SIGNALS}
 add wave -noupdate -radix binary /top_tb/sRST
 add wave -noupdate -radix binary /top_tb/sCLK
 add wave -noupdate -radix binary /top_tb/sHALT
+add wave -noupdate -radix binary /top_tb/uut/sStall
 add wave -noupdate -divider {PROGRAM COUNTER}
 add wave -noupdate -radix hexadecimal /top_tb/uut/pc_i/sPC
 add wave -noupdate -radix hexadecimal /top_tb/uut/pc_i/sPC_NEXT
 add wave -noupdate -radix hexadecimal /top_tb/uut/pc_i/sPC_BRANCH
+add wave -noupdate -radix hexadecimal /top_tb/uut/pc_i/iSTALL
 add wave -noupdate -divider {INSTRUCTION MEMORY}
 add wave -noupdate -radix hexadecimal /top_tb/uut/prog_i/iA
 add wave -noupdate -radix hexadecimal /top_tb/uut/prog_i/oQ
@@ -79,6 +81,8 @@ add wave -noupdate -radix hexadecimal /top_tb/uut/alu_i/sOutput
 add wave -noupdate -divider {REGISTER FILE}
 add wave -noupdate -radix binary /top_tb/uut/regf_i/iWE
 add wave -noupdate -radix hexadecimal /top_tb/uut/regf_i/iWD
+add wave -noupdate -radix hexadecimal /top_tb/uut/regf_i/iRA1
+add wave -noupdate -radix hexadecimal /top_tb/uut/regf_i/iRA2
 add wave -noupdate -radix hexadecimal /top_tb/uut/regf_i/oRD1
 add wave -noupdate -radix hexadecimal /top_tb/uut/regf_i/oRD2
 add wave -noupdate -divider {BRANCH HANDLER}
@@ -93,12 +97,18 @@ add wave -noupdate -radix hexadecimal /top_tb/uut/branch_handler/oINS_ADDR
 add wave -noupdate -radix binary /top_tb/uut/branch_handler/oNOP_IF
 add wave -noupdate -divider {CU IF}
 add wave -noupdate -radix ins /top_tb/uut/cu_if/iOpcode
+add wave -noupdate -radix binary /top_tb/uut/cu_if/iSXT
+add wave -noupdate -radix binary /top_tb/uut/cu_if/iADDR
 add wave -noupdate -radix binary /top_tb/uut/cu_if/oPCSEL
 add wave -noupdate -divider {CU RF}
 add wave -noupdate -radix ins /top_tb/uut/cu_rf/iOpcode
 add wave -noupdate -radix binary /top_tb/uut/cu_rf/iZ
+add wave -noupdate -radix binary /top_tb/uut/cu_rf/iSXT
+add wave -noupdate -radix binary /top_tb/uut/cu_rf/iADDR
 add wave -noupdate -radix binary /top_tb/uut/cu_rf/oRA2SEL
 add wave -noupdate -radix binary /top_tb/uut/cu_rf/oWASEL
+add wave -noupdate -radix binary /top_tb/uut/cu_rf/oASEL
+add wave -noupdate -radix binary /top_tb/uut/cu_rf/oBSEL
 add wave -noupdate -radix binary /top_tb/uut/cu_rf/oPCSEL
 add wave -noupdate -divider {CU ALU}
 add wave -noupdate -radix ins /top_tb/uut/cu_alu/iOpcode
@@ -112,6 +122,7 @@ add wave -noupdate -radix ins /top_tb/uut/cu_wb/iOpcode
 add wave -noupdate -radix binary /top_tb/uut/cu_wb/oWDSEL
 add wave -noupdate -radix binary /top_tb/uut/cu_wb/oWERF
 add wave -noupdate -divider {CU BYPASS}
+add wave -noupdate -radix binary /top_tb/uut/cu_bypass/iRA2SEL
 add wave -noupdate -radix binary /top_tb/uut/cu_bypass/iRA1
 add wave -noupdate -radix binary /top_tb/uut/cu_bypass/iRA2
 add wave -noupdate -radix binary /top_tb/uut/cu_bypass/iALUadr
@@ -122,6 +133,11 @@ add wave -noupdate -radix hexadecimal /top_tb/uut/cu_bypass/iRD2
 add wave -noupdate -radix hexadecimal /top_tb/uut/cu_bypass/iALU
 add wave -noupdate -radix hexadecimal /top_tb/uut/cu_bypass/iMEM
 add wave -noupdate -radix hexadecimal /top_tb/uut/cu_bypass/iWB
+add wave -noupdate -radix ins /top_tb/uut/cu_bypass/iOpALU
+add wave -noupdate -radix ins /top_tb/uut/cu_bypass/iOpMEM
+add wave -noupdate -radix binary /top_tb/uut/cu_bypass/iRaRF
+add wave -noupdate -radix binary /top_tb/uut/cu_bypass/iRbRF
+add wave -noupdate -radix hexadecimal /top_tb/uut/cu_bypass/oStall
 add wave -noupdate -radix hexadecimal /top_tb/uut/cu_bypass/oA_by
 add wave -noupdate -radix hexadecimal /top_tb/uut/cu_bypass/oB_by
 add wave -noupdate -divider REGS

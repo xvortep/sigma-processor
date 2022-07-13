@@ -247,6 +247,7 @@ begin
 	Port map(	
 		iCLK 		=> sCLKpr,
 		iRST		=>	sRSTpr,
+		iSTALL	=> sStall,
 		i_pc_rf	=> s_i_pc_rf,
 		i_pc_alu	=> s_i_pc_alu,
 		i_pc_mem	=> s_i_pc_mem,
@@ -338,6 +339,7 @@ begin
 		iSXT			=>	sSXT,
 		iEXTERN		=> s_bh_ins,
 		iEXTERN_FL	=> s_irs_rc_if,
+		iSTALL		=> sStall,
 		oPC			=>	sPC
 	);
 	-- logic -in:
@@ -442,20 +444,20 @@ begin
 		iWB		=> sWD,
 		iRA1		=> sRA1,
 		iRA2		=> sRA2,
-		iALUadr	=> s_i_ir_mem(25 downto 21),
+		iALUadr	=> s_o_ir_alu(25 downto 21),
 		iMEMadr	=> s_i_ir_wb(25 downto 21),
 		iWBadr	=> s_o_ir_wb(25 downto 21),
 		iRA2SEL	=> sRA2SEL_RF,
 		iOpALU	=> s_i_ir_mem(31 downto 26),
 		iOpMEM	=> s_i_ir_wb(31 downto 26),
-		iRaRF		=> s_i_ir_alu(20 downto 16),
-		iRbRF		=>	s_i_ir_alu(15 downto 11),
+		iRaRF		=> s_o_ir_rf(20 downto 16),
+		iRbRF		=>	s_o_ir_rf(15 downto 11),
 		oStall	=> sStall,
 		oA_by		=> s_a_bypass,
 		oB_by		=> s_b_bypass
 	);
 	
-	s_irs_rc_rf 	<= sStall;
+	s_irs_rc_rf	<= sStall;
 
 ---------------------------------------------------------------------------------------------------------------
 --	oZ <= sOutput;

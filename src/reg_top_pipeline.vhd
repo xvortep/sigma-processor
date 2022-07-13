@@ -10,6 +10,7 @@ entity reg_top_pipeline is
 		-- inputs
 		iCLK 		:	in		std_logic;
 		iRST		:	in		std_logic;
+		iSTALL	:	in		std_logic;
 		i_pc_rf	:	in		std_logic_vector(31 downto 0);
 		i_pc_alu	:	in		std_logic_vector(31 downto 0);
 		i_pc_mem	:	in		std_logic_vector(31 downto 0);
@@ -47,12 +48,13 @@ end entity reg_top_pipeline;
 
 architecture Behavioral of reg_top_pipeline is begin
 
-	r_pc_rf	:	entity work.reg_nwe
+	r_pc_rf	:	entity work.reg_nwe_stall
 	port map
 	(
 		iD		=> i_pc_rf,
 		iCLK	=> iCLK,
 		iRST	=> iRST,
+		iSTL	=> iSTALL,
 		oREG	=>	o_pc_rf
 	);
 	
@@ -84,12 +86,13 @@ architecture Behavioral of reg_top_pipeline is begin
 		oREG	=>	o_pc_wb
 	);
 	
-	r_ir_rf	:	entity work.reg_nwe
+	r_ir_rf	:	entity work.reg_nwe_stall
 	port map
 	(
 		iD		=> i_ir_rf,
 		iCLK	=> iCLK,
 		iRST	=> iRST,
+		iSTL	=> iSTALL,
 		oREG	=>	o_ir_rf
 	);
 	

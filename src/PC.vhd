@@ -14,6 +14,7 @@ entity PC is
 		iSXT			:	in		std_logic_vector(31 downto 0);
 		iEXTERN		:	in		std_logic_vector(7 downto 0);
 		iEXTERN_FL	:	in		std_logic;
+		iSTALL		:	in		std_logic;
 		
 		--outputs
 		oPC			:	out	std_logic_vector(31 downto 0)
@@ -32,8 +33,7 @@ architecture Behavioral of PC is
 	signal sPC_NEXT	:	std_logic_vector(31 downto 0);
 	signal sPC_BRANCH	:	std_logic_vector(31 downto 0);
 	signal sPC_4		:	std_logic_vector(31 downto 0);
-
-
+	
 	begin
 
 		sPC_4 <= sPC + 4;
@@ -56,7 +56,7 @@ architecture Behavioral of PC is
 		process(iCLK, iRST, iEXTERN, iEXTERN_FL) begin
 			if(iRST = '1') then
 				sPC <= x"00000000";
-			elsif(rising_edge(iCLK)) then
+			elsif(rising_edge(iCLK) and (iSTALL = '0')) then
 				if(iEXTERN_FL = '0') then
 					sPC <= sPC_NEXT;
 				else
