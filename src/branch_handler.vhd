@@ -29,20 +29,21 @@ architecture behavioral of branch_handler is
 	begin
 	
 	-- how it should be
-	with iPCSEL_RF select s_jumped <=
+	with iPCSEL_RF select s_jumped <=							-- PCSEL_RF holds info whether or not jump occured in previous instruction
 		'1'		when "001",
 		'0'		when others;
-
-	-- right now BEQ never jumps and BNE always jumps so
---	with iJMP_INSTR(31 downto 26) select s_jumped <=
---		'1'		when "011101",
---		'0'		when others;
 	
-	with iJMP_INSTR(31 downto 26) select s_to_jump <=
-		iZ			when "011100",
-		not(iZ)	when "011101",
+	with iJMP_INSTR(31 downto 26) select s_to_jump <=		-- to_jump depends on instruction (BEQ or BNE)
+		iZ			when "011100",										-- take Z flag if BEQ
+		not(iZ)	when "011101",										-- take inverted if BNE
 		'0'		when others;
 	
+	-- if jump occured (s_jumped == 1) but it shouldn't have (s_to_jump == 0), 
+	--	put next instruction address (as program address from rf + 4) in PC
+	-- and put NOP in IR reg file register
+	-- if jump didn't occur (s_jumped == 0), but it should have (s_to_jump == 1), 
+	-- put jump instruction address (from current instruction in IR stage) in PC
+	-- and put NOP in IR reg file register
 	s_nchange <= s_jumped xnor s_to_jump;						-- check if we should change instructions
 	s_mux <= s_nchange & s_to_jump;
 	

@@ -16,20 +16,6 @@ entity top is
 end entity;
 
 architecture arch of top is
---	-- control unit signals
---	signal sOpcode		:	std_logic_vector(5 downto 0);
---	signal sZ			:	std_logic;
---	signal sALUFNcu	:	std_logic_vector(5 downto 0);
---	signal sASEL		:	std_logic;
---	signal sBSEL		:	std_logic;
---	signal sMOE			:	std_logic;
---	signal sMWR			:	std_logic;
---	signal sPCSEL		:	std_logic_vector(2 downto 0);
---	signal sRA2SEL		:	std_logic;
---	signal sWASEL		:	std_logic;
---	signal sWDSEL		:	std_logic_vector(1 downto 0);
---	signal sWERF		:	std_logic;
-
 	-- end signals
 	signal sEND			:	std_logic;
 	signal sRST			:	std_logic;
@@ -143,27 +129,6 @@ architecture arch of top is
 
 begin
 ---------------------------------------------------------------------------------------------------------------
---	-- control unit
---	cu_i	:	entity work.ControlUnit
---	port map(
---		iOpcode	=>	sOpcode,
---		iZ			=> sZ,
---		oALUFN	=> sALUFNcu,
---		oASEL		=> sASEL,
---		oBSEL		=> sBSEL,
---		oMOE		=> sMOE,
---		oMWR		=> sMWR,
---		oPCSEL	=>	sPCSEL,
---		oRA2SEL	=>	sRA2SEL,
---		oWASEL	=> sWASEL,
---		oWDSEL	=> sWDSEL,
---		oWERF		=> sWERF
---	);
---	-- logic -in:
---	with sRD1 select sZ <=
---		'1' when x"00000000",
---		'0' when others;
---	sOpcode 	<= sQpm(31 downto 26);
 
 ---------------------------------------------------------------------------------------------------------------
 -- control unit - IF
@@ -194,9 +159,7 @@ begin
 		oPCSEL	=>	sPCSEL_RF
 	);
 	-- logic -in:
---	sOpcode_RF <= s_o_ir_rf(31 downto 26);
 	sOpcode_RF <= s_i_ir_alu(31 downto 26);
-	-- TODO: resi multiplekser iz RD1 za sZ_IF -- valjda ide ovako
 	with s_a_bypass select sZ_RF <=
 		'1'		when x"00000000",
 		'0'		when others;
@@ -211,7 +174,6 @@ begin
 		oALUFN	=>	sALUFN_ALU
 	);
 	-- logic -in:
---	sOpcode_ALU <= s_o_ir_alu(31 downto 26);
 	sOpcode_ALU <= s_i_ir_mem(31 downto 26);
 	
 ---------------------------------------------------------------------------------------------------------------
@@ -224,11 +186,10 @@ begin
 		oMWR		=> sMWR_MEM
 	);
 	-- logic -in:
---	sOpcode_MEM <= s_o_ir_mem(31 downto 26);
 	sOpcode_MEM <= s_i_ir_wb(31 downto 26);
 	
 ---------------------------------------------------------------------------------------------------------------
--- control unit - WB	s_irs_rc_rf 	<= '0';
+-- control unit - WB
 	s_irs_rc_alu	<= '0';
 	s_irs_rc_mem	<= '0';
 
@@ -322,9 +283,7 @@ begin
 	-- logic -in:
 	sCLKdr 	<= sCLK;
 	sRSTdr 	<= iRST;
---	sAdr 		<= sOutput(7 downto 0);
 	sAdr 		<= s_o_y_mem(7 downto 0);
---	sWDdr		<= sRD2;
 	sWDdr		<= s_o_d_mem;
 	sWEdr		<= sMWR_MEM;
 	sOEdr		<= sMOE_MEM;
@@ -366,24 +325,13 @@ begin
 	sCLKrf	<= sCLK;
 	sRSTrf	<=	iRST;
 	sWE 		<= sWERF_WB;
---	sRA1 		<= sQpm(20 downto 16);		 				-- sRA1
 	sRA1 		<= s_o_ir_rf(20 downto 16);
---	with sRA2SEL select sRA2 <=							-- sRA2
---		sQpm(25 downto 21)	when '1',
---		sQpm(15 downto 11)	when others;
 	with sRA2SEL_RF select sRA2 <=
 		s_o_ir_rf(25 downto 21) when '1',
 		s_o_ir_rf(15 downto 11) when others;
---	with sWASEL select sWA <=								-- sWA
---		("11110")						when 	'1',			-- hardcoded reg30 exception
---		sQpm(25 downto 21)	when others;
 	with sWASEL_RF select sWA <=
 		("11110") 					when '1',
 		s_o_ir_wb(25 downto 21)	when others;
---	with sWDSEL select sWD <=								-- wdsel
---		(sPC + 4)					when	"00",
---		sOutput						when	"01",
---		sRDdr							when others;
 	with sWDSEL_WB select sWD <=
 		-- TODO: da li treba ovako - valjda da
 		(s_o_pc_wb + 4)			when "00",
@@ -414,21 +362,12 @@ begin
 		iALUFN		=> sALUFNal,
 		oOutput		=>	sOutput
 	);
---	sA 		<= sRD1;
 	sA 		<= s_o_a_alu;
-	-- treba primiti u sB registar ili literal pomocu bsel iz cu
--- TODO: sta je ovo uopste i odakle ovo ovde? - aha, sign extension
---	with sQpm(15) select sEX <=
---		x"0000" & sQpm(15 downto 0)	when '0',
---		x"FFFF" & sQpm(15 downto 0)	when others;
+
 	with s_i_ir_alu(15) select sEX <=							-- sign extension of constant 
 		x"0000" & s_i_ir_alu(15 downto 0) when '0',
 		x"FFFF" & s_i_ir_alu(15 downto 0) when others;
 
--- TODO: овај мукс преместити у стејџ изнад
---	with sBSEL select sB <=
---		sEX								 	when '1',
---		sRD2									when others;
 	sB <= s_o_b_alu;
 	
 	sALUFNal <= sALUFN_ALU;
@@ -460,28 +399,12 @@ begin
 	s_irs_rc_rf	<= sStall;
 
 ---------------------------------------------------------------------------------------------------------------
---	oZ <= sOutput;
---	oIns <= sQpm(31 downto 26);
 	oZ 	<= s_o_y_wb;
 	oIns 	<= s_o_ir_wb(31 downto 26);
 ---------------------------------------------------------------------------------------------------------------
-	-- bypass muxes TODO - obsolete
---	with s_a_ctrl select s_a_bypass <=
---		sRD1 			when "000",
---		x"babaceca" when others;
---	with s_b_ctrl select s_b_bypass <=
---		sRD2			when "000",
---		x"babaceca" when others;
-		
 	-- control
---	s_irs_rc_if 	<= '0';
---	s_irs_rc_rf 	<= '0';
 	s_irs_rc_alu	<= '0';
 	s_irs_rc_mem	<= '0';
-
-	-- obsolete
---	s_a_ctrl			<= "000";
---	s_b_ctrl 		<= "000";
 
 ---------------------------------------------------------------------------------------------------------------
 	-- end program
